@@ -115,7 +115,7 @@ Operatori:
    * Precondizione: p = pos(i) con 1 <= i <= n    
    * Postcondizione: l' = < a1, a2, ..., a(i-1), a(i+1), ..., an>
 
-### Possibili implementazioni
+### Realizzazioni
 Le liste si possono rappresentare sia in maniera sequenziale mediante un vettore che attraverso una rappresentazione collegata, memorizzando i suoi elementi associando ad ognuno di essi una particolare informazione (riferimento) che permetta di individuare la locazione in cui è memorizzato l'elemento successivo. Per visualizzare tale rappresentazione si usa una notazione grafica in cui:
 * Gli elementi sono rappresentati mediante **nodi**
 * I riferimenti mediante **archi** che collegano nodi
@@ -135,3 +135,122 @@ Un'altra rappresentazione è quella con puntatori e la struttura record per real
 [Rappresentazione collegata mediante puntatori]
 
 Una variante della precedente rappresentazione è quella a doppi puntatori (o simmetrica) in cui ogni elemento contiene, oltre al riferimento al nodo successivo, anche il riferimento al precedente. La lista può essere "espansa" con una cella in più per la realizzazione circolare.
+
+## Pila
+Una pila è una sequenza di elementi di un certo tipo.
+
+[Notazione pila]
+Indichiamo la pila con la notazione
+
+> P = < a1, a2, ..., an > con n >= 0
+
+### Accesso pila
+Gli accessi possibili sono applicati unicamente ad un solo estremo, ovvero la "testa" (accesso agli estremi).
+
+### Operazioni pila
+Tutte le operazioni vanno effettuate solo all'estremo superiore della pila, ovvero alla sua sommità. Può essere vista come un caso speciale di lista in cui l'ultimo elemento inserito è il primo ad essere rimosso (LIFO) e non è possibile accedere ad alcun elemento che non sia quello in testa.
+
+### Specifica sintattica
+Tipi: pila, boolean, tipoelem
+Operatori:
+* creapila: ( ) -> pila
+* pilavuota: (pila) -> boolean
+* leggipila: (pila) -> tipoelem
+* fuoripila: (pila) -> pila
+* inpila: (pila, tipoelem) -> pila
+
+### Specifica semantica
+Tipi:
+* pila: insieme delle sequenze P = < a1, a2, ..., an > con n >= 0 di elementi di tipo tipoelem gestita con accesso LIFO
+* boolean: insieme dei valori di verità
+
+Operatori:
+* creapila() = P
+  * Precondizione: nessuna
+  * Postcondizione: P = < >
+* pilavuota(P) = b
+  * Precondizione: nessuna
+  * Postcondizione: b = true se P = < >; b = false altrimenti
+* leggipila(P) = a
+  * Precondizione: P = < a1, a2, ..., an> con n >= 1
+  * Postcondizione: a = a1
+* fuoripila(P) = P'
+  * Precondizione: P = < a1, a2, ..., an > con n >= 1
+  * Postcondizione: P' = < a2, a3, ..., an >
+    * P' = < > se n = 1
+* inpila(P, a) = P'
+  * Precondizione: P = < a1, a2, ..., an > con n >= 0
+  * Postcondizione: P' = < a, a1, a2, ..., an >
+  
+### Realizzazioni
+La pila è un caso particolare di lista e possiamo definire la seguente corripondenza tra gli operatori:
+* creapila() -> crealista()
+* pilavuota(p) -> listavuota(p)
+* leggipila(p) -> leggilista(primolista(p), p)
+* fuoripila(p) -> canclista(primolista(p), p)
+* inpila(p, a) -> inslista(primolista(p), p, a)
+
+Le pile si possono rappresentare mediante vettore memorizzando gli *n* elementi della pila, in **ordine inverso**, nelle prime n posizioni del vettore, mantenendo un cursore alla testa della pila. Questa implementazione è svantagiosa perchè richiede di definire una dimensione degli elementi massimi della pila.
+
+[Realizzazione con vettore]
+
+Si possono anche implementare utilizzando i puntatori, riferendosi alla cella che si trova in cima con un puntatore.
+
+[Realizzazione con puntatori]
+
+### Pile e procedure ricorsive
+L'esecuzione di una procedura ricorsiva prevede il salvataggio dei dati su cui lavora la procedura al momento della chiamata ricorsiva. Tali dati vengono "ripristinati" quando la computazione "interna" termina in quanto è un meccanismo LIFO. Le diverse chiamate attive sono organizzate in una pila. Nella pila vanno salvati i parametri (e le eventuali variabili locali), il punto di ritorno, cioè l'etichetta della istruzione da cui ripartire al termine della computazione "interna". Grazie alle pile è sempre possibile, dato un programma ricorsivo, trasformarlo in uno iterativo.
+
+## Coda
+Una coda è un tipo astratto che consente di rappresentare una sequenza di elementi in un cui è possibile aggiungere elementi dal "fondo" e toglierli dalla "testa".
+
+[Notazione coda]
+Indichiamo la coda con la notazione
+
+> q = < a1, a2, ..., an> con n >= 0
+
+### Accesso coda
+Per poter aggiungere elementi si accede ad un estremo ("fondo") mentre per poterli togliere si accede all'estremo opposto ("testa"). Il funzionamento è identico a quello di una fila ad una cassa (accesso agli estremi).
+
+### Operazioni coda
+Le operazioni vengono effettuate solo in prima ed ultima posizione.
+
+### Specifica sintattica
+Tipi: coda, boolean, tipoelem
+Operatori:
+* creacoda: ( ) -> coda
+* codavuota: (coda) -> boolean
+* leggicoda: (coda) -> tipoelem
+* fuoricoda: (coda) -> coda
+* incoda: (coda, tipoelem) -> coda
+
+### Specifica semantica
+* creacoda() = q
+  * Precondizione: nessuna
+  * Postcondizione: q = < >
+* codavuota(q) = b
+  * Precondizione: nessuna
+  * Postcondizione: b = true se q = < >; b = false altrimenti
+* leggicoda(q) = a
+  * Precondizione: q = < a1, a2, ..., an> con n >= 1
+  * Postcondizione: a = a1
+* fuoricoda(q) = q'
+  * Precondizione: q = < a1, a2, ..., an > con n >= 1
+  * Postcondizione: q' = < a2, ..., an >
+    * q' = < > se n = 1
+* incoda(q, a) = q'
+  * Precondizione: q = < a1, a2, ..., an > con n >= 0
+  * Postcondizione: q' = < a1, a2, ..., an, a >
+  
+### Realizzazioni
+In generale le possibili rappresentazioni delle code sono analoghe a quelle delle pile consentendo solo l'accesso sia all'elemento inserito per primo sia all'elemento inserito per ultimo.
+
+La coda può essere rappresentata con *n* celle, la prima delle quali è indirizzata da un puntatore "testa" e l'ultima da un puntatore "fondo". La coda vuota è individuata dal valore nullo *null* del puntatore di testa.
+
+[Realizzazione con puntatori]
+
+Per le code la rappresentazione sequenziale non è agevole come per le pile, quindi è utile gestire l'array in modo circolare. Il vettore circolare è inteso come un array di *maxlung* elementi, con indice da 0 a *maxlung - 1*, in cui consideriamo l'elemento di indice 0 come successore di quello di indice *maxlung - 1*. Si utilizzano due variabili:
+1. Primo: indica la posizione dell'array in cui è memorizzato l'elemento inserito per primo
+2. Ultimo: si riferisce all'ultimo elemento inserito (oppure definisce la lunghezza della coda)
+
+[Realizzazione con vettore circolare]
