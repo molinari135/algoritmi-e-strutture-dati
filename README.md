@@ -63,10 +63,7 @@ La lista vuota < > è sottolista di qualsiasi lista.
 
 ### Specifica sintattica
 Tipi:
-* lista
-* posizione
-* boolean
-* tipoelem
+* lista, posizione, boolean, tipoelem
 
 Operatori:
 * crealista: ( ) -> lista
@@ -91,7 +88,9 @@ Operatori:
   * Postcondizione: l' = < >    
 * listavuota(l) = b
   * Precondizione: nessuna    
-  * Postcondizione: b = true se l = < >; b = false altrimenti    
+  * Postcondizione: se l = < >
+    * Vero, b = true
+    * Falso, b = false
 * leggilista(l, p) = a
   * Precondizione: p = pos(i) con 1 <= i <= n    
   * Postcondizione: a = a(i)    
@@ -100,12 +99,14 @@ Operatori:
   * Postcondizione: l' = < a1, a2, ..., a, ..., an >    
 * primolista(l) = p
   * Precondizione: p = pos(i) con 1 <= i <= n    
-     * Oppure, listavuota(l) = false        
+     * Oppure si può scrivere come, listavuota(l) = false        
   * Postcondizione: p = pos(1)    
 * finelista(l, p) = b
   * Precondizione: p = pos(i) con 1 <= i <= n+1    
      * Includo n+1 perchè devo poter accedere anche all'ultima posizione        
-  * Postcondizione: b = true se p = pos(n+1); b = false altrimenti    
+  * Postcondizione: se p = pos(n+1)
+    * Vero, b = true
+    * False, b = false
 * succlista(l, p) = q
    * Precondizione: p = pos(i) con 1 <= i <= n    
       * Posso arrivare solo fino alla penultima posizione        
@@ -159,7 +160,9 @@ Gli accessi possibili sono applicati unicamente ad un solo estremo, ovvero la "t
 Tutte le operazioni vanno effettuate solo all'estremo superiore della pila, ovvero alla sua sommità. Può essere vista come un caso speciale di lista in cui l'ultimo elemento inserito è il primo ad essere rimosso (LIFO) e non è possibile accedere ad alcun elemento che non sia quello in testa.
 
 ### Specifica sintattica
-Tipi: pila, boolean, tipoelem
+Tipi: 
+* pila, boolean, tipoelem
+
 Operatori:
 * creapila: ( ) -> pila
 * pilavuota: (pila) -> boolean
@@ -178,7 +181,9 @@ Operatori:
   * Postcondizione: P = < >
 * pilavuota(P) = b
   * Precondizione: nessuna
-  * Postcondizione: b = true se P = < >; b = false altrimenti
+  * Postcondizione: se P = < >
+    * Vero, b = true
+    * Falso, b = false
 * leggipila(P) = a
   * Precondizione: P = < a1, a2, ..., an> con n >= 1
   * Postcondizione: a = a1
@@ -224,7 +229,9 @@ Per poter aggiungere elementi si accede ad un estremo ("fondo") mentre per poter
 Le operazioni vengono effettuate solo in prima ed ultima posizione.
 
 ### Specifica sintattica
-Tipi: coda, boolean, tipoelem
+Tipi: 
+* coda, boolean, tipoelem
+
 Operatori:
 * creacoda: ( ) -> coda
 * codavuota: (coda) -> boolean
@@ -238,7 +245,9 @@ Operatori:
   * Postcondizione: q = < >
 * codavuota(q) = b
   * Precondizione: nessuna
-  * Postcondizione: b = true se q = < >; b = false altrimenti
+  * Postcondizione: se q = < >
+    * Vero, b = true
+    * Falso, b = false
 * leggicoda(q) = a
   * Precondizione: q = < a1, a2, ..., an> con n >= 1
   * Postcondizione: a = a1
@@ -262,3 +271,262 @@ Per le code la rappresentazione sequenziale non è agevole come per le pile, qui
 2. Ultimo: si riferisce all'ultimo elemento inserito (oppure definisce la lunghezza della coda)
 
 [Realizzazione con vettore circolare]
+
+## Insieme
+Un insieme è una collezione di elementi di tipo omogeneo. A differenza delle liste, gli elementi non sono caratterizzati da una posizione nè possono apparire più di una volta.
+
+[Notazione insieme]
+In matematica possono essere definiti *estensionalmente*
+
+> A = { giallo, rosso, blu }
+
+oppure *intensionalmente* attraverso le proprietà che devono avere i componenti
+
+> B = { numeri reali compresi tra 0 e 1 }
+
+In informatica ci riferiamo al modo **estensionale**
+
+### Operazioni insieme
+Le operazioni principali sono **unione, intersezione e differenza**.
+
+### Specifica sintattica
+Tipi:
+* insieme, boolean, tipoelem
+
+Operatori:
+* creainsieme: ( ) -> insieme
+* insiemevuoto: (insieme) -> boolean
+* appartiene: (insieme, tipoelem) -> boolean
+* inserisci: (insieme, tipoelem) -> insieme
+* cancella: (insieme, tipoelem) -> insieme
+* unione: (insieme, insieme) -> insieme
+* intersezione: (insieme, insieme) -> insieme
+* differenza: (insieme, insieme) -> insieme
+
+### Specifica semantica
+Tipi:
+* insieme: collezione di elementi di tipo tipoelem
+* boolean: insieme dei valori di verità
+
+Operatori:
+* creainsieme() = A
+  * Precondizione: nessuna
+  * Postcondizione: A = { }
+* insiemevuoto(A) = b
+  * Precondizione: nessuna
+  * Postcondizione: se A = { }
+    * Vero, b = true
+    * Falso, b = false
+* appartiene(A, x) = b
+  * Precondizione: nessuna
+  * Postcondizione: se x appartiene ad A
+    * Vero, b = true
+    * Falso, b = false
+* inserisci(A, x) = A'
+  * Precondizione: x non appartiene ad A
+  * Postcondizione: A' = A U {x}
+* cancella(A, x) = A'
+  * Precondizione: x appartiene ad A
+  * Postcondizione: A' = A \ {x}
+* unione(A, B) = C
+  * Precondizione: nessuna
+  * Postcondizione: C = A U B
+* intersezione(A, B) = C
+  * Precondizione: nessuna
+  * Postcondizione: C = A int. B
+* differenza(A, B) = C
+  * Precondizione: nessuna
+  * Postcondizione: C = A \ B
+  
+### Realizzazioni
+Un insieme si può rappresentare con un vettore booleano se il linguaggio utilizzato non prevede il tipo insieme. Per rappresentare un insieme A di interi, si fa uso di un vettore booleano di *n* bit, il cui *k*-esimo valore sarà *vero* se k appartiene ad A e *falso* altrimenti.
+Un'altra rappresentazione si avvale di una lista i cui elementi sono quelli dell'insieme, così da evitare che gli elementi siano assolutamente degli interi.
+
+[Realizzazioni con liste non ordinate]
+
+Gli elementi della lista sono quelli dell'insieme. Nel caso si usino realizzazioni con strutture dinamiche, l'occupazione di memoria è proporzionale al numero degli elementi presenti nell'insieme. Si fa uso delle seguenti classi (OOP):
+
+`class Cella {
+  tipoelem elemento;
+  posizione successivo;
+}`
+
+`class Insieme {
+  Cella* posizione;
+}`
+
+L'inserimento avviene in testa alla lista semplice con cui è realizzato l'insieme sempre dopo aver controllato se l'elemento da inserire non sia già presente nella struttura.
+
+- L'operatore *appartiene* deve scorrere tutta la lista per verificare se l'elemento è presente;
+- L'operatore *inserisci* deve chiamare *appartiene* e se l'elemento non è presente nella lista lo deve inserire;
+- L'operatore *cancella* è simila ad *appartiene*, dopo aver individuato l'elemento lo deve rimuovere dalla lista;
+- Gli operatori *insersezione, unione e differenza* devono scandire la lista:
+  - *Unione*: inserisci in C tutti gli elementi di B, poi inserisci gli elementi di A se non appartiengono a C;
+  - *Intersezione*: C vuoto, scorri A se l'elemento è in B lo metti in C;
+  - *Differenza*: C vuoto, scorri A se l'elemento non è in B lo metti in C;
+
+[Realizzazione con liste ordinate]
+
+Se è definita una relazione <= di ordinamento totale sugli elementi dell'insieme, esso può essere rappresentato con una lista ordinata per valori crescenti degli elementi utilizzando due puntatori che scorrono ognuno su un insieme.
+
+- L'operatore *appartiene* effettua una ricerca in una lista ordinata;
+- L'operatore *inserimento* richiede di scandire tutta la lista, nella peggiore delle ipotesi;
+- L'operatore *cancellazione* effettua una ricerca in una lista ordinata;
+- Le operazioni *unione, intersezione, differenza* sono facilitate dal fatto di poter scorrere due liste ordinate;
+
+### Altre implementazioni
+Esistono altri modi per rappresentare gli insiemi tramite dizionario e con un albero bilanciato. Quando si fa uso del dizionario, esso conterrà solo chiavi, ovvero gli elementi dell'insieme.
+
+## Dizionario
+Il dizionario è un sottotipo del tipo insieme i cui elementi sono generalmente tipi strutturati ai quali si accede per mezzo di un riferimento a un campo chiave.
+
+[Notazione dizionario]
+Gli elementi assumono la forma di una coppia costituita da coppie
+
+> <chiave, valore>
+
+- La caratteristica della chiave è legata alla applicazione
+- Il valore associato rappresenta l'informazione associata per scopi di gestinone o manutenzione
+
+### Operazioni insieme
+Poichè possiamo definirli un caso particolare di insieme, la specifica per i dizionari è molto simile a quella del tipo di dato insieme. Le operazioni ammesse sono:
+* crea, appartiene, inserisci, cancella
+E in alcuni casi troviamo anche le operazioni:
+* recupera, aggiorna
+
+### Specifica sintattica
+Tipi:
+* dizionaio, boolean, chiave, valore
+
+Operatori:
+* creadizionario: ( ) -> dizionario
+* dizionariovuoto: (dizionario) -> boolean
+* appartiene: (dizionario, chiave) -> boolean
+* inserisci: (dizionario, <chiave, valore>) -> dizionario
+* cancella: (dizionario, chiave) -> dizionario
+* recupera: (dizionario, chiave) -> valore
+
+### Specifica semantica
+Tipi:
+* dizionario: collezione di dizionari costituita da coppie di tipo <chiave, valore>
+* boolean: insieme dei valori di verità
+
+Operatori:
+* creadizionario() = D
+  * Precondizione: nessuna
+  * Postcondizione: D = { }
+* dizionariovuoto(D) = b
+  * Precondizione: nessuna
+  * Postcondizione: se D = { }
+    * Vera, b = true
+    * Falsa, b = false
+* appartiene(D, k) = b
+  * Precondizione: nessuna
+  * Postcondizione: se <k', v> in D tale che k' = k
+    * Esiste, b = true
+    * Non esiste, b = false
+* inserisci(D, <k, v>) = D'
+  * Precondizione: nessuna
+  * Postcondizione: se <k', v'> in D tale che k' = k
+    * Esiste, D' = D \ {<k', v'} U {<k, v>}
+    * Non esiste, D' = D U {<k, v>}
+* cancella(D, k) = D'
+  * Precondizione: esiste <k', v> in D tale che k' = k
+  * Postcondizione: D' = D \ {<k, v>}
+* recupera(D, k) = v
+  * Precondizione: esiste <k', v'> in D tale che k' = k
+  * Postcondizione: v = v'
+
+### Rappresentazioni
+Oltre alla rappresentazione con vettore booleano e mediante lista, ci sono quelle mediante vettori ordinati e tabelle hash.
+
+[Rappresentazione con vettore ordinato]
+
+Si utilizza un vettore con un cursore all'ultima posizione occupata. Avendo definito una relazione di ordinamento totale <= sulle chiavi, queste si memorizzano in posizioni contigue in ordine crescente. Per verificare l'appartenenza di un elemento o di una chiave, si utiilzza la **ricerca binaria**, si confronta il valore da ricercare k con il valore v che occupa la posizione centrale del vettore e si stabilisce in quale metà continuare la ricerca.
+
+[Rappresentazione con tabella hash]
+
+Esiste una tecnica denominata **hash** che si appoggia su una struttura di dati tabellare. Con questa struttura le operazioni di ricerca e di modifica possono operare in tempi costanti e indipendenti dalla dimensione del dizionario.
+
+* Idea base: ricavare la posizione che la chiave occupa in un vettore dalla chiave stessa
+
+Esistono diverse varianti che si possono far risalire ad una forma statica e ad una forma dinamica.
+
+L'hash statico può essere a sua volta:
+* **hash chiuso**: consente di inserire un insieme limitato di valori in uno spazio a dimensione fissa
+  * La struttura sarà composta da un certo numero di contenitori di uguale dimensione denominati *bucket*
+* **hash aperto**: consente di memorizzare un insieme di valori di dimensione qualsiasi in uno spazio potenzialmente illimitato
+  * La struttura sarà composta da un certo numero indeterminato di contenitori *bucket*
+  
+Entrambe le varianti però utilizzano una sottostante tabella hash a dimensione fissa costituita da una struttura allocata sequenzialmente in memoria e che assume la forma di un array.
+
+Ognuno di questi contenitori può mantenere al proprio interno al massimo un numero 
+*nb* di elementi che comprenderanno la chiave e il corrispondente valore.
+
+Viene usata una funzione aritmetica allo scopo di calcolare, partendo dalla chiave, la posizione in tabella delle informazioni contenute nell'attributo collegato alla chiave.
+
+Se *k* è l'insieme di tutte le possibili chiavi distinte e *v* è il vettore di dimensione *m* in cui si memorizza il dizionario, la soluzione ideale è la funzione di accesso
+
+> h: K -> { 1, ..., m }
+
+che permette di ricavare la posizione
+
+> h(k)
+
+della chiave *k* nel vettore *v* così che, se
+
+> k1 appartiene a K, k2 appartiene a K, k1 <> k2
+
+si ha che 
+
+> h(k1) <> h(k2)
+
+Utilizzando m = |K| si ha garanzia di biunivocità e di poter accedere direttamente alla posizione contenente la chiave. Però se |K| è grande, si ha uno spreco di memoria.
+
+La soluzione di compromesso è scegliere un m maggiore di 1 ma molto minore di |K|.
+
+### Collisioni
+Una collisione si verifica quando chiavi diverse producono lo stesso risultato della funzione. Esistono funzioni hash più o meno buone anche se le collisioni non si potranno mai evitare del tutto.
+
+Quale che sia la funzione hash adottata, deve essere prevista una strategia per gestire il problema degli agglomerati e delle collisioni. In definitiva:
+- Occorre una funziona hash, calcolabile velocemente e che distribuisca le chiavi uniformemente in v, in modo da ridurre le collisioni;
+- Occorre un metodo di scansione per la soluzione delle collisioni utile a reperire chiavi che hanno trovato a posizione occupata e che non provochi la formazione di agglomerati di chiavi;
+- La dimensione m del vettore v deve essere una sovrastima del numero delle chiavi attese, per evitare di riempire v completamente.
+
+Alcuni buoni metodi di generazione hash con b = bin(k):
+* h(k) = int(b)
+  * b è un sottoinsieme di p bit di bin(k), solitamente estratti nelle posizioni centrali
+* h(k) = int(b)
+  * b è dato dalla somma modulo 2, effettuata bit a bit, di diversi sottoinsiemi di p bit di bin(k)
+* h(k) uguale al resto della divisione int(bin(k)) / m
+  * m è dispari; se fosse uguale a 2p, due numeri con gli stessi p bit finali darebbero sempre luogo a una collisione
+  
+L'ultima funzione hash è la migliore dal punto di vista probabilistico e fornisce un'eccellente distribuzione degli indirizzi h(k) nell'intervallo da 0 a m-1.
+
+[Hash aperto]
+
+Una tecnica che evita la formazione di agglomerati è quella dell'hash aperto che richiede che la tabella hash mantenga la lista degli elementi le cui chiavi producono lo stesso valore di funzione.
+
+La tabella di hash viene realizzata definendo un array di liste di bucket dette **liste di trabocco**.
+
+La funzione di hash viene utilizzata per determinare quale lista potrbbe contenere l'elemento che possiede una determinata chiave in modo da poter attivare una successiva operazione di ricerca nella lista corrispondente e da restituire la posizione del bucket che contiene la chiave.
+
+[Lista di trabocco]
+
+### Metodi di scansione
+I metodi di scansione si distinguono in:
+- Scansione esterna
+- Scansione interna
+  - Scansione lineare
+    - Non riduce la formazione di agglomerati
+  - Scansione quadratica
+    - La sequenza di scansione non include tutte le posizioni di v (trascurabile per m non troppo piccolo)
+  - Scansione pseudocasuale
+    - Genera interi tra 1 e m una sola volta in un ordine qualunque
+  - Hashing doppio
+    - Genera due funzioni di hash, l'una diversa dall'altra e le usa per effettuare dei calcoli
+   
+Usando metodi di scansione interna e potendo cancellare chiavi, non si è mai sicuri che, raggiunta una posizione vuota nella ricerca di k, tale chiave non si trovi in un'altra posizione di v, poichè la posizione ora vuota era occupata quando k è stata inserita. Se sono previste molte cancellazioni, conviene usare un metodo di scansione esterno.
+
+## Albero
+
