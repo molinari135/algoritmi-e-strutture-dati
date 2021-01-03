@@ -635,3 +635,139 @@ Tipi:
 * nodo: insieme qualsiasi (finito)
 
 Operatori:
+* creaalbero() = T'
+  * Precondizione: nessuna
+  * Postcondizione: T' = (0, 0) = (albero vuoto)
+* alberovuoto(T) = b
+  * Precondizione: nessuna
+  * Postcondizione: se T = (0, 0)
+    * Vero, b = true
+    * Falso, b = false
+* insradice(T, u) = T'
+  * Precondizione: T = (0, 0)
+  * Postcondizione: T' = (N, A), N = {u}, livello(u) = 0, A <> (0, 0)
+* radice(T) = u
+  * Precondizione: T <> (0, 0), esiste v tale che livello(v) = 0
+  * Postcondizione: u = v
+* padre(T, u) = v
+  * Precondizione: T <> (0, 0), u appartiene a N, livello(u) > 0
+  * Postcondizione: <v, u> appartiene ad A, livello(u) = livello(v) + 1
+* foglia(T, u) = b
+  * Precondizione: T <> (0, 0), u appartiene a N
+  * Postcondizione: se v appartiene ad A e livello(v) = livello(u) + 1
+    * Non esiste, b = true
+    * Esiste, b = false
+* primofiglio(T, u) = v
+  * Precondizione: T <> (0, 0), u appartiene a N, foglia(T, u) = false
+  * Postcondizione: <u, v> appartiene ad A, livello(v) = livello(u) + 1
+* ultimofratello(T, u) = b
+  * Precondizione: T <> (0, 0), u appartiene a N
+  * Postcondizione: se altri fratelli di u che lo seguono nella relazione d'ordine
+    * Non esistono, b = true
+    * Esistono, b = false
+* succfratello(T, u) = v
+  * Precondizione: T <> (0, 0), u appartiene a N, ultimofratello(T, u) = false
+  * Postcondizione: v è il fratello di u che lo segue nella relazione d'ordine
+* insprimosottoalbero(T, T', u) = T''
+  * Precondizione: T <> (0, 0), T' <> (0, 0), u appartiene a N
+  * Postcondizione: T'' è l'albero ottenuto da T aggiungendo l'albero T' di radice r'
+    * r' diventa nuovo primo figlio di u
+* inssottoalbero(T, T', u) = T''
+  * Precondizione: T <> (0, 0), T' <> (0, 0), u appartiene a N, u non è radice di T
+  * Postcondizione: T'' è l'albero ottenuto da T aggiungendo il sottoalbero T' di radice r'
+    * r' diventa il nuovo fratello che segue u nella relazione d'ordine
+* cansottoalbero(T, u) = T'
+  * Precondizione: T <> (0, 0), u appartiene a N
+  * Postcondizione: T' è ottenuto da T rimuovendo il sottoalbero di radice u
+    * vengono eliminati u e tutti i suoi discendenti
+    
+### Visita di alberi
+Consiste nel pianificare e seguire una "rotta" che consenta di esaminare **ogni nodo** dell'albero **esattamente una volta**. Esistono modi diversi per effettuare una visita corrispondente all'ordine con cui si intende seguire la struttura.
+
+> **Visita di un albero**: algoritmo per "visitare" tutti i nodi di un albero
+
+Esistono due metodi di visita:
+* In profondità (**depth-first search**, a scandaglio): **DFS**
+  * Vengono visitati i rami, uno dopo l'altro
+  * Ha tre varianti
+    * **previsita (preordine)**: consiste nell'esaminare r e poi, nell'ordine, effettuare la previsita di T1, T2, ..., Tk
+    * **postvisita (postordine)**: consiste nel fare, nell'ordine, prima la postvisita di T1, T2, ..., Tk e poi nell'esaminare la radice r
+    * **invisita (ordinamento simmetrico)**: consiste nel fare, nell'ordine la invisita di T1, T2, ..., Ti, nell'esaminare r, e poi effettuare, nell'ordine, la invisita di T(i+1), ..., Tk per un prefissato i >= 1
+* In ampiezza (**breadth-first search**, a ventaglio): **BFS**
+  * Avviene a livelli, partendo dalla radice
+    * **in ampiezza**: la visita avviene per livelli
+  
+Sia T un albero, non vuoto, di radice r. Se r non è foglia ed ha k (> 0) figli, siano T1, T2, ..., Tk i sottoalberi di T aventi come radici i figli di r.
+
+        PREVISITA(var T:albero; U:nodo) {
+          nodo C;
+          {esamina nodo U};     // (1)
+          if (!FOGLIA(U, T)) {  // (2)
+            C = PRIMOFIGLIO(U, T);
+            while (!ULTIMOFRATELLO(C, T)) {
+              PREVISITA(T, C);
+              C = SUCCFRATELLO(C, T);
+            }
+            PREVISITA(T, C);
+          }
+        }
+
+###### Scambiando l'ordine delle istruzioni (1) e (2) si ottiene la postvisita
+
+        INVISITA(var T:albero; U:nodo, i:int) {
+          if (FOGLIA(U, T)) {
+            {esamina U}
+          } else {
+            nodo C = PRIMOFIGLIO(U, T);
+            int k = 0;
+            while (!ULTIMOFRATELLO(C, T) and k < i) {
+              k = k + 1;
+              INVISITA(T, C, i);
+              C = SUCCFRATELLO(C, T);
+            }
+            {esamina nodo U}
+            while (!ULTIMOFRATELLO(C, T)) {
+              INVISITA(T, C, i);
+              C = SUCCFRATELLO(C, T);
+            }
+          }
+        }
+        
+### Realizzazioni
+Una possibile realizzazione è quella con il vettore dei padri:
+* il vettore contiene esattamente *n* elementi, quanti sono i nodi
+* ogni elemento del vettore rappresenta un nodo
+* ogni elemento del vettore contiene l'indice del nodo padre
+
+Vantaggi | Svantaggi
+---------|----------
+Visitare i nodi lungo percorsi che vanno da foglie a radice è più facile | Inserire e cancellare sottoalberi è più complesso
+
+Un'altra realizzazione è quella con le liste di figli:
+* ogni elemento del vettore, oltre a memorizzare le informazioni sul nodo, memorizza un riferimento all'inizio della lista dei figli
+* la lista dei figli contiene tanti elementi quanti sono i successori del nodo
+
+Altra realizzazione vede una lista con primo figlio/fratello:
+* Si utilizza una lista
+* Ogni elemento della lista, oltre a contenere le informazioni sul nodo, contiene un riferimento alla posizione nella lista del primo figlio e del primo fratello
+* Può essere utilizzata una rappresentazione con aera di memoria condivisa tipo quella utilizzata per liste basata su cursori
+* Ogni elemento del vettore conterrà due cursori, uno al primo figlio e uno al fratello successivo
+
+Esiste anche la rappresentazione con il vettore dei figli, però si rischia di sprecare memoria se molti nodi hanno grado minore del grado massimo k.
+
+Le realizzazioni precedenti si possono migliorare con l'applicazione dei puntatori, nel caso padre/primo-figlio/fratello.
+
+Si può anche rappresentare un albero mediante lista dinamica:
+* La radice è il primo elemento di una lista, i successivi elementi saranno dei riferimenti ai sottoalberi della radice
+* Ogni riferimento punta ad un sottoalbero che a sua volta sarà il primo elemento di una lista
+* I nodi delle liste possono assumere diversi valori:
+  * Nodo effettivo dell'albero: un campo per il valore del nodo e un puntatore all'inizio della lista o a null se foglia
+  * Nodo ausiliario: nodo con due puntatori, inizio lista sottoalbero e puntatore fratello
+  
+## Alberi binari
+Un albero binario è un albero ordinato in cui ogni nodo ha al più **due** figli e si fa distinzione tra il **figlio sinistro** ed il **figlio destro** di un nodo.
+
+Due alberi T e U aventi gli stessi nodi, gli stessi figli per ogni nodo e la stessa radice, sono distinti qualora un nodo u sia designato come figlio sinistro di un nodo v in T e come figlio destro del medesimo nodo in U.
+
+
+
