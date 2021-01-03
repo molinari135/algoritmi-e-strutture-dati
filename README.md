@@ -530,3 +530,108 @@ Usando metodi di scansione interna e potendo cancellare chiavi, non si è mai si
 
 ## Albero
 
+### Grafo
+Un grafo G è definito dalla coppia <N, A> dove
+* N è l'insieme dei nodi
+* A è l'insieme degli archi
+
+Un grafo può essere:
+* **Orientato**, se un arco è definito da un nodo *ui* ad un nodo *uj* che appartengono all'insieme dei nodi N
+* **Non orientato**, se un arco è definito da un nodo *ui* ad un nodo *uj* che appartengono all'insieme dei nodi N e viceversa
+  * I grafi non orientati sono usati per prappresentare relazioni simmetriche tra oggetti
+  
+[Grafo orientato]
+
+[Grafo non orientato]
+
+In un grafo orientato G, un **cammino** è una sequenza di nodi tali che il cammino parte dal nodo *u0* e arriva al nodo *uk* ed ha una lunghezza uguale a *k*.
+* Se non ci sono nodi ripetuti, il cammino è **semplice**
+* Se *u0* = *uk*, il cammino è **chiuso**
+  * Un cammino semplice e chiuso di dice **ciclo**
+  
+[Cammino semplice]
+
+[Ciclo]
+
+Un grafo è detto **completo** se per ogni coppia di nodi esiste un arco che va da un nodo all'altro.
+Un grafo G = <N, A> è **connesso** se dati *u* e *v* appartenenti all'insieme dei nodi N, esiste un cammino da *u* a *v* o un cammino da *v* a *u*.
+Il grafo G è detto **fortemente connesso** se **per ogni coppia** di nodi *u* e *v* **esiste almeno un cammino** da *u* a *v* ed almeno un cammino da *v* ad *u*.
+
+[Grafo non fortemente connesso]
+
+### Albero
+L'albero è un grafo definito dalla coppia
+
+> T = < N, A >
+
+Dove 
+* A è un insieme di coppie non ordinate
+* N è un insieme di nodi
+
+Il numero degli archi è uguale al numero di nodi, meno 1
+
+> |A| = |N| - 1
+
+L'albero T si dice connesso, ovvero per ogni coppia di nodi *u* e *v* in N, se esiste una sequenza di nodi distinti tali che u = u0 e v = uk e ogni coppia di nodi contigui è un arco di A.
+Un albero radicato è ottenuto da un albero libero designando arbitrariamente un nodo **r** come **radice** e **ordinando i nodi per livelli**.
+
+[Albero non radicato]
+
+[Albero radicato]
+
+[Albero radicato ordinato]
+
+In un albero radicato:
+* La radice **r** è a livello 0 e tutti i nodi *u* tali che <u, r> appartiene ad A, sono **figli di r** e stanno a livello 1
+  * In questo modo, **r è il padre**
+* Nodi con lo stesso padre sono detti **fratelli**
+* Nodi terminali senza figli sono detti **foglie**
+* Un **albero ordinato** è ottenuto da uno **radicato** stabilendo un ordinamento tra nodi allo stesso livello.
+
+### Proprietà di un albero
+* Un albero è un **grafo aciclico**, in cui per ogni nodo c'è un arco entrante
+  * Tranne che per la radice, che non ne ha nessuno
+* Un albero è un grafo **debolmente connesso**
+* Se esiste un cammino che va da un nodo *u* ad un nodo *v*, tale cammino è unico
+* In un albero esiste un solo cammino che va dalla radice a qualunque altro nodo
+* Tutti i nodi di un albero (tranne r) possono essere ripartiti in insiemi disgiunti ciascuno dei quali individua un albero
+
+### Definizione ricorsiva di albero
+Un albero è un grafo orientato che, o è vuoto, oppure:
+- Esiste un nodo r detto radice senza predecessori con n >= nodi successivi a1, a2, ..., an
+- Tutti gli altri sono ripartiti in *n* sottoalberi mutualmente disgiunti T1, T2, ..., Tn aventi rispettivamente a1, a2, ..., an come radice
+
+L'albero è spesso utilizzato per rappresentare relazioni gerarchiche tra oggetti.
+
+[Albero con descrizione]
+
+### Definizioni
+**Profondità di un nodo**: la lunghezza del percorso dalla radice al nodo (ad esempio, il numero degli archi attraversati)
+**Livello**: l'insieme dei nodi alla stessa profondità
+**Altezza dell'albero**: massimo livello delle sue foglie
+
+### Specifica sintattica
+Tipi:
+* albero, boolean, nodo
+
+Operatori:
+* creaalbero: ( ) -> albero
+* alberovuoto: (albero) -> boolean
+* insradice: (albero, nodo) -> albero
+* radice: (albero) -> nodo
+* padre: (albero, nodo) -> nodo
+* foglia: (albero, nodo) -> boolean
+* primofiglio: (albero, nodo) -> nodo
+* ultimofratello: (albero, nodo) -> boolean
+* succfratello: (albero, nodo) -> nodo
+* insprimosottoalbero: (albero, albero, nodo) -> albero
+* inssottoalbero: (albero, albero, nodo) -> albero
+* cansottoalbero: (albero, nodo) -> albero
+
+### Specifica semantica
+Tipi:
+* albero: insieme degli alberi ordinati T = <N, A> in cui ad ogni nodo n in N è associato il livello(n)
+* boolean: insieme dei valori di verità
+* nodo: insieme qualsiasi (finito)
+
+Operatori:
