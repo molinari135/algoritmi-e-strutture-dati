@@ -115,7 +115,7 @@ Operatori:
       * Posso partire solo dalla seconda posizione        
    * **Postcondizione:** q = pos(i-1)    
 * `inslista(l, p, a) = l'`
-   * **Precondizione:** p = pos(i) con 1 &le; i &le n+1    
+   * **Precondizione:** p = pos(i) con 1 &le; i &le; n+1    
       * Posso inserire qualcosa anche in ultima posizione        
    * **Postcondizione:** l' = < a<sub>1</sub>, a<sub>2</sub>, ..., **a<sub>i</sub>**, ..., a<sub>n</sub> >    
       * Se ne possono aggiungere altre 2 per i casi i = n+1 e i = 1        
