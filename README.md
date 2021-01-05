@@ -81,7 +81,7 @@ La lista vuota < > è sottolista di qualsiasi lista.
 * **lista**: insieme delle sequenze l = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0 di elementi di tipo **tipoelem** dove l'elemento *i*-esimo ha valore *a(i)* e **posizione** *pos(i)*
 * **boolean**: insieme dei valori di verità
 
-Operatori:
+**Operatori**:
 * `crealista() = l'`
   * **Precondizione:** *(nessuna)*    
   * **Postcondizione:** l' = < >    
