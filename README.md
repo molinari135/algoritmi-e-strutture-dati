@@ -32,13 +32,11 @@ Indichiamo la lista con la notazione
 
 > l = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
 
-Ad ogni elemento della lista viene associata una posizione (cursore)
+Ad ogni elemento della lista viene associata
 
-> pos(i)
+> una **posizione** (cursore) pos(i)
 
-e un valore
-
-> a(i)
+> un **valore** a(i)
 
 ### Accesso ad una lista
 Si può accedere **direttamente solo al primo elemento** della sequenza (**accesso diretto**); per accedere al generico elemento occorre **scandire sequenzialmente** gli elementi della lista che lo precedono (**accesso per scansione**).
@@ -63,10 +61,10 @@ si ottiene partendo dalla posizione *i* e prendendo tutti gli elementi fino alla
 La lista vuota < > è sottolista di qualsiasi lista.
 
 ### Specifica sintattica
-Tipi:
+**Tipi**:
 * lista, posizione, boolean, tipoelem
 
-Operatori:
+**Operatori**:
 * crealista: ( ) &rightarrow; lista
 * listavuota: (lista) &rightarrow; boolean
 * leggilista: (lista, posizione) &rightarrow; tipoelem
@@ -79,53 +77,53 @@ Operatori:
 * canclista: (lista, posizione) &rightarrow; lista
 
 ### Specifica semantica
-Tipi:
-* lista: insieme delle sequenze l = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0 di elementi di tipo tipoelem dove l'elemento *i*-esimo ha valore *a(i)* e posizione *pos(i)*
-* boolean: insieme dei valori di verità
+**Tipi**:
+* **lista**: insieme delle sequenze l = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0 di elementi di tipo **tipoelem** dove l'elemento *i*-esimo ha valore *a(i)* e **posizione** *pos(i)*
+* **boolean**: insieme dei valori di verità
 
 Operatori:
-* crealista() = l'  
-  * Precondizione: nessuna    
-  * Postcondizione: l' = < >    
-* listavuota(l) = b
-  * Precondizione: nessuna    
-  * Postcondizione: se l = < >
+* `crealista() = l'`
+  * **Precondizione:** *(nessuna)*    
+  * **Postcondizione:** l' = < >    
+* `listavuota(l) = b`
+  * **Precondizione:** *(nessuna)*    
+  * **Postcondizione:** se l = < >
     * Vero, b = true
     * Falso, b = false
-* leggilista(l, p) = a
-  * Precondizione: p = pos(i) con 1 &le; i &le; n    
-  * Postcondizione: a = a(i)    
-* scrivilista(l, p, a) = l'
-  * Precondizione: p = pos(i) con 1 &le; i &le; n    
-  * Postcondizione: l' = < a<sub>1</sub>, a<sub>2</sub>, ..., **a**, ..., a<sub>n</sub> >    
-* primolista(l) = p
-  * Precondizione: p = pos(i) con 1 &le; i &le; n    
+* `leggilista(l, p) = a`
+  * **Precondizione:** p = pos(i) con 1 &le; i &le; n    
+  * **Postcondizione:** a = a(i)    
+* `scrivilista(l, p, a) = l'`
+  * **Precondizione:** p = pos(i) con 1 &le; i &le; n    
+  * **Postcondizione:** l' = < a<sub>1</sub>, a<sub>2</sub>, ..., **a**, ..., a<sub>n</sub> >    
+* `primolista(l) = p`
+  * **Precondizione:** p = pos(i) con 1 &le; i &le; n    
      * Oppure si può scrivere come, listavuota(l) = false        
-  * Postcondizione: p = pos(1)    
-* finelista(l, p) = b
-  * Precondizione: p = pos(i) con 1 &le; i &le; n+1    
+  * **Postcondizione:** p = pos(1)    
+* `finelista(l, p) = b`
+  * **Precondizione:** p = pos(i) con 1 &le; i &le; n+1    
      * Includo n+1 perchè devo poter accedere anche all'ultima posizione        
-  * Postcondizione: se p = pos(n+1)
+  * **Postcondizione:** se p = pos(n+1)
     * Vero, b = true
     * False, b = false
-* succlista(l, p) = q
-   * Precondizione: p = pos(i) con 1 &le; i &le; n    
+* `succlista(l, p) = q`
+   * **Precondizione:** p = pos(i) con 1 &le; i &le; n    
       * Posso arrivare solo fino alla penultima posizione        
-   * Postcondizione: q = pos(i+1)    
-* predlista(l, p) = q
-   * Precondizione: p = pos(i) con 1 < i &le; n    
+   * **Postcondizione:** q = pos(i+1)    
+* `predlista(l, p) = q`
+   * **Precondizione:** p = pos(i) con 1 < i &le; n    
       * Posso partire solo dalla seconda posizione        
-   * Postcondizione: q = pos(i-1)    
-* inslista(l, p, a) = l'
-   * Precondizione: p = pos(i) con 1 &le; i &le n+1    
+   * **Postcondizione:** q = pos(i-1)    
+* `inslista(l, p, a) = l'`
+   * **Precondizione:** p = pos(i) con 1 &le; i &le n+1    
       * Posso inserire qualcosa anche in ultima posizione        
-   * Postcondizione: l' = < a<sub>1</sub>, a<sub>2</sub>, ..., **a<sub>i</sub>**, ..., a<sub>n</sub> >    
+   * **Postcondizione:** l' = < a<sub>1</sub>, a<sub>2</sub>, ..., **a<sub>i</sub>**, ..., a<sub>n</sub> >    
       * Se ne possono aggiungere altre 2 per i casi i = n+1 e i = 1        
-* canclista(l, p) = l'
-   * Precondizione: p = pos(i) con 1 &le; i &le; n    
-   * Postcondizione: l' = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>i-1</sub>, a<sub>i+1</sub>, ..., a<sub>n</sub> >
+* `canclista(l, p) = l'`
+   * **Precondizione:** p = pos(i) con 1 &le; i &le; n    
+   * **Postcondizione:** l' = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>i-1</sub>, a<sub>i+1</sub>, ..., a<sub>n</sub> >
 
-### Realizzazione di una lista
+### Rappresentazione di una lista
 
 #### Rappresentazione collegata
 Le liste si possono rappresentare sia in maniera **sequenziale** mediante un vettore che attraverso una rappresentazione **collegata**, memorizzando i suoi elementi associando ad ognuno di essi una particolare informazione (riferimento) che permetta di individuare la locazione in cui è memorizzato l'elemento successivo. Per visualizzare tale rappresentazione si usa una notazione grafica in cui:
@@ -164,10 +162,10 @@ Tutte le operazioni vanno effettuate **solo all'estremo superiore** della pila, 
 ###### LIFO: Last In, First Out (L'ultimo inserito è il primo che viene tirato fuori)
 
 ### Specifica sintattica
-Tipi: 
+**Tipi**: 
 * pila, boolean, tipoelem
 
-Operatori:
+**Operatori**:
 * creapila: ( ) &rightarrow; pila
 * pilavuota: (pila) &rightarrow; boolean
 * leggipila: (pila) &rightarrow; tipoelem
@@ -175,43 +173,43 @@ Operatori:
 * inpila: (pila, tipoelem) &rightarrow; pila
 
 ### Specifica semantica
-Tipi:
-* pila: insieme delle sequenze P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0 di elementi di tipo tipoelem gestita con accesso LIFO
-* boolean: insieme dei valori di verità
+**Tipi**:
+* **pila**: insieme delle sequenze P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0 di elementi di tipo **tipoelem** gestita con accesso LIFO
+* **boolean**: insieme dei valori di verità
 
-Operatori:
-* creapila() = P
-  * Precondizione: *(nessuna)*
-  * Postcondizione: P = < >
-* pilavuota(P) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: se P = < >
+**Operatori**:
+* `creapila() = P`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** P = < >
+* `pilavuota(P) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** se P = < >
     * Vero, b = true
     * Falso, b = false
-* leggipila(P) = a
-  * Precondizione: P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
-  * Postcondizione: a = a<sub>1</sub>
-* fuoripila(P) = P'
-  * Precondizione: P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
-  * Postcondizione: P' = < a<sub>2</sub>, a<sub>3</sub>, ..., a<sub>n</sub> >
+* `leggipila(P) = a`
+  * **Precondizione:** P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
+  * **Postcondizione:** a = a<sub>1</sub>
+* `fuoripila(P) = P'`
+  * **Precondizione:** P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
+  * **Postcondizione:** P' = < a<sub>2</sub>, a<sub>3</sub>, ..., a<sub>n</sub> >
     * P' = < > se n = 1
-* inpila(P, a) = P'
-  * Precondizione: P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
-  * Postcondizione: P' = < **a**, a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> >
+* `inpila(P, a) = P'`
+  * **Precondizione:** P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
+  * **Postcondizione:** P' = < **a**, a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> >
   
-### Realizzazioni di una pila
+### Rappresentazione di una pila
 
 La pila è un caso particolare di **lista** e possiamo definire la seguente corripondenza tra gli operatori:
-* creapila() &rightarrow; crealista()
-* pilavuota(p) &rightarrow; listavuota(p)
-* leggipila(p) &rightarrow; leggilista(**primolista(p)**, p)
-* fuoripila(p) &rightarrow; canclista(**primolista(p)**, p)
-* inpila(p, a) &rightarrow; inslista(**primolista(p)**, p, a)
+* `creapila()` &rightarrow; `crealista()`
+* `pilavuota(p)` &rightarrow; `listavuota(p)`
+* `leggipila(p)` &rightarrow; `leggilista(**primolista(p)**, p)`
+* `fuoripila(p)` &rightarrow; `canclista(**primolista(p)**, p)`
+* `inpila(p, a)` &rightarrow; `inslista(**primolista(p)**, p, a)`
 
-#### Realizzazione con vettore
+#### Rappresentazione con vettore
 Le pile si possono rappresentare mediante vettore memorizzando gli *n* elementi della pila, in **ordine inverso**, nelle prime n posizioni del vettore, mantenendo un **cursore alla testa della pila**. Questa implementazione è svantagiosa perchè richiede di definire una dimensione degli elementi massimi della pila.
 
-#### Realizzazione con puntatori
+#### Rappresentazione con puntatori
 Si possono anche implementare utilizzando i **puntatori**, riferendosi alla cella che si trova in cima con un puntatore.
 
 ### Pile e procedure ricorsive
@@ -233,10 +231,10 @@ Per poter **aggiungere** elementi si accede ad un estremo ("fondo") mentre per p
 Le operazioni vengono effettuate solo **in prima ed ultima posizione**.
 
 ### Specifica sintattica
-Tipi: 
+**Tipi**: 
 * coda, boolean, tipoelem
 
-Operatori:
+**Operatori**:
 * creacoda: ( ) &rightarrow; coda
 * codavuota: (coda) &rightarrow; boolean
 * leggicoda: (coda) &rightarrow; tipoelem
@@ -244,26 +242,31 @@ Operatori:
 * incoda: (coda, tipoelem) &rightarrow; coda
 
 ### Specifica semantica
-* creacoda() = q
-  * Precondizione: *(nessuna)*
-  * Postcondizione: q = < >
-* codavuota(q) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: se q = < >
+**Tipi**:
+* **coda**: insieme delle sequenze q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> >, n &ge; 0, di elementi di tipo **tipoelem** caratterizzata dall'accesso **FIFO**;
+* **boolean**: insieme dei valori di verità
+
+**Operatori**:
+* `creacoda() = q`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** q = < >
+* `codavuota(q) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** se q = < >
     * Vero, b = true
     * Falso, b = false
-* leggicoda(q) = a
-  * Precondizione: q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
-  * Postcondizione: a = a<sub>1</sub>
-* fuoricoda(q) = q'
-  * Precondizione: q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
-  * Postcondizione: q' = < a<sub>2</sub>, ..., a<sub>n</sub> >
+* `leggicoda(q) = a`
+  * **Precondizione:** q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
+  * **Postcondizione:** a = a<sub>1</sub>
+* `fuoricoda(q) = q'`
+  * **Precondizione:** q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 1
+  * **Postcondizione:** q' = < a<sub>2</sub>, ..., a<sub>n</sub> >
     * q' = < > se n = 1
-* incoda(q, a) = q'
-  * Precondizione: q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
-  * Postcondizione: q' = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>, **a**>
+* `incoda(q, a) = q'`
+  * **Precondizione:** q = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
+  * **Postcondizione:** q' = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>, **a**>
   
-### Realizzazioni di una coda
+### Rappresentazione di una coda
 
 In generale le possibili rappresentazioni delle code sono analoghe a quelle delle **pile** consentendo solo l'accesso sia all'elemento inserito per primo sia all'elemento inserito per ultimo.
 
@@ -293,10 +296,10 @@ In informatica ci riferiamo al modo **estensionale**.
 Le operazioni principali sono **unione, intersezione e differenza**.
 
 ### Specifica sintattica
-Tipi:
+**Tipi**:
 * insieme, boolean, tipoelem
 
-Operatori:
+**Operatori**:
 * creainsieme: ( ) &rightarrow; insieme
 * insiemevuoto: (insieme) &rightarrow; boolean
 * appartiene: (insieme, tipoelem) &rightarrow; boolean
@@ -307,43 +310,43 @@ Operatori:
 * differenza: (insieme, insieme) &rightarrow; insieme
 
 ### Specifica semantica
-Tipi:
+**Tipi**:
 * **insieme**: collezione di elementi di tipo **tipoelem**
 * **boolean**: insieme dei valori di verità
 
-Operatori:
-* creainsieme() = A
-  * Precondizione: *(nessuna)*
-  * Postcondizione: A = { }
-* insiemevuoto(A) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: se A = { }
+**Operatori**:
+* `creainsieme() = A`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** A = { }
+* `insiemevuoto(A) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** se A = { }
     * Vero, b = true
     * Falso, b = false
-* appartiene(A, x) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: x &in; A
+* `appartiene(A, x) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** x &in; A
     * Vero, b = true
     * Falso, b = false
-* inserisci(A, x) = A'
-  * Precondizione: x &notin; A
-  * Postcondizione: A' = A &cup; {x}
-* cancella(A, x) = A'
-  * Precondizione: x &in; A
-  * Postcondizione: A' = A \ {x}
-* unione(A, B) = C
-  * Precondizione: *(nessuna)*
-  * Postcondizione: C = A &cup; B
-* intersezione(A, B) = C
-  * Precondizione: *(nessuna)*
-  * Postcondizione: C = A &cap; B
-* differenza(A, B) = C
-  * Precondizione: *(nessuna)*
-  * Postcondizione: C = A \ B
+* `inserisci(A, x) = A'`
+  * **Precondizione:** x &notin; A
+  * **Postcondizione:** A' = A &cup; {x}
+* `cancella(A, x) = A'`
+  * **Precondizione:** x &in; A
+  * **Postcondizione:** A' = A \ {x}
+* `unione(A, B) = C`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** C = A &cup; B
+* `intersezione(A, B) = C`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** C = A &cap; B
+* `differenza(A, B) = C`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** C = A \ B
   
-### Realizzazioni di un insieme
+### Rappresentazione di un insieme
 
-#### Realizzazione con liste non ordinate
+#### Rappresentazione con liste non ordinate
 Un insieme si può rappresentare con un **vettore booleano** se il linguaggio utilizzato non prevede il tipo insieme. Per rappresentare un insieme A di interi, si fa uso di un vettore booleano di *n* bit, il cui *k*-esimo valore sarà *vero* se k appartiene ad A e *falso* altrimenti.
 
 Un'altra rappresentazione si avvale di una **lista** i cui elementi sono quelli dell'insieme, così da evitare che gli elementi siano assolutamente degli interi.
@@ -360,21 +363,21 @@ Gli elementi della lista sono quelli dell'insieme. Nel caso si usino realizzazio
 
 L'inserimento avviene **in testa alla lista** semplice con cui è realizzato l'insieme sempre dopo aver controllato se l'elemento da inserire non sia già presente nella struttura.
 
-- L'operatore *appartiene* deve scorrere tutta la lista per verificare se l'elemento è presente;
-- L'operatore *inserisci* deve chiamare *appartiene* e se l'elemento non è presente nella lista lo deve inserire;
-- L'operatore *cancella* è simila ad *appartiene*, dopo aver individuato l'elemento lo deve rimuovere dalla lista;
-- Gli operatori *insersezione, unione e differenza* devono scandire la lista:
-  - *Unione*: inserisci in C tutti gli elementi di B, poi inserisci gli elementi di A se non appartiengono a C;
-  - *Intersezione*: C vuoto, scorri A se l'elemento è in B lo metti in C;
-  - *Differenza*: C vuoto, scorri A se l'elemento non è in B lo metti in C;
+- L'operatore `appartiene` deve scorrere tutta la lista per verificare se l'elemento è presente;
+- L'operatore `inserisci` deve chiamare `appartiene` e se l'elemento non è presente nella lista lo deve inserire;
+- L'operatore `cancella` è simila ad `appartiene`, dopo aver individuato l'elemento lo deve rimuovere dalla lista;
+- Gli operatori `insersezione`, `unione` e `differenza` devono scandire la lista:
+  - `unione`: inserisci in C tutti gli elementi di B, poi inserisci gli elementi di A se non appartiengono a C;
+  - `intersezione`: C vuoto, scorri A se l'elemento è in B lo metti in C;
+  - `differenza`: C vuoto, scorri A se l'elemento non è in B lo metti in C;
 
-#### Realizzazione con liste ordinate
+#### Rappresentazione con liste ordinate
 Se è definita una relazione &le; di ordinamento totale sugli elementi dell'insieme, esso può essere rappresentato con una lista ordinata per valori crescenti degli elementi utilizzando due puntatori che scorrono ognuno su un insieme.
 
-- L'operatore *appartiene* effettua una ricerca in una lista ordinata;
-- L'operatore *inserimento* richiede di scandire tutta la lista, nella peggiore delle ipotesi;
-- L'operatore *cancellazione* effettua una ricerca in una lista ordinata;
-- Le operazioni *unione, intersezione, differenza* sono facilitate dal fatto di poter scorrere due liste ordinate;
+- L'operatore `appartiene` effettua una ricerca in una lista ordinata;
+- L'operatore `inserimento` richiede di scandire tutta la lista, nella peggiore delle ipotesi;
+- L'operatore `cancellazione` effettua una ricerca in una lista ordinata;
+- Le operazioni `unione`, `intersezione`, `differenza` sono facilitate dal fatto di poter scorrere due liste ordinate;
 
 ### Altre implementazioni
 Esistono altri modi per rappresentare gli insiemi tramite **dizionario** e con un **albero bilanciato**. Quando si fa uso del dizionario, esso conterrà solo chiavi, ovvero gli elementi dell'insieme.
@@ -382,7 +385,7 @@ Esistono altri modi per rappresentare gli insiemi tramite **dizionario** e con u
 ## Dizionario
 Il dizionario è un sottotipo del tipo insieme i cui elementi sono generalmente tipi strutturati ai quali si accede per mezzo di un riferimento a un campo chiave.
 
-#### Notazione dizionario
+#### Notazione di un dizionario
 Gli elementi assumono la forma di una coppia costituita da coppie
 
 > <chiave, valore>
@@ -397,10 +400,10 @@ E in alcuni casi troviamo anche le operazioni:
 * recupera, aggiorna
 
 ### Specifica sintattica
-Tipi:
+**Tipi**:
 * dizionaio, boolean, chiave, valore
 
-Operatori:
+**Operatori**:
 * creadizionario: ( ) &rightarrow; dizionario
 * dizionariovuoto: (dizionario) &rightarrow; boolean
 * appartiene: (dizionario, chiave) &rightarrow; boolean
@@ -409,37 +412,37 @@ Operatori:
 * recupera: (dizionario, chiave) &rightarrow; valore
 
 ### Specifica semantica
-Tipi:
+**Tipi**:
 * **dizionario**: collezione di dizionari costituita da coppie di tipo **<chiave, valore>**
 * **boolean**: insieme dei valori di verità
 
-Operatori:
-* creadizionario() = D
-  * Precondizione: *(nessuna)*
-  * Postcondizione: D = { }
-* dizionariovuoto(D) = b
-  * Precondizione: *(nessuna*)
-  * Postcondizione: D = { }
-    * Vero, b = true
-    * Falso, b = false
-* appartiene(D, k) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: <k', v> &in; D tale che k' = k
-    * Esiste, b = true
-    * Non esiste, b = false
-* inserisci(D, <k, v>) = D'
-  * Precondizione: *(nessuna)*
-  * Postcondizione: <k', v'> &in; D tale che k' = k
-    * Esiste, D' = D \ {<k', v'} &cup; {<k, v>}
-    * Non esiste, D' = D &cup; {<k, v>}
-* cancella(D, k) = D'
-  * Precondizione: &exists; <k', v> &in; D tale che k' = k
-  * Postcondizione: D' = D \ {<k, v>}
-* recupera(D, k) = v
-  * Precondizione: &exists; <k', v'> &in; D tale che k' = k
-  * Postcondizione: v = v'
+**Operatori**:
+* `creadizionario() = D`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** D = { }
+* `dizionariovuoto(D) = b`
+  * **Precondizione:** *(nessuna*)
+  * **Postcondizione:** D = { }
+    * **Vero**, b = true
+    * **Falso**, b = false
+* `appartiene(D, k) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** <k', v> &in; D tale che k' = k
+    * **Esiste**, b = true
+    * **Non esiste**, b = false
+* `inserisci(D, <k, v>) = D'`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** <k', v'> &in; D tale che k' = k
+    * **Esiste**, D' = D \ {<k', v'} &cup; {<k, v>}
+    * **Non esiste**, D' = D &cup; {<k, v>}
+* `cancella(D, k) = D'`
+  * **Precondizione:** &exists; <k', v> &in; D tale che k' = k
+  * **Postcondizione:** D' = D \ {<k, v>}
+* `recupera(D, k) = v`
+  * **Precondizione:** &exists; <k', v'> &in; D tale che k' = k
+  * **Postcondizione:** v = v'
 
-### Rappresentazioni di un dizionario
+### Rappresentazione di un dizionario
 Oltre alla rappresentazione con **vettore booleano** e mediante **lista**, ci sono quelle mediante **vettori ordinati** e **tabelle hash**.
 
 #### Rappresentazione con vettore ordinato
@@ -491,11 +494,11 @@ Quale che sia la funzione hash adottata, deve essere prevista una strategia per 
 - La **dimensione m del vettore v** deve essere una sovrastima del numero delle chiavi attese, per evitare di riempire v completamente.
 
 Alcuni buoni metodi di generazione hash con **b = bin(k)**:
-* h(k) = int(b)
+* **h(k) = int(b)**
   * b è un sottoinsieme di p bit di bin(k), solitamente estratti nelle posizioni centrali
-* h(k) = int(b)
+* **h(k) = int(b)**
   * b è dato dalla somma modulo 2, effettuata bit a bit, di diversi sottoinsiemi di p bit di bin(k)
-* h(k) uguale al resto della divisione int(bin(k)) / m
+* **h(k) uguale al resto della divisione int(bin(k)) / m**
   * m è dispari; se fosse uguale a 2p, due numeri con gli stessi p bit finali darebbero sempre luogo a una collisione
   
 L'ultima funzione hash è la migliore dal punto di vista probabilistico e fornisce un'eccellente distribuzione degli indirizzi h(k) nell'intervallo da 0 a m-1.
@@ -526,8 +529,10 @@ Usando metodi di scansione interna e potendo cancellare chiavi, non si è mai si
 
 #### Notazione di un grafo
 Un **grafo** G è definito dalla coppia **<N, A>** dove
-* **N** è l'insieme dei **nodi**
-* **A** è l'insieme degli **archi**
+
+> **N** è l'insieme dei **nodi**
+
+> **A** è l'insieme degli **archi**
 
 Un grafo può essere:
 * **Orientato**, se un arco è definito da un nodo *ui* ad un nodo *uj* che appartengono all'insieme dei nodi N
@@ -607,10 +612,10 @@ L'albero è spesso utilizzato per rappresentare **relazioni gerarchiche** tra og
 **Altezza dell'albero**: massimo livello delle sue foglie
 
 ### Specifica sintattica
-Tipi:
+**Tipi**:
 * albero, boolean, nodo
 
-Operatori:
+**Operatori**:
 * creaalbero: ( ) &rightarrow; albero
 * alberovuoto: (albero) &rightarrow; boolean
 * insradice: (albero, nodo) &rightarrow; albero
@@ -625,56 +630,56 @@ Operatori:
 * cansottoalbero: (albero, nodo) &rightarrow; albero
 
 ### Specifica semantica
-Tipi:
-* **albero**: insieme degli alberi ordinati T = <N, A> in cui ad ogni nodo n in N è associato il livello(n)
+**Tipi**:
+* **albero**: insieme degli alberi ordinati T = <N, A> in cui ad ogni **nodo** n in N è associato il livello(n)
 * **boolean**: insieme dei valori di verità
 * **nodo**: insieme qualsiasi (finito)
 
-Operatori:
-* creaalbero() = T'
-  * Precondizione: *(nessuna)*
-  * Postcondizione: T' = (&emptyset;, &emptyset;) = &wedge;
-* alberovuoto(T) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: se T = &wedge;
-    * Vero, b = true
-    * Falso, b = false
-* insradice(T, u) = T'
-  * Precondizione: T = &wedge;
-  * Postcondizione: T' = (N, A), N = {u}, livello(u) = 0, A &ne; (0, 0)
-* radice(T) = u
-  * Precondizione: T &ne; &wedge;, &exists; v tale che livello(v) = 0
-  * Postcondizione: u = v
-* padre(T, u) = v
-  * Precondizione: T &ne; &wedge;, u &in; N, livello(u) > 0
-  * Postcondizione: <v, u> &in; A, livello(u) = livello(v) + 1
-* foglia(T, u) = b
-  * Precondizione: T &ne; &wedge;, u &in; N
-  * Postcondizione: &exists; v &in; A con livello(v) = livello(u) + 1
-    * Non esiste, b = true
-    * Esiste, b = false
-* primofiglio(T, u) = v
-  * Precondizione: T &ne; &wedge;, u &in; N, foglia(T, u) = false
-  * Postcondizione: <u, v> &in; A, livello(v) = livello(u) + 1
-* ultimofratello(T, u) = b
-  * Precondizione: T &ne; &wedge;, u &in; N
-  * Postcondizione: se altri fratelli di u che lo seguono nella relazione d'ordine
-    * Non esistono, b = true
-    * Esistono, b = false
-* succfratello(T, u) = v
-  * Precondizione: T &ne; &wedge;, u &in; N, ultimofratello(T, u) = false
-  * Postcondizione: v è il fratello di u che lo segue nella relazione d'ordine
-* insprimosottoalbero(T, T', u) = T''
-  * Precondizione: T &ne; &wedge;, T' &ne; &wedge;, u &in; N
-  * Postcondizione: T'' è l'albero ottenuto da T aggiungendo l'albero T' di radice r'
+**Operatori**:
+* `creaalbero() = T'`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** T' = (&emptyset;, &emptyset;) = &wedge;
+* `alberovuoto(T) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** se T = &wedge;
+    * **Vero**, b = true
+    * **Falso**, b = false
+* `insradice(T, u) = T'`
+  * **Precondizione:** T = &wedge;
+  * **Postcondizione:** T' = (N, A), N = {u}, livello(u) = 0, A &ne; (0, 0)
+* `radice(T) = u`
+  * **Precondizione:** T &ne; &wedge;, &exists; v tale che livello(v) = 0
+  * **Postcondizione:** u = v
+* `padre(T, u) = v`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, livello(u) > 0
+  * **Postcondizione:** <v, u> &in; A, livello(u) = livello(v) + 1
+* `foglia(T, u) = b`
+  * **Precondizione:** T &ne; &wedge;, u &in; N
+  * **Postcondizione:** &exists; v &in; A con livello(v) = livello(u) + 1
+    * **Non esiste**, b = true
+    * **Esiste**, b = false
+* `primofiglio(T, u) = v`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, foglia(T, u) = false
+  * **Postcondizione:** <u, v> &in; A, livello(v) = livello(u) + 1
+* `ultimofratello(T, u) = b`
+  * **Precondizione:** T &ne; &wedge;, u &in; N
+  * **Postcondizione:** se altri fratelli di u che lo seguono nella relazione d'ordine
+    * **Non esistono**, b = true
+    * **Esistono**, b = false
+* `succfratello(T, u) = v`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, ultimofratello(T, u) = false
+  * **Postcondizione:** v è il fratello di u che lo segue nella relazione d'ordine
+* `insprimosottoalbero(T, T', u) = T''`
+  * **Precondizione:** T &ne; &wedge;, T' &ne; &wedge;, u &in; N
+  * **Postcondizione:** T'' è l'albero ottenuto da T aggiungendo l'albero T' di radice r'
     * r' diventa nuovo primo figlio di u
-* inssottoalbero(T, T', u) = T''
-  * Precondizione: T &ne; &wedge;, T' &ne; &wedge;, u &in; N, u non è radice di T
-  * Postcondizione: T'' è l'albero ottenuto da T aggiungendo il sottoalbero T' di radice r'
+* `inssottoalbero(T, T', u) = T''`
+  * **Precondizione:** T &ne; &wedge;, T' &ne; &wedge;, u &in; N, u non è radice di T
+  * **Postcondizione:** T'' è l'albero ottenuto da T aggiungendo il sottoalbero T' di radice r'
     * r' diventa il nuovo fratello che segue u nella relazione d'ordine
-* cansottoalbero(T, u) = T'
-  * Precondizione: T &ne; &wedge;, u &in; N
-  * Postcondizione: T' è ottenuto da T rimuovendo il sottoalbero di radice u
+* `cansottoalbero(T, u) = T'`
+  * **Precondizione:** T &ne; &wedge;, u &in; N
+  * **Postcondizione:** T' è ottenuto da T rimuovendo il sottoalbero di radice u
     * vengono eliminati u e tutti i suoi discendenti
     
 ### Visita di alberi
@@ -729,7 +734,7 @@ Sia T un albero, non vuoto, di radice r. Se r non è foglia ed ha k (> 0) figli,
           }
         }
         
-### Realizzazioni
+### Rappresentazione di un albero
 
 #### Rappresentazione con vettore dei padri
 Una possibile realizzazione è quella con il vettore dei padri:
@@ -765,7 +770,7 @@ Si può anche rappresentare un albero mediante lista dinamica:
   * Nodo effettivo dell'albero: un campo per il valore del nodo e un puntatore all'inizio della lista o a null se foglia
   * Nodo ausiliario: nodo con due puntatori, inizio lista sottoalbero e puntatore fratello
   
-## Albero binaro
+## Albero binario
 Un **albero binario** è un albero ordinato in cui ogni nodo ha al più **due** figli e si fa distinzione tra il **figlio sinistro** ed il **figlio destro** di un nodo.
 
 Due alberi T e U aventi gli stessi nodi, gli stessi figli per ogni nodo e la stessa radice, sono distinti qualora un nodo u sia designato come figlio sinistro di un nodo v in T e come figlio destro del medesimo nodo in U.
@@ -775,10 +780,10 @@ Due alberi T e U aventi gli stessi nodi, gli stessi figli per ogni nodo e la ste
 Ogni albero *n*-ario ordinato T si può rappresentare con un albero binario B avente gli stessi nodi e la stessa radice: in B ogni nodo ha come figlio sinistro il primo figlio in T e come figlio destro il fratello successivo in T. L'equivalenza vale ai fini della **previsita**. Le sequenze di nodi esaminati su T e B coincidono se T e B sono visitati in previsita.
 
 ### Specifica sintattica
-Tipi:
+**Tipi**:
 * alberobin, boolean, nodo
 
-Operatori:
+**Operatori**:
 * creabinalbero: ( ) &rightarrow; alberobin
 * binalberovuoto: (alberobin) &rightarrow; boolean
 * binradice: (alberobin) &rightarrow; nodo
@@ -791,97 +796,97 @@ Operatori:
 * cancsottobinalbero: (alberobin, nodo) &rightarrow; alberobin
 
 ### Specifica semantica
-Tipi:
+**Tipi**:
 * **alberobin**: insieme degli alberi binari T = (N, A), nei quali ad ogni nodo è associato un livello
 * **boolean**: insieme dei valori di verità
 * **nodo**: unità dell'albero
 
-Operatori:
-* creabinalbero() = T'
-  * Precondizione: *(nessuna*)
-  * Postcondizione: T' = (&emptyset;, &emptyset;) = &wedge;
-* binalberovuoto(T) = b
-  * Precondizione: *(nessuna*)
-  * Postcondizione: T = &wedge;
-    * Vero, b = true
-    * Falso, b = false
-* binradice(T) = u
-  * Precondizione: T &ne; &wedge;
-  * Postcondizione: livello(u) = 0
+**Operatori**:
+* `creabinalbero() = T'`
+  * **Precondizione:** *(nessuna*)
+  * **Postcondizione:** T' = (&emptyset;, &emptyset;) = &wedge;
+* `binalberovuoto(T) = b`
+  * **Precondizione:** *(nessuna*)
+  * **Postcondizione:** T = &wedge;
+    * **Vero**, b = true
+    * **Falso**, b = false
+* `binradice(T) = u`
+  * **Precondizione:** T &ne; &wedge;
+  * **Postcondizione:** livello(u) = 0
     * u &rightarrow; radice di T
-* binpadre(T, u) = v
-  * Precondizione: T &ne; &wedge;, u &in; N, livello(u) > 0
-  * Postcondizione: (v, u) &in; A, livello(v) = livello(u) - 1
+* `binpadre(T, u) = v`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, livello(u) > 0
+  * **Postcondizione:** (v, u) &in; A, livello(v) = livello(u) - 1
     * v &rightarrow; padre di u
-* figliosinistro(T, u) = v
-  * Precondizione: T &ne; &wedge;, u &in; N, sinistrovuoto(T, u) = false
-  * Postcondizione: v &rightarrow; figlio sinistro di u in T
-* figliodestro(T, u) = v
-  * Precondizione: T &ne; &wedge;, u &in; N, destrovuoto(T, u) = false
-  * Postconizione: v &rightarrow; figlio destro di u in T
-* sinistrovuoto(T, u) = b
-  * Precondizione: T &in; &wedge;, u &in; N
-  * Postcondizione: u ha un figlio sinistro
-    * Vero, b = false
-    * Falso, b = true
-* destrovuoto(T, u) = b
-  * Precondizione: T &ne; &wedge;, u &in; N
-  * Postcondizione: u ha un figlio destro
-    * Vero, b = false
-    * Falso, b = true
-* costrbinalbero(T, T') = T''
-  * Precondizione: *(nessuna)*
-  * Postcondizione: T'' si ottiene da T e T' introducendo automaticamente un nuovo nodo r'' (radice di T'') che avrà come sottoalbero sinistro T e sottoalbero destro T'
+* `figliosinistro(T, u) = v`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, sinistrovuoto(T, u) = false
+  * **Postcondizione:** v &rightarrow; figlio sinistro di u in T
+* `figliodestro(T, u) = v`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, destrovuoto(T, u) = false
+  * **Postconizione:** v &rightarrow; figlio destro di u in T
+* `sinistrovuoto(T, u) = b`
+  * **Precondizione:** T &in; &wedge;, u &in; N
+  * **Postcondizione:** u ha un figlio sinistro
+    * **Vero**, b = false
+    * **Falso**, b = true
+* `destrovuoto(T, u) = b`
+  * **Precondizione:** T &ne; &wedge;, u &in; N
+  * **Postcondizione:** u ha un figlio destro
+    * **Vero**, b = false
+    * **Falso**, b = true
+* `costrbinalbero(T, T') = T''`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** T'' si ottiene da T e T' introducendo automaticamente un nuovo nodo r'' (radice di T'') che avrà come sottoalbero sinistro T e sottoalbero destro T'
     * Se T e T' sono vuoti, l'operatore inserisce la sola radice r''
     * Se solo T è vuoto, r'' non avrà figlio sinistro
     * Se solo T' è vuoto, r'' non avrà figlio destro
- * cancsottobinalbero(T, u) = T'
-  * Precondizione: T &ne; &wedge;
-  * Postcondizione: T' si ottiene da T eliminando il sottoalbero di radice u, con tutti i suoi discendenti
+ * `cancsottobinalbero(T, u) = T'`
+  * **Precondizione:** T &ne; &wedge;
+  * **Postcondizione:** T' si ottiene da T eliminando il sottoalbero di radice u, con tutti i suoi discendenti
   
 ### Operatori aggiuntivi - Specifica sintattica
-Tipi:
+**Tipi**:
 * tipoelem
 
-Operatori:
+**Operatori**:
 * legginodo: (alberobin, nodo) &rightarrow; tipoelem
 * scrivinodo: (alberobin, nodo, tipoelem) &rightarrow; alberobin
 
 ### Operatori aggiuntivi - Specifica semantica
-Tipi:
+**Tipi**:
 * **tipoelem**: tipo dell'etichetta del nodo (int, char, ...)
 
-Operatori:
-* legginodo(T, u) = a
-  * Precondizione: T &ne; &wedge;, u &in; N, u è un nodo di T
-  * Postcondizione: a è il valore associato al nodo n in T
-* scrivinodo(T, u, a) = T'
-  * Precondizione: T &ne; &wedge;, n &in; N, n è un nodo di T
-  * Postcondizione: T' si ottiene assegnando al nodo n il valore a nell'albero T
+**Operatori**:
+* `legginodo(T, u) = a`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, u è un nodo di T
+  * **Postcondizione:** a è il valore associato al nodo n in T
+* `scrivinodo(T, u, a) = T'`
+  * **Precondizione:** T &ne; &wedge;, n &in; N, n è un nodo di T
+  * **Postcondizione:** T' si ottiene assegnando al nodo n il valore a nell'albero T
   
 ### Note sugli alberi binari
 Nell'algebra precedente si enfatizza la natura **ricorsiva** degli alberi e di costruire l'albero binario dal basso verso l'alto, cioè dal livello delle foglie verso la radice. Questa scelta non sempre è opportuna e occorre sostituire l'operatore di costruzione con tre operatori nuovi:
 
 ### Nuovi operatori - Specifica sintattica
-Operatori:
+**Operatori**:
 * insbinradice: (alberobin, nodo) &rightarrow; alberobin
 * insfigliosinistro: (alberobin, nodo) &rightarrow; alberobin
 * insfigliodestro: (alberobin, nodo) &rightarrow; alberobin
 
 ### Nuovi operatori - Specifica semantica
-Operatori:
-* insbinradice(T, u) = T'
-  * Precondizione: T = &wedge;
-  * Postcondizione: T' = (N, A), N = {u}, livello(u) = 0, A = &emptyset;
-* insfigliosinistro(T, u) = T'
-  * Precondizione: T &ne; &wedge;, u &in; N, sinistrovuoto(T, u) = true
-  * Postcondizione: N' = N &cup; {v}, T' si ottiene da T aggiungendo v come figlio sinistro di u
-* insfigliodestro(T, u) = T'
-  * Precondizione: T &ne; &wedge;, u &in; N, destrovuoto(T, u) = true
-  * Postcondizione: N' = N &cup; {v}, T' si ottiene da T aggiungendo v come figlio destro di u
+**Operatori**:
+* `insbinradice(T, u) = T'`
+  * **Precondizione:** T = &wedge;
+  * **Postcondizione:** T' = (N, A), N = {u}, livello(u) = 0, A = &emptyset;
+* `insfigliosinistro(T, u) = T'`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, sinistrovuoto(T, u) = true
+  * **Postcondizione:** N' = N &cup; {v}, T' si ottiene da T aggiungendo v come figlio sinistro di u
+* `insfigliodestro(T, u) = T'`
+  * **Precondizione:** T &ne; &wedge;, u &in; N, destrovuoto(T, u) = true
+  * **Postcondizione:** N' = N &cup; {v}, T' si ottiene da T aggiungendo v come figlio destro di u
   
 ### Visite
-Oltre alle visite per gli alberi n-ari, ci sono:
+Oltre alle visite per gli alberi *n*-ari, ci sono:
 * **Vista simmetrica**: richiede prima la visita del sottoalbero sinistro, poi l'analisi della radice, e poi la visita del sottoalbero destro;
 
         visitaSimmetrica(ALBEROBIN T, NODO u) {
@@ -910,18 +915,18 @@ Oltre alle visite per gli alberi n-ari, ci sono:
           }
         }
         
-### Realizzazione di un albero binario
+### Rappresentazione di un albero binario
 
-#### Realizzazione con vettore
+#### Rappresentazione con vettore
 Una possibile rappresentazione di un albero binario è quella **sequenziale** mediante vettore. La radice è in prima posizione; per il generico non p memorizzato in posizione i, se esiste il figlio sinistro è memorizzato in posizione 2i, se esiste il figlio destro è memorizzato in posizione 2i+1. Se l'albero è vuoto, alcune celle del vettore non corrispondono a nulla. Questo potrebbe essere un problema con linguaggi a tipizzazione forte. Conviene utilizzare un **boolean** per indicare che effettivamente in quella posizione c'è un nodo.
 
-#### Realizzazione con lista
+#### Rappresentazione con lista
 Nella realizzazione con lista valgono le stesse considerazioni fatte per gli alberi *n*-ari ma in questo caso se l'albero è vuoto, la lista è vuota. Se l'albero non è vuoto, contiene:
 * La **radice*
 * Una lista che rappresenta il **sotto-albero sinistro** nello stesso modo
 * Una lista che rappresenta il **sotto-albero destro** nello stesso modo
 
-#### Realizzazione con lista attraverso puntatori
+#### Rappresentazione con lista attraverso puntatori
 Gli alberi binari si possono anche rappresentare attraverso una lista con puntatori per rendere **dinamica** l'implementazione.
 
 ## Grafo
@@ -929,7 +934,7 @@ Il **grafo** è una struttura composta da **nodi** e **archi** che rappresenta u
 * I nodi sono usati per rappresentare oggetti;
 * Gli archi per rappresentare relazioni tra coppie di oggetti.
 
-#### Notazione grafo
+#### Notazione di un grafo
 Indichiamo il grafo con
 
 > G = (N, A)
@@ -941,10 +946,10 @@ Dove
 > **A** è un insieme finito di coppie ordinate di nodi rappresentanti gli **archi orientati**
 
 ### Specifica sintattica
-Tipi:
+**Tipi**:
 * grafo, boolean, nodo, lista, tipoelem
 
-Operatori:
+**Operatori**:
 * crea: ( ) &rightarrow; grafo
 * vuoto: (grafo) &rightarrow; boolean
 * insnodo: (grafo, nodo) &rightarrow; grafo
@@ -958,56 +963,56 @@ Operatori:
 * scrivinodo: (grafo, nodo, tipoelem) &rightarrow; grafo
 
 ### Specifica semantica
-Tipi:
+**Tipi**:
 * **grafo**: insieme G = (N, A) con N sottoinsieme finito di elementi di tipo **nodo**
 * **nodo**: insieme finito qualsiasi
 * **lista**: lista di elementi di tipo **nodo**
 * **boolean**: insieme dei valori di verità
 
-Operatori:
-* crea() = G
-  * Precondizione: *(nessuna)*
-  * Postcondizione: G = (N, A) con N = &emptyset; e A = &emptyset;
-* vuoto(G) = b
-  * Precondizione: *(nessuna)*
-  * Postcondizione: G = (N, A) con N = &emptyset; e A = &emptyset;
-    * Vero, b = true
-    * Falso, b = false
-* insnodo(G, u) = G'
-  * Precondizione: G = (N, A), u &in; N
-  * Postcondizione: G' = (N', A) con N' = N &cup; {u}
-* insarco(G, u, v) = G'
-  * Precondizione: G = (N, A), u &in; N, v &in; N, {u, v} &notin; A
-  * Postcondizione: G' = (N, A') con A' = A &cup; {(u, v)}
-* cancnodo(G, u) = G'
-  * Precondizione: G = (N, A), u &in; N
-  * Postcondizione: G' = (N', A) con N' = N \ {u}
-* cancarco(G, u, v) = G'
-  * Precondizione: G = (N, A), u &in; N, v &in; N, (u, v) &in; A
-  * Postcondizione: G' = (N, A') con A' = A \ {(u, v)}
-* adiacenti(G, u) = L
-  * Precondizione: G = (N, A), u &in; N
-  * Postcondizione: L è una lista che contiene una e una sola volta gli elmenti di A(u) = {v &in; N | (u, v) &in; A}
-* esistenodo(G, u) = b
-  * Precondizione: G = (N, A)
-  * Postcondizione: u &in; N
-    * Vero, b = true
-    * Falso, b = false
-* esistearco(G, u, v) = b
-  * Precondizione: G = (N, A), u &in; N, v &in; N
-  * Postcondizione: (u, v) &in; A
-    * Vero, b = true
-    * Falso, b = false
-* legginodo(G, u) = a
-  * Precondizione: G = (N, A), u &in; N
-  * Postcondizione: a è il valore del nodo n in G
-* scrivinodo(G, u, a) = G'
-  * Precondizione: G = (N, A), u &in; N
-  * Postcondizione: G' si ottiene da G aggiungendo il valore di a al nodo u
+**Operatori**:
+* `crea() = G`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** G = (N, A) con N = &emptyset; e A = &emptyset;
+* `vuoto(G) = b`
+  * **Precondizione:** *(nessuna)*
+  * **Postcondizione:** G = (N, A) con N = &emptyset; e A = &emptyset;
+    * **Vero**, b = true
+    * **Falso**, b = false
+* `insnodo(G, u) = G'`
+  * **Precondizione:** G = (N, A), u &in; N
+  * Postcondizione:** G' = (N', A) con N' = N &cup; {u}
+* `insarco(G, u, v) = G'`
+  * **Precondizione:** G = (N, A), u &in; N, v &in; N, {u, v} &notin; A
+  * **Postcondizione:** G' = (N, A') con A' = A &cup; {(u, v)}
+* `cancnodo(G, u) = G'`
+  * **Precondizione:** G = (N, A), u &in; N
+  * **Postcondizione:** G' = (N', A) con N' = N \ {u}
+* `cancarco(G, u, v) = G'`
+  * **Precondizione:** G = (N, A), u &in; N, v &in; N, (u, v) &in; A
+  * **Postcondizione:** G' = (N, A') con A' = A \ {(u, v)}
+* `adiacenti(G, u) = L`
+  * **Precondizione:** G = (N, A), u &in; N
+  * **Postcondizione:** L è una lista che contiene una e una sola volta gli elmenti di A(u) = {v &in; N | (u, v) &in; A}
+* `esistenodo(G, u) = b`
+  * **Precondizione:** G = (N, A)
+  * **Postcondizione:** u &in; N
+    * **Vero**, b = true
+    * **Falso**, b = false
+* `esistearco(G, u, v) = b`
+  * **Precondizione:** G = (N, A), u &in; N, v &in; N
+  * **Postcondizione:** (u, v) &in; A
+    * **Vero**, b = true
+    * **Falso**, b = false
+* `legginodo(G, u) = a`
+  * **Precondizione:** G = (N, A), u &in; N
+  * **Postcondizione:** a è il valore del nodo n in G
+* `scrivinodo(G, u, a) = G'`
+  * **Precondizione:** G = (N, A), u &in; N
+  * **Postcondizione:** G' si ottiene da G aggiungendo il valore di a al nodo u
   
 ####### Oltre ai già considerati *legginodo* e *scrivinodo*, potrebbero avere senso altri due operatori denominati *leggiarco* e *scriviarco*.
 
-### Realizzazione
+### Rappresentazione di un grafo
 
 #### Rappresentazione con matrice di adiacenza
 La più semplice rappresentazione utilizza una matrice N x N. Se il grafo è pesato, nella matrice si utilizzano i pesi degli archi al posto degli elementi binari. Nel caso in cui il grafo non sia orientato, la matrice risulterà simmetrica rispetto alla diagonale principale.
@@ -1053,7 +1058,7 @@ Si illustrano **due** algoritmi:
               if (n non è marcato "visitato" and v !€ Q) then
                 INCODA(Q, v)
                 
-### Algoritmo generale di visita
+### Algoritmo generale di visita di un grafo
 
         repeat
           "SCEGLI UN NODO j DA Q"
