@@ -13,8 +13,7 @@
 Una lista è una sequenza **finita**, anche vuota, di elementi dello **stesso tipo** che possono comparire anche più volte in posizioni diverse (è differente rispetto al concetto di insieme).
 Gli elementi della lista, cui sono associate informazioni, sono definiti **atomi** o **nodi**.
 
-#### Notazione di una lista
-
+## Notazione di una lista
 Indichiamo la lista con la notazione
 
 > l = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
