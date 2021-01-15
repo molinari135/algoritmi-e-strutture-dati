@@ -1,7 +1,17 @@
 ## Insieme
+
+## Indice
+1. **[Notazione di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#notazione-di-un-insieme)**
+2. **[Operazioni in un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#operazioni-in-un-insieme)**
+3. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#specifica-sintattica)**
+4. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#specifica-semantica)**
+5. **[Rappresentazione di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#rappresentazione-di-un-insieme)**
+6. **[Alcune implementazioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#altre-implementazioni)**
+7. **[Complessità di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#insiemi)**
+
 Un **insieme** è una collezione di elementi di tipo omogeneo. A differenza delle liste, **gli elementi non sono caratterizzati da una posizione** nè possono apparire più di una volta.
 
-#### Notazione di un insieme
+## Notazione di un insieme
 In matematica possono essere definiti *estensionalmente*
 
 > A = { giallo, rosso, blu }
@@ -12,10 +22,10 @@ oppure *intensionalmente* attraverso le proprietà che devono avere i componenti
 
 In informatica ci riferiamo al modo **estensionale**.
 
-### Operazioni in un insieme
+## Operazioni in un insieme
 Le operazioni principali sono **unione, intersezione e differenza**.
 
-### Specifica sintattica
+## Specifica sintattica
 **Tipi**:
 * insieme, boolean, tipoelem
 
@@ -29,7 +39,7 @@ Le operazioni principali sono **unione, intersezione e differenza**.
 * intersezione: (insieme, insieme) &rightarrow; insieme
 * differenza: (insieme, insieme) &rightarrow; insieme
 
-### Specifica semantica
+## Specifica semantica
 **Tipi**:
 * **insieme**: collezione di elementi di tipo **tipoelem**
 * **boolean**: insieme dei valori di verità
@@ -64,9 +74,8 @@ Le operazioni principali sono **unione, intersezione e differenza**.
   * **Precondizione:** *(nessuna)*
   * **Postcondizione:** C = A \ B
   
-### Rappresentazione di un insieme
-
-#### Rappresentazione con liste non ordinate
+## Rappresentazione di un insieme
+### Rappresentazione con liste non ordinate
 Un insieme si può rappresentare con un **vettore booleano** se il linguaggio utilizzato non prevede il tipo insieme. Per rappresentare un insieme A di interi, si fa uso di un vettore booleano di *n* bit, il cui *k*-esimo valore sarà *vero* se k appartiene ad A e *falso* altrimenti.
 
 Un'altra rappresentazione si avvale di una **lista** i cui elementi sono quelli dell'insieme, così da evitare che gli elementi siano assolutamente degli interi.
@@ -91,7 +100,7 @@ L'inserimento avviene **in testa alla lista** semplice con cui è realizzato l'i
   - `intersezione`: C vuoto, scorri A se l'elemento è in B lo metti in C;
   - `differenza`: C vuoto, scorri A se l'elemento non è in B lo metti in C;
 
-#### Rappresentazione con liste ordinate
+### Rappresentazione con liste ordinate
 Se è definita una relazione &le; di ordinamento totale sugli elementi dell'insieme, esso può essere rappresentato con una lista ordinata per valori crescenti degli elementi utilizzando due puntatori che scorrono ognuno su un insieme.
 
 - L'operatore `appartiene` effettua una ricerca in una lista ordinata;
@@ -99,5 +108,5 @@ Se è definita una relazione &le; di ordinamento totale sugli elementi dell'insi
 - L'operatore `cancellazione` effettua una ricerca in una lista ordinata;
 - Le operazioni `unione`, `intersezione`, `differenza` sono facilitate dal fatto di poter scorrere due liste ordinate;
 
-### Altre implementazioni
+## Altre implementazioni
 Esistono altri modi per rappresentare gli insiemi tramite **dizionario** e con un **albero bilanciato**. Quando si fa uso del dizionario, esso conterrà solo chiavi, ovvero gli elementi dell'insieme.
