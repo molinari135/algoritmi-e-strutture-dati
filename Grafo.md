@@ -1,9 +1,19 @@
-## Grafo
+# Grafo
+
+## Indice
+1. **[Notazione di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#notazione-di-un-grafo)**
+2. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#specifica-sintattica)**
+3. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#specifica-semantica)**
+4. **[Rappresentazione di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#rappresentazione-di-un-grafo)**
+5. **[Visita di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#visita-di-un-grafo)**
+6. **[Algoritmo generale di visita di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#algoritmo-generale-di-visita-di-un-grafo)**
+7. **Complessità di un grafo**
+
 Il **grafo** è una struttura composta da **nodi** e **archi** che rappresenta una relazione binaria sull'insieme costituito dai nodi. 
 * I nodi sono usati per rappresentare oggetti;
 * Gli archi per rappresentare relazioni tra coppie di oggetti.
 
-#### Notazione di un grafo
+## Notazione di un grafo
 Indichiamo il grafo con
 
 > G = (N, A)
@@ -14,7 +24,7 @@ Dove
 
 > **A** è un insieme finito di coppie ordinate di nodi rappresentanti gli **archi orientati**
 
-### Specifica sintattica
+## Specifica sintattica
 **Tipi**:
 * grafo, boolean, nodo, lista, tipoelem
 
@@ -31,7 +41,7 @@ Dove
 * legginodo: (grafo, nodo) &rightarrow; tipoelem
 * scrivinodo: (grafo, nodo, tipoelem) &rightarrow; grafo
 
-### Specifica semantica
+## Specifica semantica
 **Tipi**:
 * **grafo**: insieme G = (N, A) con N sottoinsieme finito di elementi di tipo **nodo**
 * **nodo**: insieme finito qualsiasi
@@ -79,28 +89,27 @@ Dove
   * **Precondizione:** G = (N, A), u &in; N
   * **Postcondizione:** G' si ottiene da G aggiungendo il valore di a al nodo u
   
-####### Oltre ai già considerati *legginodo* e *scrivinodo*, potrebbero avere senso altri due operatori denominati *leggiarco* e *scriviarco*.
+##### Oltre ai già considerati *legginodo* e *scrivinodo*, potrebbero avere senso altri due operatori denominati *leggiarco* e *scriviarco*.
 
-### Rappresentazione di un grafo
-
-#### Rappresentazione con matrice di adiacenza
+## Rappresentazione di un grafo
+### Rappresentazione con matrice di adiacenza
 La più semplice rappresentazione utilizza una matrice N x N. Se il grafo è pesato, nella matrice si utilizzano i pesi degli archi al posto degli elementi binari. Nel caso in cui il grafo non sia orientato, la matrice risulterà simmetrica rispetto alla diagonale principale.
 
-#### Rappresentazione con matrice di adiacenza estesa
+### Rappresentazione con matrice di adiacenza estesa
 Aggiungendo
 * MARK, flag che ha valore falso o 0 se il nodo è stato rimosso
 * ARCHI, contiene il numero somma degli entranti e uscenti dal generico nodo
 si ottiene una matrice di adiacenza estesa.
 
-#### Rappresentazione con vettore di adiacenza
+### Rappresentazione con vettore di adiacenza
 Un'altra rappresenzazione prevede l'implementazione del grafo con due vettori, il vettore NODI e il vettore ARCHI. Il vettore NODI è formato da N elementi e NODI(i) contiene un cursore alla posizione di ARCHI a partire dalla quale è memorizzato A(i).
 
-#### Rappresentazione con lista di adiacenza
+### Rappresentazione con lista di adiacenza
 Se il grafo non è orientato, è necessario rappresentare ogni arco due volte. Se i grafi sono etichettati sui nodi e/o sugli archi, i pesi possono essere memorizzati in vettori PESINODI(n) e PESIARCHI(m).
 
 In alternativa, si può utilizzare un vettore di nodi A ed n liste. Una generica componente A(i) del vettore è il puntatore alla lista i-esima in cui sono memorizzati i nodi adiacenti a i.
 
-### Visita di un grafo
+## Visita di un grafo
 Esistono dei metodi sistematici per esplorare un grafo "visitando" almeno una volta ogni nodo ed ogni arco di un **grafo non orientato e connesso** oppure **orientato e fortemente connesso**.
 
 Si illustrano **due** algoritmi:
@@ -127,7 +136,7 @@ Si illustrano **due** algoritmi:
               if (n non è marcato "visitato" and v !€ Q) then
                 INCODA(Q, v)
                 
-### Algoritmo generale di visita di un grafo
+## Algoritmo generale di visita di un grafo
 
         repeat
           "SCEGLI UN NODO j DA Q"
