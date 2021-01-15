@@ -146,7 +146,9 @@ Le possibili realizzazioni sono:
 Nelle visite del grafo, si hanno due possibilità:
 * **Depth-First-Search (DFS)**
 * **Breadth-First-Search (BFS)**
+
 In entrambi i casi, la verifica di non appartenenza del nodo *v* alla coda può essere effettuato in tempo O(1) introducendo nella procedura BFS un opportuno vettore booleano in cui il bit *v* è impostato a vero quando *v* è inserito in *Q* ed è rimesso a falso quando *v* è estratto da *Q*.
+
 Le procedure DFS e BFD sono metodi di visita sistematica che, opportunamente modificati, possono essre usati per risolvere in tempo &Theta;(*n+m*) molti problemi tra cui:
 * Verificare se un grafo non orientato è connesso o no
 * Verificare se un grafo orientato è fortemente connesso oppure no
