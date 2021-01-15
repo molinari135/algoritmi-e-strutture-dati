@@ -111,7 +111,16 @@ Le possibili realizzazioni sono:
   * Utilizzando un vettore con m = |K| posizioni, si potrebbe accedere direttamente alla posizione contenente la chiave in tempo O(1)
   * Se |K| è grande, questo metodo è improponibile perchè richiede uno spreco enorme di memoria
   
+Per realizzare efficientemente un dizionario con una tabella hash:
+1) Occorre una funzione *H*, detta funzione hash, che sia calcolabile velocemente (in tempo O(1)) e che distribuisca le chiavi uniformemente nel vettore *V*, al fine di ridurre il numero di collisioni tra chiavi diverse che hanno lo stesso indirizzo hash
+2) Occorre un metodo di scansione, per reperire chiavi che hanno trovato la loro posizione occupata, che permetta di esplorare tutto il vettore *V* e non provochi la formazione di agglomerati di chiavi
+3) La dimensione *m* del vettore *V* deve essere una sovrastima (di solito il doppio) del numero di chiavi attese, onde evitare di riempire *V* completamente
+
 | Realizzazione | Vantaggi | Svantaggi |
 |---------------|----------|-----------|
 | Vettore ordinato | Implementazione semplice | Costo delle operazioni molto alto |
 | Tabella hash | Ogni operazione, pur avento O(n) nel caso pessimo, richiede O(1) nel caso medio | Se il numero delle chiavi è grande, c'è spreco di memoria |
+
+## Code con priorità
+Sono un particolare insieme, sugli elementi del quale è definita una relazione "&le;" di ordinamento totale, in cui è possibile inserire un nuovo elemento o estrarre l'elemento "minimo". La specifica è simile a quella del tipo di dato "insieme", in cui sono ammesse le operazioni `inserisci`, `min`, `cancellamin`.
+
