@@ -114,4 +114,4 @@ Le possibili realizzazioni sono:
 | Realizzazione | Vantaggi | Svantaggi |
 |---------------|----------|-----------|
 | Vettore ordinato | Implementazione semplice | Costo delle operazioni molto alto |
-| Tabella hash | Ogni operazione, pur avento O(n) nel caso pessimo, richiede O(1) nel caso medio | Se |K| è grande, spreco di memoria |
+| Tabella hash | Ogni operazione, pur avento O(n) nel caso pessimo, richiede O(1) nel caso medio | Se il numero delle chiavi è grande, c'è spreco di memoria |
