@@ -2,16 +2,17 @@
 ###### Realizzazioni di varie strutture dati con specifica sintattica e semantica
 
 ## Indice
-1. Lista
-2. Pila
-3. Coda
-4. Insieme
-5. Dizionario
-6. Albero
-7. Albero binario
-8. Grafo
-9. Code con priorità
+1. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md)**
+2. **[Pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md)**
+3. **[Coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md)**
+4. **[Insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md)**
+5. **[Dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md)**
+6. **[Albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md)**
+7. **[Albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md)**
+8. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md)**
+9. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md)**
 
+## Tipi di strutture dati
 Ci sono strutture dati che si sviluppano in una dimensione e possono essere considerate come sequenze di oggetti. Queste strutture sono dette **lineari**.
 Per distinguerla dalle altre strutture dati vanno analizzati:
 - I modi di accedere alle posizioni in cui operare (**accesso**):
