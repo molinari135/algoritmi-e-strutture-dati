@@ -1,5 +1,11 @@
-## Code con priorità
-### Specifica sintattica
+# Code con priorità
+
+## Indice
+1. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-sintattica)**
+2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-semantica)**
+3. **[Complessità di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#code-con-priorit%C3%A0)**
+
+## Specifica sintattica
 **Tipi:**
 * prioricoda, tipoelem
 
@@ -9,7 +15,7 @@
 * min: (prioricoda) &rightarrow; tipoelem
 * cancellamin: (prioricoda) &rightarrow; prioricoda
 
-### Specifica semantica
+## Specifica semantica
 **Tipi:**
 * **prioricoda**: insieme di code con priorità con elementi di tipo **tipoelem**
 
