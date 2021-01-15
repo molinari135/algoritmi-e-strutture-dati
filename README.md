@@ -123,6 +123,12 @@ La lista vuota < > è sottolista di qualsiasi lista.
    * **Precondizione:** p = pos(i) con 1 &le; i &le; n    
    * **Postcondizione:** l' = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>i-1</sub>, a<sub>i+1</sub>, ..., a<sub>n</sub> >
 
+| Caso | Complessità |
+|------|-------------|
+| Memorizzare gli elementi della lista in un vettore | O(1) |
+| Inserzione o cancellazione di un elemento | O(n) |
+| Rappresentazione con con puntatori/cursori | O(1) per tutte le operazioni |
+
 ### Rappresentazione di una lista
 
 #### Rappresentazione collegata
