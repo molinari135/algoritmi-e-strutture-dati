@@ -1,5 +1,16 @@
 # Lista
-Una lista è una sequenza finita, anche vuota, di elementi dello stesso tipo che possono comparire anche più volte in posizioni diverse (è differente rispetto al concetto di insieme).
+
+## Indice
+1. **[Notazione di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#notazione-di-una-lista)**
+2. **[Accesso ad una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#accesso-ad-una-lista)**
+3. **[Operazioni in una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#operazioni-in-una-lista)**
+4. **[Lunghezza della lista e sottoliste](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#lunghezza-della-lista-e-sottoliste)**
+5. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#specifica-sintattica)**
+6. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#specifica-semantica)**
+7. **[Rappresentazione di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#rappresentazione-di-una-lista)**
+8. **[Complessità di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#lista)**
+
+Una lista è una sequenza **finita**, anche vuota, di elementi dello **stesso tipo** che possono comparire anche più volte in posizioni diverse (è differente rispetto al concetto di insieme).
 Gli elementi della lista, cui sono associate informazioni, sono definiti **atomi** o **nodi**.
 
 #### Notazione di una lista
@@ -40,7 +51,7 @@ La lista vuota < > è sottolista di qualsiasi lista.
 **Tipi**:
 * lista, posizione, boolean, tipoelem
 
-*Operatori**:
+**Operatori**:
 * crealista: ( ) &rightarrow; lista
 * listavuota: (lista) &rightarrow; boolean
 * leggilista: (lista, posizione) &rightarrow; tipoelem
@@ -107,17 +118,15 @@ La lista vuota < > è sottolista di qualsiasi lista.
 
 ## Rappresentazione di una lista
 
-#### Rappresentazione collegata
+### Rappresentazione collegata
 Le liste si possono rappresentare sia in maniera **sequenziale** mediante un vettore che attraverso una rappresentazione **collegata**, memorizzando i suoi elementi associando ad ognuno di essi una particolare informazione (riferimento) che permetta di individuare la locazione in cui è memorizzato l'elemento successivo. Per visualizzare tale rappresentazione si usa una notazione grafica in cui:
 * Gli elementi sono rappresentati mediante **nodi**
 * I riferimenti mediante **archi** che collegano nodi
 
 ### Rappresentazione con cursori
-
 Si può anche rappresentare mediante **cursori** utilizzando un vettore per la lista e realizzando i riferimenti mediante cursori il cui valore è interpretato come indice di un vettore (ad esempio, pos(i) è un cursore).
 
 ### Rappresentazione collegata mediante puntatori
-
 Un'altra rappresentazione è quella con **puntatori** e la struttura record per realizzare una **lista collegata**. Una possibile realizzazione prevede una lista monodirezionale semplificata in cui vi è una struttura di *n* elementi o **"celle"**, tale che l'*i*-esima cella contiene l'*i*-esimo elemento della lista e l'indirizzo della cella che contiene l'elemento successivo. In tal modo:
 * La **prima cella** è indirizzata da una variabile *l* di tipo puntatore
 * L'**ultima cella** punta a un valore convenzionale *nil*
