@@ -134,3 +134,20 @@ Le possibili realizzazioni sono:
 | Liste ordinate | `min` e `cancellamin` hanno complessità O(1) | `inserisci` è O(*n*) |
 | Liste non ordinate | la complessità di `inserisci` può scendere a O(1) | `min` e `cancellamin` sale a O(*n*) |
 | Heap | `cancellamin` e `inserisci` scende a =(log*n*) | Complessa gestione con modifiche alla struttura dell'albero binario |
+
+## Grafo
+Le possibili realizzazioni sono:
+* **Realizzazione con matrici**: con questa rappresentazione lo spazio di memoria occupato è sempre &Theta;(*nm*)
+* **Realizzazioni con insiemi di adiacenza**: lo spazio di memoria occupato è
+  * &Theta:(*n*) per il vettore e &Theta;(|A(*i*)| per ciascuna lista, per un totale di &Theta;(*n+m*)
+  * Per verificare se una coppia di valori appartiene all'insieme degli archi, occorre una scansione che richiede O(|A(*i*)|) tempo
+  * La scansione di ciascun insieme di adiacenza A(*i*) richiede tempo ottimo &Theta;(|A(*i*)|) mentre la scansione di tutti gli archi richiede tempo ottimo &Theta;(*n+m*)
+
+Nelle visite del grafo, si hanno due possibilità:
+* **Depth-First-Search (DFS)**
+* **Breadth-First-Search (BFS)**
+In entrambi i casi, la verifica di non appartenenza del nodo *v* alla coda può essere effettuato in tempo O(1) introducendo nella procedura BFS un opportuno vettore booleano in cui il bit *v* è impostato a vero quando *v* è inserito in *Q* ed è rimesso a falso quando *v* è estratto da *Q*.
+Le procedure DFS e BFD sono metodi di visita sistematica che, opportunamente modificati, possono essre usati per risolvere in tempo &Theta;(*n+m*) molti problemi tra cui:
+* Verificare se un grafo non orientato è connesso o no
+* Verificare se un grafo orientato è fortemente connesso oppure no
+* Trovare le componenti connesse di un grafo non orientato G, cioè tutti i sottografi connessi di cui G è composto
