@@ -1,8 +1,18 @@
 # Pila
+
+## Indice
+1. **[Notazione di una pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#notazione-di-una-pila)**
+2. **[Accesso ad una pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#accesso-ad-una-pila)**
+3. **[Operazioni in una pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#operazioni-in-una-pila)**
+4. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#specifica-sintattica)**
+5. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#specifica-semantica)**
+6. **[Realizzazioni di una pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#rappresentazione-di-una-pila)**
+7. **[Pile e procedure ricorsive](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Pila.md#pile-e-procedure-ricorsive)**
+8. **[Complessità di una pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#pila-e-coda)**
+
 Una **pila** è una sequenza di elementi di un certo tipo.
 
-#### Notazione di una pila
-
+## Notazione di una pila
 Indichiamo la pila con la notazione
 
 > P = < a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> > con n &ge; 0
@@ -52,7 +62,6 @@ Tutte le operazioni vanno effettuate **solo all'estremo superiore** della pila, 
   * **Postcondizione:** P' = < **a**, a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> >
   
 ## Rappresentazione di una pila
-
 La pila è un caso particolare di **lista** e possiamo definire la seguente corripondenza tra gli operatori:
 * `creapila()` &rightarrow; `crealista()`
 * `pilavuota(p)` &rightarrow; `listavuota(p)`
@@ -60,10 +69,10 @@ La pila è un caso particolare di **lista** e possiamo definire la seguente corr
 * `fuoripila(p)` &rightarrow; `canclista(**primolista(p)**, p)`
 * `inpila(p, a)` &rightarrow; `inslista(**primolista(p)**, p, a)`
 
-## Rappresentazione con vettore
+### Rappresentazione con vettore
 Le pile si possono rappresentare mediante vettore memorizzando gli *n* elementi della pila, in **ordine inverso**, nelle prime n posizioni del vettore, mantenendo un **cursore alla testa della pila**. Questa implementazione è svantagiosa perchè richiede di definire una dimensione degli elementi massimi della pila.
 
-## Rappresentazione con puntatori
+### Rappresentazione con puntatori
 Si possono anche implementare utilizzando i **puntatori**, riferendosi alla cella che si trova in cima con un puntatore.
 
 ## Pile e procedure ricorsive
