@@ -1,7 +1,17 @@
-## Dizionario
+# Dizionario
 Il dizionario è un sottotipo del tipo insieme i cui elementi sono generalmente tipi strutturati ai quali si accede per mezzo di un riferimento a un campo chiave.
 
-#### Notazione di un dizionario
+## Indice
+1. **[Notazione di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#notazione-di-un-dizionario)**
+2. **[Operazioni in un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#operazioni-in-un-dizionario)**
+3. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#specifica-sintattica)**
+4. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#specifica-semantica)**
+5. **[Rappresentazione di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#rappresentazione-di-un-dizionario)**
+6. **[Collisioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#collisioni)**
+7. **[Metodi di scansione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#metodi-di-scansione)**
+8. **[Complessità di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#dizionari)**
+
+## Notazione di un dizionario
 Gli elementi assumono la forma di una coppia costituita da coppie
 
 > <chiave, valore>
@@ -9,13 +19,13 @@ Gli elementi assumono la forma di una coppia costituita da coppie
 - La caratteristica della **chiave** è legata alla applicazione
 - Il **valore** associato rappresenta l'informazione associata per scopi di gestinone o manutenzione
 
-### Operazioni in un dizionario
+## Operazioni in un dizionario
 Poichè possiamo definirli un caso particolare di **insieme**, la specifica per i dizionari è molto simile a quella del tipo di dato insieme. Le operazioni ammesse sono:
 * crea, appartiene, inserisci, cancella
 E in alcuni casi troviamo anche le operazioni:
 * recupera, aggiorna
 
-### Specifica sintattica
+## Specifica sintattica
 **Tipi**:
 * dizionaio, boolean, chiave, valore
 
@@ -27,7 +37,7 @@ E in alcuni casi troviamo anche le operazioni:
 * cancella: (dizionario, chiave) &rightarrow; dizionario
 * recupera: (dizionario, chiave) &rightarrow; valore
 
-### Specifica semantica
+## Specifica semantica
 **Tipi**:
 * **dizionario**: collezione di dizionari costituita da coppie di tipo **<chiave, valore>**
 * **boolean**: insieme dei valori di verità
@@ -58,13 +68,13 @@ E in alcuni casi troviamo anche le operazioni:
   * **Precondizione:** &exists; <k', v'> &in; D tale che k' = k
   * **Postcondizione:** v = v'
 
-### Rappresentazione di un dizionario
+## Rappresentazione di un dizionario
 Oltre alla rappresentazione con **vettore booleano** e mediante **lista**, ci sono quelle mediante **vettori ordinati** e **tabelle hash**.
 
-#### Rappresentazione con vettore ordinato
+### Rappresentazione con vettore ordinato
 Si utilizza un **vettore con un cursore all'ultima posizione occupata**. Avendo definito una **relazione di ordinamento totale &le;** sulle chiavi, queste si memorizzano in posizioni contigue in ordine crescente. Per verificare l'appartenenza di un elemento o di una chiave, si utiilzza la **ricerca binaria**, si confronta il valore da ricercare k con il valore v che occupa la posizione centrale del vettore e si stabilisce in quale metà continuare la ricerca.
 
-#### Rappresentazione con tabella hash
+### Rappresentazione con tabella hash
 Esiste una tecnica denominata **hash** che si appoggia su una struttura di dati tabellare. Con questa struttura le operazioni di ricerca e di modifica possono operare in **tempi costanti e indipendenti dalla dimensione** del dizionario.
 
 > **Idea base**: ricavare la posizione che la chiave occupa in un vettore dalla chiave stessa.
@@ -101,7 +111,7 @@ Utilizzando m = |K| si ha garanzia di biunivocità e di poter accedere direttame
 
 La soluzione di compromesso è scegliere un m maggiore di 1 ma molto minore di |K|.
 
-### Collisioni
+## Collisioni
 Una **collisione** si verifica quando chiavi diverse producono lo **stesso risultato della funzione**. Esistono funzioni hash più o meno buone anche se le collisioni non si potranno mai evitare del tutto.
 
 Quale che sia la funzione hash adottata, deve essere prevista una strategia per gestire il problema degli agglomerati e delle collisioni. In definitiva:
@@ -119,12 +129,12 @@ Alcuni buoni metodi di generazione hash con **b = bin(k)**:
   
 L'ultima funzione hash è la migliore dal punto di vista probabilistico e fornisce un'eccellente distribuzione degli indirizzi h(k) nell'intervallo da 0 a m-1.
 
-#### Hash aperto
+### Hash aperto
 Una tecnica che **evita la formazione di agglomerati** è quella dell'hash aperto che richiede che la tabella hash mantenga la lista degli elementi le cui chiavi producono lo stesso valore di funzione. La tabella di hash viene realizzata definendo un array di liste di bucket dette **liste di trabocco**.
 
 La funzione di hash viene utilizzata per **determinare quale lista potrbbe contenere l'elemento** che possiede una determinata chiave in modo da poter attivare una successiva operazione di ricerca nella lista corrispondente e da restituire la posizione del bucket che contiene la chiave.
 
-### Metodi di scansione
+## Metodi di scansione
 I metodi di scansione si distinguono in:
 - **Scansione esterna**
 - **Scansione interna**
