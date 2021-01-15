@@ -1,6 +1,17 @@
 # Strutture dati
 ###### Realizzazioni di varie strutture dati con specifica sintattica e semantica
 
+## Indice
+1. Lista
+2. Pila
+3. Coda
+4. Insieme
+5. Dizionario
+6. Albero
+7. Albero binario
+8. Grafo
+9. Code con priorità
+
 Ci sono strutture dati che si sviluppano in una dimensione e possono essere considerate come sequenze di oggetti. Queste strutture sono dette **lineari**.
 Per distinguerla dalle altre strutture dati vanno analizzati:
 - I modi di accedere alle posizioni in cui operare (**accesso**):
