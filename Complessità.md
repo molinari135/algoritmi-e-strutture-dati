@@ -34,11 +34,11 @@ Le possibili realizzazioni sono:
 
 ## Pila e coda
 Le possibili realizzazioni sono:
-* Fare uso di un vettore
+* **Realizzazione con vettore**
  * Oltre alle realizzazioni per pile e code che si basano su quelle descritte per le lista, ci sono due realizzazioni specifiche, che utilizzano vettori, in cui tutte le operazioni delle pile e delle code continuano ad avere complessità O(1). Tali implementazioni sono utilizzabili quando si è in grado di limitare superiormente con un opportuno valore il numero massimo di elementi che possono essere presenti nella pila o nella coda
-* Fare uso di un vettore circolare
+* **Realizzazione con vettore circolare**
  * La complessità di `incoda` è O(1) se viene usata una realizzazione bidirezionale circolare (con o senza sentinella) della lista, altrimenti diventa &Theta;(*n*) usando le altre realizzazioni
-* Fare uso dei puntatori
+* **Realizzazione con puntatori**
  * Usando le realizzazioni delle liste con puntatori, la complessità di ciascuna operazione per le pile è O(1)
 
 | Realizzazione | Vantaggi | Svantaggi |
@@ -51,15 +51,15 @@ Le possibili realizzazioni sono:
 Gli alberi possiedono tre tipi di visite (previsita, postvisita, invisita) che fanno uso di chiamate ricorsive per ciascun nodo, per un totale di *n* chiamate, dove *n* è il numero di nodi dell'albero. Pertanto, la complessità delle tre procedure di visita è &Theta;(n), purchè si fornisca una realizzazione in cui gli operatori utilizzati nelle procedure di visita richiedano ciascuno O(1) tempo.
 
 Le possibili realizzazioni sono:
-* Realizzazione con vettore dei padri
+* **Realizzazione con vettore dei padri**
   * Con questa realizzazione è facile visitare i nodi lungo percorsi che vadano dal basso verso l'alto; l'operazione `padre` richiede tempo O(1)
   * Non è chiara la relazione di precedenza tra fratelli, a meno che non se ne assuma una implicitamente, per esempio imponendo che un figlio abbia sempre un numero maggiore del padre e che nodi fratelli siano numerati in modo crescente da sinistra verso destra
   * Ad esempio, la funzione `primofiglio` possiede una complessità O(n)
-* Realizzazione con liste di figli
+* **Realizzazione con liste di figli**
   * Presenta il vantaggio di poter scorrere velocemente tutti i figli di un dato nodo, ma non permette di realizzare efficientemente altri operatori come `padre` o `succfratello`.
   * Anche assumento una realizzazione efficiente per le liste, le complessità di `padre` e `succfratello` non scendono sotto O(n)
   * Per trovare un nodo *u* occorre scandire nel caso pessimo tutte le *n* liste dei figli, per un totale di O(n) tempo
-* Realizzazione con puntatori padre/primofiglio/fratello
+* **Realizzazione con puntatori padre/primofiglio/fratello**
   * Con questa realizzazione a puntatori (o cursori) padre/primofiglio/fratello, nodo e valore vengono ad assumere, rispettivamente, ruoli analoghi a quelli di posizione e elemento nelle liste
   * Utilizzando i puntatori, ogni operatore, tranne `cancsottoalbero`, richiede tempo O(1) per essere eseguito
   * Per realizzare `cancsottoalbero` in tempo O(1), occorre che ogni cella, oltre a contenere un puntatore (o cursore) al padre e al fratello successivo, contenga anche un puntatore (o cursore) al fratello precedente
@@ -80,17 +80,17 @@ Per calcolare la profondità di un albero ordinato (ovvero il massimo livello de
 
 ## Insiemi
 Le possibili realizzazioni sono:
-* Realizzazione con vettore booleano
+* **Realizzazione con vettore booleano**
   * La complessità di `appartiene`, `inserisci` e `cancella` è O(1), mentre quella di `creainsieme`, `insiemevuoto`, `unione`, `intersezione` e `differenza` è &Theta;(N), perchè occorre scandire l'intero vettore
   * Questa implementazione presenta molti svantaggi:
     * Vi è un notevole spreco di memoria, poichè ogni insieme richiede sempre &Theta;(N) spazio per la sua memorizzazione
     * Alcune operazioni sono troppo lente, perchè richiedono O(N) tempo, anche per insiemi con pochissimi elementi
     * La cardinalità dell'insieme non può superare la costante N
-* Realizzazione con liste non ordinate
+* **Realizzazione con liste non ordinate**
   * L'occupazione di memoria dell'insieme, anzichè essere semrpe &Theta;(N), cresce linearmente col numero degli elementi effettivamente presenti nell'insieme
   * La complessità di `creainsieme`, `insiemevuoto` è O(1) mentre quella di `appartiene`, `inserisci`, `cancella` è O(n) dove n = |A|, cioè il numero di elementi presenti nell'insieme
   * Qualora la non appartenenza all'insieme sia nota a priori, la complessità di `inserisci` può essere abbassata ad O(1)
-* Realizzazione con liste ordinate
+* **Realizzazione con liste ordinate**
   * La complessità degli operatori `unione`, `intersezione` e `differenza` può essere abbassata a O(n+m)
   * La complessità di `inserisci` non può scendere sotto O(n), perchè quando si inserisce un elemento bisogna rispettare l'ordinamento della lista
   * Il tempo richiesto da `appartiene` e `cancella` resta ovviamente O(n)
@@ -103,9 +103,9 @@ Le possibili realizzazioni sono:
 
 ## Dizionari
 Le possibili realizzazioni sono:
-* Realizzazione con vettore ordinato
+* **Realizzazione con vettore ordinato**
   * Si utilizza un vettore con un cursore all'ultima posizione occupata e le chiavi sono memorizzate nel vettore in posizioni contigue e in ordine crescente a partire dalla prima posizione
-* Realizzazione con tabella hash
+* **Realizzazione con tabella hash**
   * La realizzazione del dizionario con tabelle hash si basa sul concetto di ricavare direttamente dal valore della chiave la posizione che la chiave stessa dovrebbe occupare in un vettore
   * Ciascuna operazione, pur avendo complessità O(n) nel caso pessimo, richiede tempo O(1) nel caso medio.
   * Utilizzando un vettore con m = |K| posizioni, si potrebbe accedere direttamente alla posizione contenente la chiave in tempo O(1)
