@@ -2,8 +2,12 @@
 
 ## Indice
 1. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-sintattica)**
-2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-semantica)**
-3. **[Complessità di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#code-con-priorit%C3%A0)**
+2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-semantica)** 
+3. **[Rappresentazione di una coda con priorità]()**
+4. **[Realizzazione degli operatori]()**
+5. **[Osservazioni]()**
+6. **[Realizzazione con heap]()**
+7. **[Complessità di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#code-con-priorit%C3%A0)**
 
 ## Specifica sintattica
 **Tipi:**
