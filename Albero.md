@@ -1,8 +1,19 @@
-## Albero
+# Albero
 
-### Definizione di grafo
+## Indice
+1. **[Definizione di grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#definizione-di-grafo)**
+2. **[Notazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#albero-1)**
+3. **[Proprietà di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#propriet%C3%A0-di-un-albero)**
+4. **[Definizione ricorsiva di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#definizione-ricorsiva-di-albero)**
+5. **[Definizioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#definizioni)**
+6. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#specifica-sintattica)**
+7. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#specifica-semantica)**
+8. **[Visita di alberi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#visita-di-alberi)**
+9. **[Rappresentazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#rappresentazione-di-un-albero)**
+10. **[Complessità di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#alberi)**
 
-#### Notazione di un grafo
+## Definizione di grafo
+## Notazione di un grafo
 Un **grafo** G è definito dalla coppia **<N, A>** dove
 
 > **N** è l'insieme dei **nodi**
@@ -33,9 +44,8 @@ Il grafo G è detto **fortemente connesso** se **per ogni coppia** di nodi *u* e
 
 [Immagine grafo non fortemente connesso]
 
-### Albero
-
-#### Notazione di un albero
+## Albero
+## Notazione di un albero
 L'albero è un grafo definito dalla coppia
 
 > T = < N, A >
@@ -64,7 +74,7 @@ In un albero radicato:
 * Nodi terminali senza figli sono detti **foglie**
 * Un **albero ordinato** è ottenuto da uno **radicato** stabilendo un ordinamento tra nodi allo stesso livello.
 
-### Proprietà di un albero
+## Proprietà di un albero
 * Un albero è un **grafo aciclico**, in cui per ogni nodo c'è un arco entrante
   * Tranne che per la radice, che non ne ha nessuno
 * Un albero è un grafo **debolmente connesso**
@@ -72,7 +82,7 @@ In un albero radicato:
 * In un albero esiste **un solo cammino** che va dalla radice a qualunque altro nodo
 * Tutti i nodi di un albero (tranne r) possono essere ripartiti in insiemi disgiunti **ciascuno dei quali individua un albero**
 
-### Definizione ricorsiva di albero
+## Definizione ricorsiva di albero
 Un **albero** è un grafo orientato che, o è vuoto, oppure:
 - Esiste un **nodo r detto radice** senza predecessori con n &ge; nodi successivi a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>
 - Tutti gli altri sono ripartiti in *n* sottoalberi mutualmente disgiunti T<sub>1</sub>, T<sub>2</sub>, ..., T<sub>n</sub> aventi rispettivamente a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> come radice
@@ -81,12 +91,12 @@ L'albero è spesso utilizzato per rappresentare **relazioni gerarchiche** tra og
 
 [Immagine di un albero con descrizione]
 
-### Definizioni
-**Profondità di un nodo**: la lunghezza del percorso dalla radice al nodo (ad esempio, il numero degli archi attraversati)
-**Livello**: l'insieme dei nodi alla stessa profondità
-**Altezza dell'albero**: massimo livello delle sue foglie
+## Definizioni
+* **Profondità di un nodo**: la lunghezza del percorso dalla radice al nodo (ad esempio, il numero degli archi attraversati)
+* **Livello**: l'insieme dei nodi alla stessa profondità
+* **Altezza dell'albero**: massimo livello delle sue foglie
 
-### Specifica sintattica
+## Specifica sintattica
 **Tipi**:
 * albero, boolean, nodo
 
@@ -104,7 +114,7 @@ L'albero è spesso utilizzato per rappresentare **relazioni gerarchiche** tra og
 * inssottoalbero: (albero, albero, nodo) &rightarrow; albero
 * cansottoalbero: (albero, nodo) &rightarrow; albero
 
-### Specifica semantica
+## Specifica semantica
 **Tipi**:
 * **albero**: insieme degli alberi ordinati T = <N, A> in cui ad ogni **nodo** n in N è associato il livello(n)
 * **boolean**: insieme dei valori di verità
@@ -157,7 +167,7 @@ L'albero è spesso utilizzato per rappresentare **relazioni gerarchiche** tra og
   * **Postcondizione:** T' è ottenuto da T rimuovendo il sottoalbero di radice u
     * vengono eliminati u e tutti i suoi discendenti
     
-### Visita di alberi
+## Visita di alberi
 Consiste nel pianificare e seguire una "rotta" che consenta di esaminare **ogni nodo** dell'albero **esattamente una volta**. Esistono modi diversi per effettuare una visita corrispondente all'ordine con cui si intende seguire la struttura.
 
 > **Visita di un albero**: algoritmo per "visitare" tutti i nodi di un albero.
@@ -188,7 +198,7 @@ Sia T un albero, non vuoto, di radice r. Se r non è foglia ed ha k (> 0) figli,
           }
         }
 
-###### Scambiando l'ordine delle istruzioni (1) e (2) si ottiene la postvisita
+##### Scambiando l'ordine delle istruzioni (1) e (2) si ottiene la postvisita
 
         INVISITA(var T:albero; U:nodo, i:int) {
           if (FOGLIA(U, T)) {
@@ -209,9 +219,8 @@ Sia T un albero, non vuoto, di radice r. Se r non è foglia ed ha k (> 0) figli,
           }
         }
         
-### Rappresentazione di un albero
-
-#### Rappresentazione con vettore dei padri
+## Rappresentazione di un albero
+### Rappresentazione con vettore dei padri
 Una possibile realizzazione è quella con il vettore dei padri:
 * il vettore contiene esattamente *n* elementi, quanti sono i nodi
 * ogni elemento del vettore rappresenta un nodo
@@ -221,12 +230,12 @@ Vantaggi | Svantaggi
 ---------|----------
 Visitare i nodi lungo percorsi che vanno da foglie a radice è più facile | Inserire e cancellare sottoalberi è più complesso
 
-#### Rappresentazione con liste di figli
+### Rappresentazione con liste di figli
 Un'altra realizzazione è quella con le liste di figli:
 * ogni elemento del vettore, oltre a memorizzare le informazioni sul nodo, memorizza un riferimento all'inizio della lista dei figli
 * la lista dei figli contiene tanti elementi quanti sono i successori del nodo
 
-#### Rappresentazione con lista con primo figlio/fratello
+### Rappresentazione con lista con primo figlio/fratello
 Altra realizzazione vede una lista con primo figlio/fratello:
 * Si utilizza una lista
 * Ogni elemento della lista, oltre a contenere le informazioni sul nodo, contiene un riferimento alla posizione nella lista del primo figlio e del primo fratello
@@ -237,7 +246,7 @@ Esiste anche la rappresentazione con il vettore dei figli, però si rischia di s
 
 Le realizzazioni precedenti si possono migliorare con l'applicazione dei puntatori, nel caso padre/primo-figlio/fratello.
 
-#### Rappresentazione con lista dinamica
+### Rappresentazione con lista dinamica
 Si può anche rappresentare un albero mediante lista dinamica:
 * La radice è il primo elemento di una lista, i successivi elementi saranno dei riferimenti ai sottoalberi della radice
 * Ogni riferimento punta ad un sottoalbero che a sua volta sarà il primo elemento di una lista
