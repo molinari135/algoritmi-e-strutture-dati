@@ -124,3 +124,13 @@ Per realizzare efficientemente un dizionario con una tabella hash:
 ## Code con priorità
 Sono un particolare insieme, sugli elementi del quale è definita una relazione "&le;" di ordinamento totale, in cui è possibile inserire un nuovo elemento o estrarre l'elemento "minimo". La specifica è simile a quella del tipo di dato "insieme", in cui sono ammesse le operazioni `inserisci`, `min`, `cancellamin`.
 
+Le possibili realizzazioni sono:
+* **Rappresentazione con liste ordinate**: nel caso di liste ordinate, gli operatori `min`, e `cancellamin` hanno complessità O(1), mentre `inserisci` è O(*n*).
+* **Rappresentazione con liste non ordinate**: nel caso di liste non ordinate, la complessità di `inserisci` può scendere a O(1), sapendo che l'elemento da inseriro non è già presente, ma quella di `min` e `cancellamin` sale a O(*n*).
+* **Rappresentazione con heap**: usando una rappresentazione con heap, poichè `cancellamin` e `inserisci` provocano scambi di elementi lungo un solo percorso radice-foglia, entrambi possono essere realizzati in modo da richiedere O(log*n*) tempo.
+
+| Realizzazione | Vantaggi | Svantaggi |
+|---------------|----------|-----------|
+| Liste ordinate | `min` e `cancellamin` hanno complessità O(1) | `inserisci` è O(*n*) |
+| Liste non ordinate | la complessità di `inserisci` può scendere a O(1) | `min` e `cancellamin` sale a O(*n*) |
+| Heap | `cancellamin` e `inserisci` scende a =(log*n*) | Complessa gestione con modifiche alla struttura dell'albero binario |
