@@ -1,5 +1,11 @@
 # Tecniche algoritmiche
 
+## Indice
+1. **[Classificazione dei problemi]()**
+2. **[Spazio di ricerca]()**
+3. **[Paradigma selettivo]()**
+4. **[Paradigma generativo]()**
+
 ## Classificazione dei problemi: problemi di ricerca, di decisione, di ottimizzazione
 
 I problemi si possono classificare in:
