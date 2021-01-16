@@ -10,6 +10,7 @@ I problemi si possono classificare in:
 Nella **concettualizzazione** si fornisce una specifica del problema, si stabiliscono le caratteristiche strutturali del problema senza fare riferimeento ai metodi per la risoluzione.
 Nella **realizzazione** si passa dalla specifica del problema alle scelte per la sua risoluzione, che coinvolgono la definizione dell'algoritmo risolutivo e la realizzazione del programma.
 
+## Specifica del problema
 La **specifica del problema** richiede:
 * La **scelta dell'input**: si stabilisce che i valori di alcune variabili in gioco siano i dati di ingresso del problema. 
   * L'insieme di tali valori è lo *spazio di input del problema*;
@@ -48,12 +49,30 @@ Poichè esiste un numero infinito di vettori, **r<sub>vett</sub> è di **dimensi
 Il quesito stabilisce che, nel problema considerato, possiamo essere interesati a una qualunque soluzione, a tutte le solzioni, alla "migliore" soluzione ecc...
 
 ### Specifica di un problema: definizione
-La specifica di un problema è una quintupla `< I, S, R, O, Q >` dove:
-* `I` è lo **spazio di input**;
-* `S` è lo **spazio delle soluzioni**;
-* `R` &subset; `I x S` è una relazione su `I` ed `S` detta **relazione caratteristica**;
-* `O` è lo **spazio di output**;
-* `Q` è una regola, detta **quesito**, che sulla base della relazione caratteristica `R`, consente di definire una relazione du `I` e `O`: `R`<sub>q</sub> &subset; `I x O`
+La specifica di un problema è una quintupla 
+
+> < I, S, R, O, Q > 
+
+dove:
+* **I** è lo **spazio di input**;
+* **S** è lo **spazio delle soluzioni**;
+* **R** &subset; `I x S` è una relazione su `I` ed `S` detta **relazione caratteristica**;
+* **O** è lo **spazio di output**;
+* **Q** è una regola, detta **quesito**, che sulla base della relazione caratteristica `R`, consente di definire una relazione du `I` e `O`: `R`<sub>q</sub> &subset; `I x O`
 
 Una particolare istanza del problema si ottiene ogni volta che scegliamo un particolare valore dei dati in ingresso. In relazione ad un problema e ad una sua istanza, diamo la nozione di **soluzione**.
 
+## Problema di ricerca
+Tra tutte le possibili soluzioni siamo interessati a conoscere una qualunque delle soluzioni del problema per l’istanza che stiamo considerando, oppure, nel caso non esista soluzione, siamo interessati a saperlo.
+Introduciamo nello spazio di output il simbolo &perp; che individua l’assenza di soluzioni.
+
+### Problema di ricerca: definizione
+Un problema di ricerca P è un problema specificato con una quintupla del tipo
+
+> < I, S, R, S &cup; {&perp;}, qric >
+
+dove:
+* **qric** è la regola che definisce, in base ad R, la relazione **R<sub>qric</sub> contenente tutti e soli i seguenti elementi
+  * Ogni coppia contenuta in R
+  * Una coppia **<i, &perp;> per ogni istanza I di P per la quale P non ha soluzioni
+  
