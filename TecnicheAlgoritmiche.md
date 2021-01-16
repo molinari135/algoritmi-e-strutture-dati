@@ -236,11 +236,20 @@ Per un problema di ottimizzazione:
   * Rappresenta è risposte a P per I
 * Uno spazio di ricerca per i di P deve contenere la rappresentazione di **almeno una** tra le soluzioni ottimali se esistono
   * Ovvero, **non** deve essere **vuota l'intersezione** tra i seguenti insiemi
-    * **{s &in; S | (i, s) &in; R &wedge; &notexists;s' &in; S, (i, s') &in; R &wedge; m(i, s') &subset; m(i, s)}**
-    * **{s &in; S | &exists;z &in; Z<sub>i</sub>, a(z) = true &wedge; o(z) = s}**
+    * **{s &in; S | (i, s) &in; R &wedge; &notexists; s' &in; S, (i, s') &in; R &wedge; m(i, s') &subset; m(i, s)}**
+    * **{s &in; S | &exists; z &in; Z<sub>i</sub>, a(z) = true &wedge; o(z) = s}**
 
 #### Esempio: ricerca di un elemento in un vettore
 Consideriamo una generica istanza del problema con input un vettore V di n elementi e un numero m.
 
+* Lo **spazio di ricerca** associato a tale istanza è l'**insieme** dei valori che sono **indici del vettore**
+  * Interi da 1 a n
+* La **funzione di ammissibilità** verifica, dato un **j**, se `v[j] = m`
+* La **funzione di risposta** restituisce **j**
+* La **struttura dati** per rappresentare i singoli elementi dell'insieme è una **semplice variabile di tipo intero**
 
+## Differenze tra spazio delle soluzioni e spazio di ricerca per un problema P
+Lo **spazio delle soluzioni** è una componente della specifica del prolema e fa globalmente riferimento a **tutte le** possibili **soluzioni** per il problema.
+
+Lo **spazio di ricerca** fornisce uno strumento per **caratterizzare le soluzioni** di ogni singola istanza del problema. Esso determina anche, per ogni istanza del problema, una struttura di dati e un **meccanismo per verificare**, tramite la formulazione della funzione di ammissibilità in termini di tale struttura, **se una sua configurazione corrisponde o meno ad una soluzione** per l'istanza e un **metodo per derivare**, tramite la formulazione della funzione di risposta, **una risposta** all'istanza.
   
