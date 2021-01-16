@@ -35,11 +35,17 @@ Insieme delle possibili coppie formate da un vettore **v** e un numero intero **
 Il **quesito** stabilisce che, per ogni configurazione che ammette soluzione, vogliamo come output un qualunque elemento dello spazio delle soluzioni legato a quella configurazione dalla relazione caratteristica.
 
 Sia `V = [7, 5, 3, 7, 2]` con
+
 r<sub>vett</sub>:
+
 `< [7, 5, 3, 7, 2], 7 > = 1`
+
 `< [7, 5, 3, 7, 2], 5 > = 2`
+
 `...`
+
 `< [7, 5, 3, 7, 2], 7 > = 4`
+
 `...`
 
 Poichè esiste un numero infinito di vettori, **r<sub>vett</sub>** è di **dimensione infinita**. Consideriamo l'elemento dello spazio di input formato dal vettore **v** e dal numero **m = 7**.
