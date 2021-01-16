@@ -72,9 +72,9 @@ Un problema di ricerca P è un problema specificato con una quintupla del tipo
 > < I, S, R, S &cup; {&perp;}, qric >
 
 dove:
-* **qric** è la regola che definisce, in base ad R, la relazione **R<sub>qric</sub> contenente tutti e soli i seguenti elementi
+* **qric** è la regola che definisce, in base ad R, la relazione **R<sub>qric</sub>** contenente tutti e soli i seguenti elementi
   * Ogni coppia contenuta in R
-  * Una coppia **<i, &perp;> per ogni istanza I di P per la quale P non ha soluzioni
+  * Una coppia **<i, &perp;>** per ogni istanza I di P per la quale P non ha soluzioni
   
 #### Esempio - Problema delle N regine
 Dato un intero positivo N si determini un posizionamento di N regine in una scacchiera NxN tale che nessuna regina minacci qualche altra regina.
@@ -106,4 +106,21 @@ Un problema di decisione P può essere risolto in due modi:
 * Trasformandolo nel corrispettivo problema di ricerca P'
   * Se la risposta di P' è {&perp;} allora la soluzione di P è **false**, altrimenti è **true**
   * **Approccio non costruttivo:** trovare una soluzione a P senza risolvere il corrispettivo problema di ricerca P'
+
+#### Esempio - Problema di partizionamento
+Sono dati k numeri interi positivi n<sub>1</sub>, ..., n<sub>k</sub> la cui somma è 2m (per un certo intero m). Decidere se i k numeri possano essere ripartiti in due gruppi in modo che la somma dei componenti di ogni gruppo sia m.
+
+Dunque, se **n<sub>a<sub>1</sub></sub>, ..., n<sub>a<sub>p</sub></sub>** e **n<sub>b<sub>1</sub></sub>, ..., n<sub>b<sub>q</sub></sub>** sono i due gruppi di numeri (cioè **p+q = k**), deve essere:
+
+> sommatoria(n<sub>a<sub>i</sub></sub>) = sommatoria(n<sub>b<sub>j</sub></sub>) = m
+
+**Spazio di input:** insieme I di tutti i possibili insiemi di interi la cui somma è pari
+**Spazio delle soluzioni:** insieme S si tutte le possibili coppie di insiemi di interi
+**Relazione caratteristica:** insieme R di tutte e sole le coppie **<x, y>** tali che
+* x &in; I, y &in; S
+* y = <y<sub>1</sub>, y<sub>2</sub>> è una coppia di insiemi tali che
+  * y<sub>1</sub> &cap; y<sub>2</sub> = &emptyset; e y<sub>1</sub> &cup; y<sub>2</sub> = x
+  * sommatoria(y<sub>1</sub>) = sommatoria(y<sub>2</sub>)
+
+Ad esempio, il vettore `[1, 2, 2, 4, 7]` viene partizionato in `[1, 7]` e `[2, 2, 4]`.
 
