@@ -261,3 +261,38 @@ Esistono diversi modi per determinare uno spazio di ricerca di un problema. Crit
   * Deve fornire elementi significativi per la comprensione della struttura del problema e delle sue soluzioni
 
 #### Esempio: problema delle n regine
+Sia **i** la dimensione della scacchiera:
+* L'insieme che forma lo **spazio di ricerca** è l'insieme di tutte le possibili scacchiere di dimensione **i** in cui sono poste **i** regine
+* La **funzione di ammissibilità** verifica se la scacchiera soddisfa i vincoli del problema, cioè se non esistono nella scacchiera due regine piazzate nella stessa riga o colonna o diagonale
+* La **funzione di risposta** è la funzione di identità
+* La **struttura di dati** può essere una matrice **i x i** di caratteri in cui il carattere **q** oppure **&star;** indica la posizione della regina
+
+Ma la rappresentazione è migliorabile?
+Per esclidere configurazioni con due regine sulla stessa riga, rappresentiamo al configurazione di scacchiera mediante un **vettore** di dimensione **i** con elementi interi compresi tra **1** ed **i**: se l'elemento in posizione **j** del vettore è **h**, vuol dire che la **regina** della **riga j** è in **colonna h**.
+
+Per escludere configurazioni errate, basta escludere vettori che hanno valori uguali in posizioni diverse.
+
+Allora, per il problema della n regine:
+* L'insieme degi elementi dello **spazio di ricerca** coincide con tutti i possibili modi di memorizzare i valori da **1** a **i** in un vettore **V** con i elementi
+  * Tutte le possibili permutazioni di (1, ..., i)
+* La **funzione di ammissibilità** verifica se il generico elemento dello spazio di ricerca, cioè il generico vettore **V**, non contenga due elementi in posizione **h** e **k** tali che **due regine stiano nella stessa diagonale**
+* La **funzione di risposta** ricostruisce semplicemente, a patire da un generico vettore, la corripondente configurazione della scacchiera
+
+## Tecniche algoritmiche
+Le tecniche algoritmiche sono basate su diversi paradigmi di utilizzo dello spazio di ricerca:
+* La tecnica di **enumerazione**
+* La tecnica di **backtracking**
+* La tecnica **greedy**
+* La tecnica **divide et impera**
+
+I paradigmi sono:
+* Il paradigma **selettivo**
+  * Sono tecniche di progetto di algoritmi che
+    * Per l'istanza del problema presa in considerazione, visitano lo spazio di ricerca tentando di trovare un elemento ammissibile
+    * Fanno riferimento all'intero spazio di ricerca che viene esplorato con sistematicità in una definita modalità
+  * Appartengono a questo paradigma, la tecnica **enumerativa** e quella di **backtracking**
+* Il paradigma **generativo**
+  * Sono tecniche di progetto di algoritmi che
+    * Generano direttamente la soluzione senza selezionarla tra gli elementi dello spazio di ricerca
+    * Considerano lo spazio di ricerca esclusivamente in fase di progetto dell'algoritmo allo scopo di caratterizzare le soluzioni del problema e definire una strategia risolutiva diretta per ogni istanza
+  * Appartengono a questo paradigma la tecnica **greedy** e al tecnica **divide-et-impera**
