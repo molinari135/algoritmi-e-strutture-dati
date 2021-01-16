@@ -76,3 +76,34 @@ dove:
   * Ogni coppia contenuta in R
   * Una coppia **<i, &perp;> per ogni istanza I di P per la quale P non ha soluzioni
   
+#### Esempio - Problema delle N regine
+Dato un intero positivo N si determini un posizionamento di N regine in una scacchiera NxN tale che nessuna regina minacci qualche altra regina.
+
+**Specifica:** la quintupla
+
+< N<sup>+</sup>, D, R, D &cup; {&perp;}, qric >
+
+* **N<sup>+</sup>**: insieme dei numeri interi positivi
+* **D**: insieme delle disposizioni di regine in scacchiere di ogni dimensione
+  * numero regine = dimensione scacchiera
+* **R**: relazione che contiene tutte e sole le coppie **<x, y>** in cui **x &in; N<sup>+</sup>** e **y** è una **disposizione di x regine nella scacchiera x &times; x in cui nessuna regina minaccia le altre**
+
+## Problema di decisione
+La risposta è **vero** o **falso** a seconda che il dato di ingresso soddisfi o meno una cerca proprietà. Dunque lo spazio di output contiene solo i due valori di verità.
+
+### Problema di decisione: definizione
+Un problema di decisione P è un problema specificato con una quintupla del tipo
+
+> P = < I, S, R, {true, false}, qdec >
+
+dove:
+* **qdec** è il quesito che stabilisce la funzione **R<sub>qdec</sub>: I &rightarrow; {true, false}**, tale che per ogni istanza **i** di P, R<sub>qdec</sub>(i) vale
+  * **true** se &exsist; s &in; S t.c. <i, s> &in; R
+  * **false** altrimenti
+
+### Problema di decisione: soluzione
+Un problema di decisione P può essere risolto in due modi:
+* Trasformandolo nel corrispettivo problema di ricerca P'
+  * Se la risposta di P' è {&perp;} allora la soluzione di P è **false**, altrimenti è **true**
+  * **Approccio non costruttivo:** trovare una soluzione a P senza risolvere il corrispettivo problema di ricerca P'
+
