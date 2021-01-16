@@ -119,8 +119,24 @@ Dunque, se **n<sub>a<sub>1</sub></sub>, ..., n<sub>a<sub>p</sub></sub>** e **n<s
 **Relazione caratteristica:** insieme R di tutte e sole le coppie **<x, y>** tali che
 * x &in; I, y &in; S
 * y = <y<sub>1</sub>, y<sub>2</sub>> è una coppia di insiemi tali che
-  * y<sub>1</sub> &cap; y<sub>2</sub> = &emptyset; e y<sub>1</sub> &cup; y<sub>2</sub> = x
+  * y<sub>1</sub> &cap; y<sub>2</sub> = &emptyset;
+  * y<sub>1</sub> &cup; y<sub>2</sub> = x
   * sommatoria(y<sub>1</sub>) = sommatoria(y<sub>2</sub>)
 
 Ad esempio, il vettore `[1, 2, 2, 4, 7]` viene partizionato in `[1, 7]` e `[2, 2, 4]`.
 
+## Problemi di ottimizzazione
+Alle soluzioni ammissibili è associata una misura (costo, obiettivo): risolvere il problema non significa trovare una qualunque soluzione, ma la migliore soluzione secondo la misura o criterio di preferenza fissato.
+
+### Problemi di ottimizzazione: definizione
+Un problema di ottimizzazione P è un problema specificato con una quintupla del tipo:
+
+> <I, S, R, S &cup; {&perp;}, q<sub>ott</sub>(M, m, &subset) >
+
+dove:
+* **M** è un insieme qualsiasi
+* **m** è una funzione del tipo **I x S &rightarrow; M** detta **funzione obiettivo** di P
+  * Per una cerca istanza i &in; I il valore **m(i, s)** rappresenta una **misura** dell'elemento S nello spazio delle soluzioni
+* **&subset;** è una relazione di ordinamento su M (x &subset; y "x *migliore* y")
+
+#### Esempio - Problema dello zaino
