@@ -42,7 +42,7 @@ r<sub>vett</sub>:
 `< [7, 5, 3, 7, 2], 7 > = 4`
 `...`
 
-Poichè esiste un numero infinito di vettori, **r<sub>vett</sub> è di **dimensione infinita**. Consideriamo l'elemento dello spazio di input formato dal vettore **v** e dal numero **m = 7**.
+Poichè esiste un numero infinito di vettori, **r<sub>vett</sub>** è di **dimensione infinita**. Consideriamo l'elemento dello spazio di input formato dal vettore **v** e dal numero **m = 7**.
 
 **r<sub>vett</sub>** associa e tale elemento due possibili valori dello spazio delle soluzioni: `1` e `4`.
 
