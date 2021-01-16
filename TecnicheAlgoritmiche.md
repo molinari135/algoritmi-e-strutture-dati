@@ -1,7 +1,7 @@
 # Tecniche algoritmiche
 
 ## Indice
-1. **[Classificazione dei problemi]()**
+1. **[Classificazione dei problemi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#classificazione-dei-problemi-problemi-di-ricerca-di-decisione-di-ottimizzazione)**
 2. **[Spazio di ricerca]()**
 3. **[Paradigma selettivo]()**
 4. **[Paradigma generativo]()**
@@ -191,3 +191,13 @@ La relazione caratteristica è data dall'insieme delle coppie:
 tali che sommatoria(C<sub>i</sub>X<sub>i</sub>) &le; B
 
 Il quesito è **q<sub>ott</sub>(n, m, &ge;)** dove m = sommatoria(P<sub>i</sub>X<sub>i</sub>)
+
+## Spazio di ricerca: definizione e proprietà
+* **Specifica di un problema**: definisce la struttura del problema indipendentemente dal modo in cui il problema verrà risolto
+* **Spazio delle soluzioni:** è caratteristica generale del problema e non fornisce indicazioni sulle soluzioni per una generica istanza
+* **Spazio di ricerca:** è uno strumento che ci aiuta a "caratterizzare" le potenziali soluzioni ad una generica istanza di un problema, per orientare la scelta di un algoritmo solutivo
+
+Definire lo **spazio di ricerca** per un problema P significa stabilire un metodo che, per ogni istanza i di P, definisce un insieme con associate due funzioni:
+* **funzione di ammissibilità:** permette di verificare se un elemento dello spazio di ricerca corrisponde effettivamente ad una soluzione
+* **funzione di risposta:** permette di ottenere, dagli elementi dello spazio di ricerca, le corrispondenti risposte per i
+
