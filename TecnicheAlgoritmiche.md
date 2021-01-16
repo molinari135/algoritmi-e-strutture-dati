@@ -2,7 +2,7 @@
 
 ## Indice
 1. **[Classificazione dei problemi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#classificazione-dei-problemi-problemi-di-ricerca-di-decisione-di-ottimizzazione)**
-2. **[Spazio di ricerca]()**
+2. **[Spazio di ricerca](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#spazio-di-ricerca-definizione-e-propriet%C3%A0)**
 3. **[Paradigma selettivo]()**
 4. **[Paradigma generativo]()**
 
@@ -201,3 +201,23 @@ Definire lo **spazio di ricerca** per un problema P significa stabilire un metod
 * **funzione di ammissibilità:** permette di verificare se un elemento dello spazio di ricerca corrisponde effettivamente ad una soluzione
 * **funzione di risposta:** permette di ottenere, dagli elementi dello spazio di ricerca, le corrispondenti risposte per i
 
+Sia **i** una istanza di un problema
+
+> P = < I, S, R, S &cup; {&perp;}, Q >
+
+Uno spazio di ricerca di P per l'istanza i è costituito da:
+* un insieme Z<sub>i</sub> con associate due funzioni
+  * la funzione di ammissibilità: **a: Z<sub>i</sub> &rightarrow; {true, false}**
+  * la funzione di risposta: **o: z<sub>i</sub> &rightarrow; s**
+
+Entrambe le funzioni devono soddisfare le seguenti condizioni:
+* Per ogni elementi z di Z<sub>i</sub>
+  * a(z) = true se e solo se o(z) è soluzione di P per i
+* i ha risposta positiva se e solo se v<sub>i</sub> è almeno un elemento z di Z<sub>i</sub> per cui
+  * a(z) = true e o(z) è una risposta a P per i
+
+Uno spazio di ricerca di P per l'istanza i è costituito, inoltre, da:
+* Un metodo per rappresentare ogni elemento di Z<sub>i</sub> mediante una struttura di dati (vettore, matrice, lista, albero, ...) e per esprimere la funzione di ammissibilità e di risposta in termini di tale struttura
+
+
+  
