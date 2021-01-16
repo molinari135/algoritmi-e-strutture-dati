@@ -253,3 +253,11 @@ Lo **spazio delle soluzioni** è una componente della specifica del prolema e fa
 
 Lo **spazio di ricerca** fornisce uno strumento per **caratterizzare le soluzioni** di ogni singola istanza del problema. Esso determina anche, per ogni istanza del problema, una struttura di dati e un **meccanismo per verificare**, tramite la formulazione della funzione di ammissibilità in termini di tale struttura, **se una sua configurazione corrisponde o meno ad una soluzione** per l'istanza e un **metodo per derivare**, tramite la formulazione della funzione di risposta, **una risposta** all'istanza.
   
+### Spazio di ricerca per un problema P
+Esistono diversi modi per determinare uno spazio di ricerca di un problema. Criteri per valutare la qualità di una scelta rispetto ad un'altra:
+* Lo **spazio di ricerca** deve caratterizzare la soluzioni ad una istanza in modo non ridondante:
+  * Per questo motivo, è opportuno scegliere una struttura dati che escluda a priori configurazioni che non corrispondono ad alcuna soluzione
+* Lo **spazio di ricerca** non deve essere una banale riformulazione del problema e della sua relazione caratteristica nè deve nascondere la difficoltà di un problema
+  * Deve fornire elementi significativi per la comprensione della struttura del problema e delle sue soluzioni
+
+#### Esempio: problema delle n regine
