@@ -219,5 +219,28 @@ Entrambe le funzioni devono soddisfare le seguenti condizioni:
 Uno spazio di ricerca di P per l'istanza i è costituito, inoltre, da:
 * Un metodo per rappresentare ogni elemento di Z<sub>i</sub> mediante una struttura di dati (vettore, matrice, lista, albero, ...) e per esprimere la funzione di ammissibilità e di risposta in termini di tale struttura
 
+## Struttura dello spazio di ricerca per problemi di ricerca con risposta positiva
+* L'insieme **{s &in; S | (i, s) &in; R}** rappresenta le soluzioni di P per l'istanza i
+  * Per un problema di ricerca, questo insieme coincide con l'insieme delle risposte
+* L'insieme **{s &in; S | &exists; z &in; Z<sub>i</sub>, a(z) = true &wedge; o(z) = s}** è costituito dalle soluzioni di P per l'istanza i che sono rappresentate nello spazio di ricerca
+* Lo **spazio di ricerca non rappresenta necessariamente tutte le soluzioni ad i**
+  * Se esistono risposte positive per i, basta che **una** sia rappresentata nello spazio di ricerca
+
+Per i **problemi di ottimizzazione** valgono le seguenti osservazioni:
+* La definizione di spazio di ricerca stabilisce che la funzione di ammissibilità deve assicurare che **&forall;z &in; Z<sub>i</sub>, a(z) = true IF (i, o(z)) &in; R**
+  * Queste condizioni sono relative alla relazione caratteristica e non al quesito
+* Ottenere una risposta per una cerca istanza significa calcolare una soluzione ottimale: lo spazio di ricerca deve includere **almeno** un elemento dal quale si possa ottenere **una soluzione ottimale** all'istanza
+
+Per un problema di ottimizzazione:
+* L'insieme **{s &in; S | (i, s) &in; R &wedge; &notexists;s' &in; S, (i, s') &in; R &wedge; m(i, s') &subset; m(i, s)}** rappresenta le soluzioni **ottimali** di P per l'istanza i
+  * Rappresenta è risposte a P per I
+* Uno spazio di ricerca per i di P deve contenere la rappresentazione di **almeno una** tra le soluzioni ottimali se esistono
+  * Ovvero, **non** deve essere **vuota l'intersezione** tra i seguenti insiemi
+    * **{s &in; S | (i, s) &in; R &wedge; &notexists;s' &in; S, (i, s') &in; R &wedge; m(i, s') &subset; m(i, s)}**
+    * **{s &in; S | &exists;z &in; Z<sub>i</sub>, a(z) = true &wedge; o(z) = s}**
+
+#### Esempio: ricerca di un elemento in un vettore
+Consideriamo una generica istanza del problema con input un vettore V di n elementi e un numero m.
+
 
   
