@@ -87,7 +87,7 @@ Dato un intero positivo N si determini un posizionamento di N regine in una scac
 
 **Specifica:** la quintupla
 
-< N<sup>+</sup>, D, R, D &cup; {&perp;}, qric >
+> < N<sup>+</sup>, D, R, D &cup; {&perp;}, qric >
 
 * **N<sup>+</sup>**: insieme dei numeri interi positivi
 * **D**: insieme delle disposizioni di regine in scacchiere di ogni dimensione
