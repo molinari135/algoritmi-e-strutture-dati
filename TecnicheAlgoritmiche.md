@@ -131,7 +131,7 @@ Alle soluzioni ammissibili è associata una misura (costo, obiettivo): risolvere
 ### Problemi di ottimizzazione: definizione
 Un problema di ottimizzazione P è un problema specificato con una quintupla del tipo:
 
-> <I, S, R, S &cup; {&perp;}, q<sub>ott</sub>(M, m, &subset) >
+> <I, S, R, S &cup; {&perp;}, q<sub>ott</sub>(M, m, &subset;) >
 
 dove:
 * **M** è un insieme qualsiasi
@@ -140,3 +140,23 @@ dove:
 * **&subset;** è una relazione di ordinamento su M (x &subset; y "x *migliore* y")
 
 #### Esempio - Problema dello zaino
+Un ladro durante una rapina in un negozio si trova di fronte a n articoli: l’articolo i-esimo ha un valore di pi euro e un peso di ci chilogrammi, dove sia pi che ci, per semplicità, sono interi. Il ladro vuole prendere gli articoli di maggior valore ma il suo zaino può sopportare un peso massimo di B chilogrammi. Cosa gli conviene fare?
+
+Per formalizzare il problema, occorre considerare 2n+1 interi positivi:
+
+> P<sub>1</sub>, ..., P<sub>n</sub>, C<sub>1</sub>, ..., C<sub>n</sub>, B
+
+Dove:
+* **P<sub>1</sub>, ..., P<sub>n</sub>** sono detti **profitti**
+* **C<sub>1</sub>, ..., C<sub>n</sub>** sono detti **costi**
+* **B** è detto **budget** (bilancio)
+
+Dati 2n+1 interi positivi:
+
+> P<sub>1</sub>, ..., P<sub>n</sub>, C<sub>1</sub>, ..., C<sub>n</sub>, B
+
+Trovare n valori interi x<sub>1</sub>, ..., x<sub>n</sub> tali che
+* X<sub>i</sub> &in; {0, 1} (1 &le; i &le; n)
+* sommatoria(P<sub>i</sub>X<sub>i</sub>) = MAX
+* sommatoria(C<sub>i</sub>X<sub>i</sub>) &le; B
+
