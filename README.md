@@ -1,5 +1,5 @@
-# Strutture dati
-###### Realizzazioni di varie strutture dati con specifica sintattica e semantica
+# Algoritmi e strutture dati
+###### Realizzazioni di varie strutture dati con specifica sintattica e semantica e algoritmi
 
 ## Indice
 1. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md)**
@@ -11,6 +11,8 @@
 7. **[Albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md)**
 8. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md)**
 9. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md)**
+10. **[Complessità delle strutture dati]()**
+11. **[Tecniche algoritmiche]()**
 
 ## Tipi di strutture dati
 Ci sono strutture dati che si sviluppano in una dimensione e possono essere considerate come sequenze di oggetti. Queste strutture sono dette **lineari**.
