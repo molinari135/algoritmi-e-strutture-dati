@@ -3,9 +3,9 @@
 ## Classificazione dei problemi: problemi di ricerca, di decisione, di ottimizzazione
 
 I problemi si possono classificare in:
-* Problemi di **ricerca**;
-* Problemi di **decisione**;
-* Problemi di **ottimizzazione**.
+* Problemi di **ricerca**
+* Problemi di **decisione**
+* Problemi di **ottimizzazione**
 
 Nella **concettualizzazione** si fornisce una specifica del problema, si stabiliscono le caratteristiche strutturali del problema senza fare riferimeento ai metodi per la risoluzione.
 Nella **realizzazione** si passa dalla specifica del problema alle scelte per la sua risoluzione, che coinvolgono la definizione dell'algoritmo risolutivo e la realizzazione del programma.
