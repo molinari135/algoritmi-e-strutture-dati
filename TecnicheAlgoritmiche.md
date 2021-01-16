@@ -160,3 +160,22 @@ Trovare n valori interi x<sub>1</sub>, ..., x<sub>n</sub> tali che
 * sommatoria(P<sub>i</sub>X<sub>i</sub>) = MAX
 * sommatoria(C<sub>i</sub>X<sub>i</sub>) &le; B
 
+**Specifica**
+Lo spazio di input **I** è l'insieme delle coppie (n, q) dove n è un intero positivo e q è una sequenza di 2n+1 interi positivi.
+L'elemento di questo spazio è:
+
+> (n, (P<sub>1</sub>, ..., P<sub>n</sub>, C<sub>1</sub>, ..., C<sub>n</sub>, B))
+
+Lo spazio delle soluzioni **S** è l'insieme delle sequenze finite:
+
+> < X<sub>1</sub>, ..., X<sub>n</sub> >
+
+con **n &in; N<sup>+</sup>** e **X<sub>i</sub> &in; {0, 1}**
+
+La relazione caratteristica è data dall'insieme delle coppie:
+
+> (n, (P<sub>1</sub>, ..., P<sub>n</sub>, C<sub>1</sub>, ..., C<sub>n</sub>, B)), (X<sub>1</sub>, ..., X<sub>n</sub>)
+
+tali che sommatoria(C<sub>i</sub>X<sub>i</sub>) &le; B
+
+Il quesito è **q<sub>ott</sub>(n, m, &ge;)** dove m = sommatoria(P<sub>i</sub>X<sub>i</sub>)
