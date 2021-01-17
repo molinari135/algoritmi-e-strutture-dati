@@ -526,4 +526,63 @@ repeat
    V[k] = 1;
   }
  } until (SUCCESSO || k == 0);
- 
+```
+
+### Albero di ricerca con tecnica backtracking
+Sia P un problema e sia dato un petodo per associare ad ogni istanza i di P uno spazio di ricerca Z<sub>i</sub>.
+Sia definito un modo per strutturare ogni elemento di Z<sub>i</sub> in un numero finito di componenti.
+L'albero di ricerca associato a i tramite Z<sub>i</sub> è un albero tale che:
+* La radice (livello 0) rappresenta una soluzione parziale fittizia
+* Ogni nodo interno a livello j con j > 0 rappresenta una soluzione parziale S in cui sono state scelte le prime j componenti, ed ha tanti figli quanti sono i modi possibili di aggiungere ad S la j+1 esima componente
+* Ogni foglia è un elementi di Z<sub>i</sub>
+
+Per un albero di ricerca associato ad una istanza i tramite Z<sub>i</sub> è importante definire:
+* Un metodo per rappresentare ogni soluzione parziale (nodo dell'albero)
+* Un metodo per stabilire se una soluzione parziale viole i vincoli del problema (stabiliti da R)
+* Una funzione di controllo del backtracking **c: nodi &rightarrow; {true, false}** detta **funzione di ammissibilità**
+  * **c(n) = true** per ogni nodo interno n dell'albero, se e solo se la soluzione parziale viola i vincoli
+  * **c(n) = false** quando il corrispondente elemento dello spazio di ricerca è non ammissibile
+
+#### Esempio: gioco dell'otto con tecnica backtracking
+Nell'ipotesi che le mosse siano fatte a caso, il ritorno indietro avviene quando:
+* Si genera una configurazione già prodotta
+* Si sono già fatte più di un numero fissato di mosse (NMAX) senza arrivare alla soluzione
+
+#### Esempio: problema del partizionamento di un insieme
+Dato un insieme **Y = {y1, y2, y3, ..., yn}** di **n** interi positivi la cui somma è **2M**, vogliamo sapere se esiste un sottoinsieme di **Y** la cui somma sia pari a **M**.
+
+Data l'istanza
+
+> Y = {8, 5, 1, 4}
+
+Cerchiamo un **sottoinsieme X** la cui somma sia **9**.
+La soluzione può essere espressa mediante un vettore `[x1, ..., x4]` dove
+
+> x<sub>i</sub> &in; {0, 1}, x<sub>1</sub> = 1 IFF y<sub>i</sub> &in; X
+
+L'algoritmo di **backtracking** invece di generare tutte le quadruple `[x1, ..., x4]` costruisce il vettore soluzione partendo dal vettore vuotoo e aggiungendo una componente alla volta.
+
+Il comportamento dell'algoritmo si può descrivere mediante la rappresentazione ad albero dello spazio di ricerca:
+* La **radice** rappresenta il **vettore vuoto**
+* A **livello 1** abbiamo i **vettori** che è possibile formare con la prima variabile x<sub>1</sub> = 1 e x<sub>1</sub> = 0, e così via
+* Solo nelle **foglie** avrò la configurazione completa del vettore e solo alcune delle foglie rappresentano soluzioni **ammissibili**
+
+L'algoritmo di **backtracking** è un algoritmo di visita in pre-ordine dell'albero di ricerca.
+
+## Algoritmo di backtracking
+L'algoritmo si riferisce all'albero di ricerca B<sub>i</sub> per l'istanza i di un problema. Si comporta come se effettuasse una [visita in profondità]():
+* Ogni volta che nella visita si analizza un nodo, si applica la **funzione di controllo** del backtracking al nodo
+  * Se la funzione restituisce **true**, allora quel nodo e tutto il sottoalbero associato al nodo viene abbandonato e la visita continua
+* Se il problema è la **ricerca**, la visita termina quando 
+  * Si incontra una **soluzione (un nodo foglia con funzione di backtracking = false)** 
+  * Quando non esistono altri nodi da visitare
+* Se il problema è di **ottimizzazione**, l'algoritmo utilizza una variabile ottimo corrente, che memorizza ad ogni passo il miglior elemento ammissibile
+  * L'algoritmo non si interrompe al primo elemento ammissibile trovato, ma continua la visita aggiornando tale variabile
+
+#### Esempio: impostazione dell'algoritmo di backtracking per risolvere il problema dello zaino
+* L'**albero di ricerca** si ottiene considerando che, se **n** sono gli oggetti, ogni elemento dello spazio di ricerca si può costruire in **n** stadi dove, all'**i-esimo stadio** si decide se includere o no, nel sottoinsieme rappresentato da **X**, l'**oggetto i-esimo**.
+  * L'albero di ricerca è un **albero binario di profondità n**
+* Ogni **soluzione parziale** è rappresentata con un **vettore** e un indice (**stadio del processo**)
+  * L'elemento **i-esimo** del vettore vale 1 se e solo se l'**i-esimo oggetto** è nello zaino
+* La **funzione di controllo del backtracking** su un nodo dell'albero, cui corrisponde la soluzione parziale < X<sub>1</sub>, ..., X<sub>i</sub> >, deve restituire il valore **true** se le scelte fatte portano ad un costo totale maggiore del budget cioè **sommatoria(C<sub>k</sub>X<sub>k</sub>) > B**
+  * La funzione, inoltre, vale **true** se il massimo profitto ottenibile con le scelte già fatte è minore del profitto corrispondente all'ottimo corrente, ovvero quando **sommatoria(P<sub>i</sub>X<sub>i</sub>) + sommatoria(P<sub>1</sub>) < P<sub>ott</sub>
