@@ -296,3 +296,234 @@ I paradigmi sono:
     * Generano direttamente la soluzione senza selezionarla tra gli elementi dello spazio di ricerca
     * Considerano lo spazio di ricerca esclusivamente in fase di progetto dell'algoritmo allo scopo di caratterizzare le soluzioni del problema e definire una strategia risolutiva diretta per ogni istanza
   * Appartengono a questo paradigma la tecnica **greedy** e al tecnica **divide-et-impera**
+
+## Paradigma selettivo
+A questo paradigma appartengono la **tecnica enumerativa** e la **tecnica backtracking**.
+
+## Tecnica enumerativa
+Si basa sulla sistematica ispezione, elemento per elemento, dello spazio di ricerca associato ad una istanza di un problema, è una tecnica che **garantisce**, se lo spaizo di ricerca è finito, una **terminazione**:
+* Per un problema di **ricerca**, si termina quando
+  * Si è individuato un elemento **ammissibile**
+  * Lo **spazio di ricerca si è esaurito**
+* Per un problema di **ottimizzazione** si dovrà confrontare, ai fini della selezione, tutti gli elementi **ammissibili** e la terminazione è data dall'**esaurimento dello spazio di ricerca**.
+
+Per garantire la possibilità di una visita sistematica di **uno spazio di ricerca** si associa ad esso una relazione di ordinamento totale in modo da definire per lo spazio **Z<sub>i</sub>** associato ad **i**:
+* Un metodo per stabilire il **primo** elemento da considerare
+* Un metodo per stabilire l'elemento **successivo**
+* Un metodo per verificare **se si sono esaminati tutti** gli elementi
+
+### Algoritmo enumerativo per problemi di ricerca
+1. Considera il primo elemento **x** dello spazio di ricerca
+2. Se **a(x) = true**, allora fornisci **o(x)** come risultato
+3. Se tutti gli elementi dello spazio di ricerca sono stati esaminati, fornisci **&perp;** come risultato
+4. Altrimenti considera come nuovo **x** l'elemento successivo dello spazio di ricerca e ripeti dal punto 2
+
+#### Esempio: gioco dell'otto
+I tasselli numerati devono essere disposti ordinati lungo i bordi: la soluzione può essere ricercata esaminando tutte le possibili disposizioni generate attraverso mosse successive. **Il provedimento di ricerca è rappresentabile mediante un albero un albero che ha nei nodi le configurazioni possibili generate mossa dopo mossa**
+
+**Stato iniziale**
+| 2 | 8 | 3 |     
+|---|---|---|     
+| 1 | 6 | 4 |     
+| 7 |   | 5 |     
+
+**Stato finale**
+| 1 | 2 | 3 |
+|---|---|---|
+| 8 |   | 4 |
+| 7 | 6 | 5 |
+
+### Algoritmo enumerativo per problemi di ottimizzazione
+1. Considera il primo elemento **x** dello spazio di ricerca
+2. Poni come soluzione **ottima corrente = x** se
+  a. **a(x) = true** e **x** è la **prima soluzione** trovata
+  b. **a(x) = true** e **x** è **Migliore** della **soluzione ottima corrente**
+3. Se tutti gli elementi dello spazio di ricerca sono stati considerati, allora fornisci come risultato **&perp;** se
+  a. **non** sono state trovate **soluzioni ammissibili**
+  b. **o(x)** se **x** è soluzione ottima corrente
+4. Altrimenti considera come nuovo **x** l'elemento successivo dello spazio di ricerca e ripeti dal punto 2
+
+#### Esempio: gioco dell'otto (*come problema di ottimizzazione*)
+Potremmo porci l'obiettivo non solo di trovare una soluzione qualsiasi, ma di trovarne una **ottima**, per esempio, sulla base del criterio "il prima possibile".
+Questo si traduce nella possibilità di valutare il numero di mosse che ci porta alla soluzione e nell'esplorare l'intero albero alla ricerca del **cammino più breve** che ci porta alla soluzione (**numero minimo di mosse**).
+
+## Tecnica backtracking
+Nella tecnica di backtracking la generazione degli elementi dello spazio di ricerca da visitare avviene secondo un processo suddiviso in **stadi** e basato sul fatto che:
+* Ogni elementi dello **spazio di ricerca** è costituito da diverse **componenti** e **ad ogni stadio viene scelta una componente**
+* Se **ogni elemento** dello spazio di ricerca è **strutturato in *n* componenti**, dopo **i** stadi (**i < n**) si è costituita una **soluzione parziale**
+
+La caratteristica della tecnica di **backtracking** è che in molti problemi è possibile giungere alla conclusione che la **soluzione parziale** generata è **fallimentare**.
+Riconosciuto ciò, **l'algoritmo interrompe il processo di costruzione e tenta altre vie**.
+
+#### Esempio: problema dello string matching
+Trovare un'occorrenza di una sequenza P di m caratteri ("pattern") in un'altra sequenza T di n caratteri ("testo"). Le due stringhe P e T sono formate da caratteri tratti dallo stesso alfabeto ed m non supera n.
+
+> **T** = 111**0110**0011101111000
+
+> **P** = 0110
+
+Un algoritmo banale consiste nel cercare di riconoscere il **pattern** a partire dalla prima posizione del **testo** e se il pattern non è interamente riconosciuto, ripetere il procedimento a partire dalla posizione successiva nel testo continuando fino al riconoscimento dell'intero pattern o all'esaurimento del testo.
+
+Se il **pattern** non è riconosciuto, l'algoritmo "**torna**" **(backtracking)** a ripetere il procedimento dalla posizione che segue.
+
+Le stringhe **P** e **T** si possono realizzare con due vettori di caratteri.
+Il programma implementa una funzione che restitutisce la **posizione di T** a partire dalla quale si trova la **prima occorrenza di P** (se il pattern occorre nel testo) oppure **n+1 se P non occorre in T**.
+
+#### Funzione che effettua backtracking sugli indici i e j
+ 
+    i = 1;
+    j = 1;
+    k = 1;
+    while ((i <= n) && (j <= m))
+     if (T[i] = P[j])
+      i = i + 1;
+      j = j + 1;
+     else
+      k = k + 1;
+      i = k;
+      j = 1;
+     if (j > m)
+      return k;
+     else
+      return i;
+
+-----------------------------------
+
+#### Esempio: string matching con algoritmo di Knuth-Morris-Pratt
+Trae vantaggio dai confronti già fatti precedentemente sul pattern.
+Infatti, se
+
+> **T** = 110111011001
+
+> **P** = 110110
+
+I primi 5 caratteri di P sono uguali ai primi 5 di T, solo se il sesto è diverso. Al momento del **primo backtrack** risulta **i = j = 6** e ripartire con **i = 2** e **j = 1** corriponde a traslare di una posizione il pattern rispetto al testo.
+
+Vale la pena di verificare che nella sottosequenza riconosciuta di **P**
+
+> *11011*1
+
+I primi 4 caratteri non coincidono con gli ultimi quattro, nè i primi 3 con gli ultimi tre
+
+> 1101, 1011, 110, 011
+
+**ma i primi due coincidono con gli ultimi due**
+
+> 11, 11
+
+Non è conveniente ripartire con i = 2 o i = 3 ma con **i = 4** direttamente, poichè i due caratteri a questo punto coincidono con quelli di **T**
+
+> **T** = 110**11**1011001
+
+> **P** = **11***011*0
+
+Conviene quindi ripartire con il backtrack con **i = 6** e **j = 3**. Dato che **6** è proprio il vecchio valore di **i** al momento del **backtrack**, è inutile effettuare backtrack su **i**, basta farlo su **j** assegnando il valore **6** invece che l'attuale **3**
+
+    T = 1101(110110)01     // i = 1, j = 1
+    P = (11011)0           // i = 6, j = 3
+           (11)0110        // il successivo fallisce
+            (110110)       // i = 6, j = 2
+                           // OK!
+
+### Metodo
+Si considerino due "**coppie**" dei primi **j-1** caratteri del pattern: si dispongano una sotto l'altra in modo che il primo carattere della copia inferiore sia esattamente sotto il secondo carattere della superiore.
+Se tutti i caratteri sovrapposti nelle due copie non sono uguali, si traslano di una posizione a destra tutti i caratteri della copia inferiore.
+Il procedimento si arresta non appena i caratteri sono identici o quando non ci sono più caratteri sovrapposti.
+Il nuovo valore di backtrack da assegnare a j, **succ(j)** è uguale al **numero di caratteri sovrapposti + 1**.
+Formalmente si pone per **j = 1**, **succ(j) = 0**.
+
+#### Calcola successivo
+
+    CALC_SUCC(P e SUCC: VETTORE per riferimento; m: INTEGER)
+    j = 1; h = 0;, succ(1) = =;
+    while (j <= m) {
+     if (h == 0) {
+      j = j + 1;
+      h = 1;
+      if (j <= m) {
+       if (P[j] == P[1]) {
+        succ(j) = 0;
+       } else {
+        succ(j) = 1;
+       }
+      }
+     } else {
+      if (P[j] == P[h]) {
+       j = j + 1;
+       h = h + 1;
+       if (j <= m) {
+        if (P[j] == P[h]) {
+         succ(j) = succ(h);
+        } else {
+         succ(j) = h;
+        }
+       } else {
+        h = succ(h);
+      }
+
+    STRING2(P e T: VETTORE per riferimento; n, m: INTEGER) = INTEGER
+    i = 1; j = 1;
+    CALC_SUCC(P, succ, m);
+    while (i <= n) && (j <= m) {
+     if (j == 0) {         // se j == 0 ricomincia dal primo char di P
+      i = i + 1;
+      j = 1;
+     } else {
+      if (T[i] == P[j]) {
+       i = i + 1;
+       j = j + 1;
+      } else {
+       j = succ(j);       // se diversi, salta a indice successivo
+      }
+      if (j > m) {
+       return (i - m);
+      } else {
+       return i;
+      }
+     }
+
+#### Esempio: problema delle 8 regine con algoritmo di backtracking
+Possiamo esprimere la soluzione attraverso una permutazione dei numeri da 1 a 8. La soluione si può esprimere mediante il **vettore V** definito come segue:
+
+    Type posizione = [1 ... 8];
+         vettore = array[1 ... 8] of posizione;
+    Var V:vettore;
+
+I vincoli imposti sono:
+1. Le componenti di V devono costituire una permutazione da 1 a 8; per ogni coppia di indici **i** e **j**, vale `V[i] != V[j]`
+2. Non è possibile avere due elementi sulla stessa diagonale, cioè
+  a. **(i - 1) &ne; (k - 1)**
+  b. **(i + 1) &ne: (k + 1)**
+  
+La funzione `VERIFICA` ha il compito di esaminare il vettore **V**:
+* se il vettore viola uno dei due vincoli, restituisce **true**
+* altrimenti se i vincoli sono ambedue soddisfatti, restituisce **false**
+
+```
+OTTO_REGINE(V:VETTORE per riferimento; SUCCESSO: BOOLEAN)
+k = 1;
+V[k] = 1;
+SUCCESSO = false;
+repeat
+{
+ a = VERIFICA(V);
+ if (a) {
+  repeat
+  {
+   if (V[k] < 8) {
+    b = true;
+    V[k] = V[k] + 1;
+   } else {
+    b = false;
+    k = k - 1;
+   }
+  } until (b || k == 0);
+ } else {
+  if (k == 8) {
+   SUCCESSO == true;
+  } else {
+   k = k + 1;
+   V[k] = 1;
+  }
+ } until (SUCCESSO || k == 0);
+ 
