@@ -586,3 +586,109 @@ L'algoritmo si riferisce all'albero di ricerca B<sub>i</sub> per l'istanza i di 
   * L'elemento **i-esimo** del vettore vale 1 se e solo se l'**i-esimo oggetto** è nello zaino
 * La **funzione di controllo del backtracking** su un nodo dell'albero, cui corrisponde la soluzione parziale < X<sub>1</sub>, ..., X<sub>i</sub> >, deve restituire il valore **true** se le scelte fatte portano ad un costo totale maggiore del budget cioè **sommatoria(C<sub>k</sub>X<sub>k</sub>) > B**
   * La funzione, inoltre, vale **true** se il massimo profitto ottenibile con le scelte già fatte è minore del profitto corrispondente all'ottimo corrente, ovvero quando **sommatoria(P<sub>i</sub>X<sub>i</sub>) + sommatoria(P<sub>1</sub>) < P<sub>ott</sub>
+
+## Paradigma generativo
+Dal paradigma generativo scaturiscono tecniche di progetto di algoritmi che **generano direttamente la soluzione** senza selezionarla tra gli elementi della spazio di ricerca.
+In questo paradigma la spazio di ricerca è considerato esclusivamente in fase di progetto dell'algoritmo allo scopo di caratterizzare le soluzioni del problema e **definire una strategia risolutiva diretta per ogni istanza**.
+Appartengono a questo paradigma la tecnica **greedy** e al **divide-et-impera**.
+
+## Tecnica greedy
+Si applica principalmente a problemi di ottimizzazione. Richiede che l'algoritmo esegua il processo di costruzione di un elemento dello spazio di ricerca in stadi e si basa sui seguenti principi:
+* Ad ogni stadio **i**, per la componente **i-esima** viene scelto il valore che, tra quelli ammissibili, risulta il migliora rispetto da un determinato criterio
+* Una volta fatta la scelta per la i-esima componente, si passa a considerare le altre, **senza più tornare sulla decisione presa**
+
+Presuppone che l'algoritmo acquisisca la rappresentazione di un'istanza del problema e disponga di un metodo per organizzare in stadi la costruzione di un elemento dello spazio di ricerca:
+1. Poni i a 1 e inizializza z
+2. Determina l'insieme A dei valori ammissibili per la componente i-esima di z e se A non è vuoto scegli il migliore in A, rispetto al criterio di preferenza fissato
+3. Se l'i-esimo stadio è l'ultimo allora termina e restituisci o(z) come risultato
+4. Altrimenti incrementa i di 1 e torna al passo 2
+
+#### Esempio: problema dello zaino (Knapsack)
+Come è noto, si dispone di un **budget B** e si deve cercare di massimizzare la rendita scegliendo tra **n** possibili investimenti, ciascuno dei quali caratterizzato da un profitto P<sub>i</sub> e da un costo C<sub>i</sub>.
+Il problema viene formulato così:
+
+Dati **2n+1** interi positivi
+
+> P<sub>1</sub>, P<sub>2</sub>, ..., P<sub>n</sub>, C<sub>1</sub>, C<sub>2</sub>, ..., C<sub>n</sub>, B
+
+si vogliono trovare n valori
+
+> X<sub>1</sub>, X<sub>2</sub>, ..., X<sub>n</sub>
+
+tali che
+* X<sub>n</sub> &in; {0, 1} (1 &le; i &le; n)
+* sommatoria(P<sub>i</sub>X<sub>i</sub>) = MAX
+* sommatoria(C<sub>i</sub>X<sub>i</sub>) &le; B
+
+Consideriamo l'istanza **B = 5** e tre elementi disponibili.
+
+| i | Pi | Ci | Pi/Ci |
+|---|----|----|-------|
+| 1 | 6  | 2  | 3 |
+| 2 | 4 | 1 | 4 |
+| 3 | 7 | 2 | 3.5 |
+
+Il criterio di base per ordinare le variabili è quello di valutare sia il **costo** che il **profitto** P<sub>i</sub>/C<sub>i</sub>
+
+Una volta effettuato l'ordinamento, si possono scegliere le variabili ponendole al massimo valore compatibile con i vincoli.
+
+Nel caso B = 5 verranno scelti gli oggetti nel seguente ordine:
+
+> i = 2, i = 3, i = 1
+
+e la somma dei costi sarà pari a 5.
+
+### Metodo
+Definire una funzione **zainogreedy** che ha come parametri:
+* il numero **n** di oggetti denotati dai numeri interi da **0** a **n-1**
+* il vettore **P** dei profitti
+* il vettore **C** dei costi
+* il budget **B**
+Il risultato viene restituito nel vettore **X** nel quale la i-esima componente vale **1** se l'oggetto **i** è incluso nella soluzione, e **0** altrimenti.
+La funzione ordina in un vettore ausiliario **V** gli oggetti secondo **l'ordine non crescente** del rapporto **PiCi**. Ogni elemento è in corrispondenza di un oggetto e contiene l'indice dell'oggetto in un apposito campo, oltre al rapporto Pi/Ci ad esso associato.
+Dopo l'ordinamento, la funzione scandisce il vettore **V**, analizzando **&forall; i** l'oggetto in **V(i)** e decidendo, in base alla compatibilità con il vincolo sul budget, se includerlo o meno nella soluzione.
+
+### Tecnica greedy: Concetti base
+Un algoritmo greedy permette di ottenere una soluzione mediante una sequenza di decisioni; in **ogni passo viene presa la decisione che al momento appare migliore**.
+Questa strategia euristica **non garantisce sempre una soluzione ottima**.
+Affinchè un algoritmo di tipo greedy fornisca la soluzione ottima di un dato problema, occorre che siano verificate due proprietà tra loro correlate:
+* La **proprietà della scelta greedy**
+  * Assicuta che **si può ottenere una soluzione ottima globale prendendo decisioni che sono ottimi locali**
+    * Occorre dimostrare che la soluzione del problema può essere modificata in modo da utilizzare una prima scelta greedy per ridurre il problema ad un sottoproblema più piccolo dello stesso tipo
+* La **sottostruttura ottima**
+  * Se una **soluzione ottima del problema contiene al suo interno una soluzione ottima dei sottoproblemi**
+    * Per dimostrare che una scelta greedy riduce il problema ad un sottoproblema più piccolo dello stesso tipo, occorre dimostrare che una soluzione ottima del problema contiene al suo interno le soluzioni ottime dei sottoproblemi
+
+#### Esempio: problema di selezione di attività
+Il problema è quello dell'assegnamento di una risorsa condivisa da un certo numero di attività in competizione tra loro.
+
+Sia **S = {1, 2, ..., n}** un insieme di **n** attività che devono utilizzare una determinata risorsa che non può essere utilizzata contemporaneamente.
+Una generica attività **k** è caratterizzata da un **tempo di inizio (attivazione) I<sub>k</sub>** e **un tempo di fine (conclusione) F<sub>k</sub>** con **I<sub>k</sub> &le; F<sub>k</sub>**.
+
+Due attività **k** e **j** sono dette **compatibili** se gli intervalli **(I<sub>k</sub>, F<sub>k</sub>)** e **(I<sub>j</sub>, F<sub>j</sub>) non si sovrappongono**.
+Il problema chiede di individuare un insieme che contiene il **massimo numero di attività mutuamente compatibili**.
+
+Si assume che le attività in ingresso siano ordinate in modo crescente rispetto al loro tempo di fine 
+
+> F<sub>1</sub> &le; F<sub>2</sub> &le; F<sub>3</sub> &le; ... &le; F<sub>n</sub>
+
+Lo spazio di ricerca può essere così definito:
+* Se **1, ..., n** sono le attivitò relative a una istanza **i**, allora lo spazio di ricerca è l'insieme di tutti i possibili sottoinsiemi di **{1, ..., n}**.
+
+Ad ogni stadio, l'algoritmo sceglie l'attività **k** che, **tra quelle** ancora **disponibili**, rilascia per prima la risorsa condivisa (**minor tempo F<sub>k</sub>**).
+
+Una volta scelta l'attività **k**, si aggiorna l'insieme di attività disponibili, **eliminando** dall'insieme  quelle **incompatibili con k**, cioè quelle che richiedono l'uso della risorsa nel tempo che intercorre tra **I<sub>k</sub>** e **F<sub>k</sub>**.
+
+    GREEDY(I e F: VETTORE; n: INTEGER)
+    Variabile A: INSIEME // contiene le attività
+    
+    CREAINSIEME(A);
+    INSERISCI(1, A);
+    j = 1;
+    for (k = 2; k < n; k++) {
+     if (Ik >= Fj) {     // controlla sovrapposizione
+      INSERISCI(k, A);
+      j = k;
+     }
+    }
+
