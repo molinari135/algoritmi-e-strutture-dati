@@ -336,11 +336,11 @@ I tasselli numerati devono essere disposti ordinati lungo i bordi: la soluzione 
 ### Algoritmo enumerativo per problemi di ottimizzazione
 1. Considera il primo elemento **x** dello spazio di ricerca
 2. Poni come soluzione **ottima corrente = x** se
-  a. **a(x) = true** e **x** è la **prima soluzione** trovata
-  b. **a(x) = true** e **x** è **Migliore** della **soluzione ottima corrente**
+   * **a(x) = true** e **x** è la **prima soluzione** trovata
+   * **a(x) = true** e **x** è **Migliore** della **soluzione ottima corrente**
 3. Se tutti gli elementi dello spazio di ricerca sono stati considerati, allora fornisci come risultato **&perp;** se
-  a. **non** sono state trovate **soluzioni ammissibili**
-  b. **o(x)** se **x** è soluzione ottima corrente
+   * **non** sono state trovate **soluzioni ammissibili**
+   * **o(x)** se **x** è soluzione ottima corrente
 4. Altrimenti considera come nuovo **x** l'elemento successivo dello spazio di ricerca e ripeti dal punto 2
 
 #### Esempio: gioco dell'otto (*come problema di ottimizzazione*)
@@ -492,8 +492,8 @@ Possiamo esprimere la soluzione attraverso una permutazione dei numeri da 1 a 8.
 I vincoli imposti sono:
 1. Le componenti di V devono costituire una permutazione da 1 a 8; per ogni coppia di indici **i** e **j**, vale `V[i] != V[j]`
 2. Non è possibile avere due elementi sulla stessa diagonale, cioè
-  a. **(i - 1) &ne; (k - 1)**
-  b. **(i + 1) &ne: (k + 1)**
+   * **(i - 1) &ne; (k - 1)**
+   * **(i + 1) &ne: (k + 1)**
   
 La funzione `VERIFICA` ha il compito di esaminare il vettore **V**:
 * se il vettore viola uno dei due vincoli, restituisce **true**
