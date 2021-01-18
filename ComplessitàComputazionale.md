@@ -10,6 +10,7 @@
 7. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#code-con-priorit%C3%A0)**
 8. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#grafo)**
 
+## Notazione
 Nel calcolo della complessità si usano le seguenti notazioni:
 * **O (O-grande)**
   * Utilizzata per il calcolo del **caso pessimo** di un algoritmo; corrisponde al limite superiore della sua complessità (**&ge;**)
