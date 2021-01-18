@@ -1,13 +1,13 @@
 ## Insieme
 
 ## Indice
-1. **[Notazione di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#notazione-di-un-insieme)**
-2. **[Operazioni in un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#operazioni-in-un-insieme)**
-3. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#specifica-sintattica)**
-4. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#specifica-semantica)**
-5. **[Rappresentazione di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#rappresentazione-di-un-insieme)**
-6. **[Alcune implementazioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Insieme.md#altre-implementazioni)**
-7. **[Complessità di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#insiemi)**
+1. **[Notazione di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md#notazione-di-un-insieme)**
+2. **[Operazioni in un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md#operazioni-in-un-insieme)**
+3. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md#specifica-sintattica)**
+4. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md#specifica-semantica)**
+5. **[Rappresentazione di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md#rappresentazione-di-un-insieme)**
+6. **[Alcune implementazioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md#altre-implementazioni)**
+7. **[Complessità di un insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#insiemi)**
 
 Un **insieme** è una collezione di elementi di tipo omogeneo. A differenza delle liste, **gli elementi non sono caratterizzati da una posizione** nè possono apparire più di una volta.
 
