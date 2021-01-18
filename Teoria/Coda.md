@@ -1,13 +1,13 @@
 # Coda
 
 ## Indice
-1. **[Notazione di una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md#notazione-di-una-coda)**
-2. **[Accesso ad una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md#accesso-ad-una-coda)**
-3. **[Operazioni in una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md#operazioni-in-una-coda)**
-4. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md#specifica-sintattica)**
-5. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md#specifica-semantica)**
-6. **[Rappresentazione di una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Coda.md#rappresentazione-di-una-coda)**
-7. **[Complessità di una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#pila-e-coda)**
+1. **[Notazione di una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md#notazione-di-una-coda)**
+2. **[Accesso ad una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md#accesso-ad-una-coda)**
+3. **[Operazioni in una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md#operazioni-in-una-coda)**
+4. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md#specifica-sintattica)**
+5. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md#specifica-semantica)**
+6. **[Rappresentazione di una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md#rappresentazione-di-una-coda)**
+7. **[Complessità di una coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#pila-e-coda)**
 
 Una **coda** è un tipo astratto che consente di rappresentare una sequenza di elementi in un cui è possibile aggiungere elementi dal "fondo" e toglierli dalla "testa".
 
