@@ -692,3 +692,125 @@ Una volta scelta l'attività **k**, si aggiorna l'insieme di attività disponibi
      }
     }
 
+#### Esempio: problema del percorso più breve in un grafo (risolto con algoritmo generativo)
+Sia G = (N, A) un **grafo orientato etichettato negli archi** con valori interi positivi. Trovare la lunghezza del percorso più breve che, dato un nodo **r &in; N, &forall; u &in; N**, connetta **r** ad **u**.
+
+Si basa sull'idea di calcolare, in ordine crescente, la **lunghezza dei cammini minimi da r a tutti i nodi del grafo**.
+
+Indichiamo con **S** l'insieme dei nodi di cui, ad un dato istante, si è già calcolata la lunghezza del cammino minimo da **r**.
+Utilizzaimo un vettore **dist** con tante componenti quanti sono i nodi del grafo, in modo che **dist(i)** rappresenti la lunghezza del cammino minimo tra quelli che vanno da **r** a **i** passando solo per nodi contenuti in **S** (a parte **i** stesso).
+L'ipotesi è che le **distanze siano interi positivi**.
+Osserviamo che se il prossimo cammino minimo da generare **C** è da **r** al nodo **u**, tutti i nodi sono in **S**.
+Infatti se un nodo **k** di **C** non appartenesse a **S**, vi sarebbe un cammino da **r** a un nodo **k** non contenuto in **S** di lunghezza minore a quella di **C**, contraddicendo l'ipotesi che il prossimo cammino da generare sia **C**.
+
+La lunghezza di **C** e il nodo **u** sono facilmente individuabili; basta calcolare il valore minimo di **dist(i) per i &notin; S**.
+Individuato **u**, si inserisci in **S** e **si aggiorna dist** per i nodi che **&notin; S**.
+
+In particolare, se per un certo nodo **z** connesso a **u** da **<u, z>** con etichetta **e** (peso), la somma **dist(u)+e** è minore di **dist(z)**, allora a **dist(z)** va assegnato il nuovo valore **dist(u)+e**.
+
+Viene generato un **albero di copertura T**, radicato in **r**, che include un cammino da **r ad ogni altro nodo**.
+
+L'albero radicato **T** può essere rappresentato con un vettore di padri, inizializzato ad un **albero "fittizio"** in cui tutti i nodi sono **figli di r** connessi ad un **arco fittizio etichettato** con un valore maggiore di tutte le altre etichette (**MAXINT**).
+
+Una **soluzione ammissibile T è ottima se e solo se** viene rispettata la **condizione di Bellman**:
+* **dist(i) + C<sub>ij</sub> = dist(j) &forall; (i, j) &in; T**
+* **dist(i) + C<sub>ij</sub> &ge; dist(j) &forall; (i, j) &notin; T**
+
+##### Un altro algoritmo (Bellman-Ford) risolve il problema dei cammini minimi nel caso più generale in cui i pesi degli archi possono essere negativi
+
+    CAMMINI_MINIMI(G: GRAFO per riferimento, r: NODO)
+    
+    CREAINSIEME(S);
+    T(r) = 0;
+    DIST(r) = 0;
+    for (k = 1; k < n; k++) {
+     if (k != r) {
+      T(k) = r;
+      DIST(k) = MAXINT;
+     }
+     INSERISCI(r, S);
+     while (!INSIEMEVUOTO(S)) {
+      i = LEGGI(S);
+      CANCELLA(i, S);
+      for (APPARTIENE(j, S)) {
+       if (DIST(i) + Cij < DIST(j)) {
+        T(j) = i;
+        DIST(j) = DIST(i) + Cij;
+        if (!APPARTIENE(j, S) {
+         INSERISCI(j, S);
+        }
+       }
+      }
+     }
+    }
+
+### Algoritmo di Dijkstra
+Se la struttura **S** è una coda con priorità, si ottiene un **algoritmo** nodo dal 1959 e attribuito a **Dijkstra**.
+
+In questo caso le operazioni **leggi** e **cancella** sono gli operatori basici disponibili nell'algebra della coda con prorità:
+
+    Min:         (prioricoda) -> tipoelem
+    Cancellamin: (prioricoda) -> prioricoda
+    
+Gli elementi della coda con priorità sono i nodi del grafo e le **priorità** associate, altro non sono che le **distanze** dal nodo origine **r**. Ad ogni iterazione è estratto da S il nodo avente priorità (distanza) minima.
+
+#### Problema del minimo albero di copertura
+Dato un grafo **non orientato** e connesso G = (N, A), con pesi sugli archi (non negativi), trovare un albero di copertura per G, cioè un albero avente tutti i nodi in N, ma solo alcuni archi in A, in modo tale che sia *minima la somma dei pesi associati agli archi*.
+
+Il problema può essere risolto con molti algoritmi, dei quali i più noti si devono a Kruskal (1956) e a Prim (1957).
+
+L'algoritmo di **Kruskal** usa la **tecnica "greedy"**.
+Dopo aver ordinato gli archi secondo i pesi crescenti, li esamina in tale ordine, inserendoli nella soluzione **se non formano cicli con altri archi già scelti**.
+Ad un livello molto generale, l'algoritmo è esprimibile in questi termini:
+
+    KRUSKAL(GRAFO)
+     T = vuoto
+     {ordina gli archi di G per peso crescente}
+     for a = 1 to m do
+      if {l'arco a = (i, j) non forma ciclo con altri archi di T} then
+       T = T unione (a)
+
+Possiamo rappresentare il **grado G** come preferiamo. Nella realizzazione data di seguito, il grafo è realizzato con un vettore di archi e l'albero T con una lista di archi:
+
+    Definizione dei tipi:
+    ARCO: tipo strutturato con componenti
+     - i, j: INT
+     - PESO: INT
+     
+    GRAFO: tipo strutturato con componenti
+     - A: ARRAY di MAXLUNG elementi di tipo ARCO
+     - n, m: INT
+
+Una volta che si considera l'arco, se questo unisce due alberi distinti nella foresta, l'arco viene aggiunto alla foresta e i due alberi fusi in uno.
+Nell'algoritmo di Kruskal la costruzione di T avviene per **unione di componenti connesse** rappresentabili come insiemi disgiunti (due componenti connesse si fondono in una con l'aggiunta di un nuovo arco).
+
+    KRUSKAL(G: GRAFO per riferimento)
+    variabili:
+     h: INT;
+     T: LISTA;
+     S: MFSET // partizione di un insieme in sottoinsiemi disgiunti
+     
+     CREALISTA(T)
+     {ordina G.A(1), ..., G.A(G.m) per ordine crescente di G.A(h).PESO}
+     CREAMFSET(G.n, S)
+     for h = 1 to G.m do
+      if not TROVA(A(h).i, A(h).j, S) then
+       FONDI(A(h).i, A(h).j, S)
+       INSLISTA(A(h), PRIMOLISTA(T), T)
+
+## Tecnica divide-et-impera
+Deriva dall'idea di determinare la strategia di un problema facendo ricorso al **principio di decomposizione induttiva**. Necessita della disposizione di:
+* Una relazione di ordinamento sulle istanze del problema, basata sulla **dimensione di input**
+* Un **metodo di risoluzione diretto** per tutte le istanze del problema che non superano una prefissata dimensione limite
+* Un meccanismo per suddividere i dati di ingresso relativi ad una istanza in diverse parti, ciascuna di dimensione minore di quella originaria e rappresentante l'input di una nuova istanza dello stesso problema
+* Un meccanismo per **comporre le soluzion** per le istanze indivduate dalla suddivisione, per ottenere la soluzione per l'istanza originaria
+
+### Divide-et-impera: algoritmo
+1. Se l'input ha dimensinoe inferiore a un certo valore k, allora utilizza un metodo diretto per ottenere il risultato
+2. Altrimenti, dividi l'input in parti, ciascuna di dimensione inferiore all'input originario (**divide**)
+3. Esegui ricorsivamente l'algoritmo su ciascuno degli input individuati al passo precedente
+4. Componi i risultati ottenuti al passo precedente ottenendo il risultato per l'istanza originaria (**impera**)
+
+L'applicazione più nota di questya tecnica si ha negli algoritmi di ordinamento (**natural-merge-sort** e **quicksort**).
+
+#### Esempio: problema del minimo e massimo simultanei
