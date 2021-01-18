@@ -11,7 +11,7 @@
     2. [Differenze tra spazio delle soluzioni e spazio di ricerca per un problema P](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#differenze-tra-spazio-delle-soluzioni-e-spazio-di-ricerca-per-un-problema-p)
     3. [Tecniche algoritmiche](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecniche-algoritmiche-1)
 3. **[Paradigma selettivo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#paradigma-selettivo)**
-    1. [Tecnica enumerativa(https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-enumerativa)]
+    1. [Tecnica enumerativa](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-enumerativa)
         1. [Algoritmo enumerativo per problemi di ricerca](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#algoritmo-enumerativo-per-problemi-di-ricerca)
         2. [Esempio: gioco dell'otto](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-gioco-dellotto)
         3. [Algoritmo enumerativo per problemi di ottimizzazione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#algoritmo-enumerativo-per-problemi-di-ottimizzazione)
