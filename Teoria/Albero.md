@@ -10,7 +10,7 @@
 7. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#specifica-semantica)**
 8. **[Visita di alberi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#visita-di-alberi)**
 9. **[Rappresentazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#rappresentazione-di-un-albero)**
-10. **[Complessità di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#lista#alberi)**
+10. **[Complessità di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#alberi)**
 
 ## Definizione di grafo
 ## Notazione di un grafo
