@@ -814,3 +814,66 @@ Deriva dall'idea di determinare la strategia di un problema facendo ricorso al *
 L'applicazione più nota di questya tecnica si ha negli algoritmi di ordinamento (**natural-merge-sort** e **quicksort**).
 
 #### Esempio: problema del minimo e massimo simultanei
+In alcune applicazioni serve trovare il minimo e il massimo in un insieme di n elementi simultaneamente.
+Per esempio, un programma grafico può aver bisogno di rappresentare in scala un insieme di dati (x, y): in questo caso va determinato il minimo e il massimo di ogni coordinata.
+
+**Cercando il minimo e il massimo in modo indipendente ci verrà un totale di 2(n-1) confronti.**
+
+Mantenendo gli elementi minimo e massimo via via incontrati e confrontando i due elementi della coppia in input sono sufficienti 3(n/2) confronti.
+
+#### Problema del massimo e minimo simultanei: algoritmo
+1. Se la dimensione del vettore non supera 2, allora calcola direttamente, mediante un unico confronto, il minimo e il massimo
+2. Altrimenti, dividi il vettore in due sottovettori della stessa dimensione, calcola ricorsivamente il minimo min<sub>1</sub> e il massimo max<sub>1</sub> del primo sottovettore e il minimo min<sub>2</sub> e max<sub>2</sub> del secondo sottovettore
+3. Determina il minimo e il massimo del vettore complessivo confrontando min<sub>1</sub> con min<sub>2</sub> e max<sub>1</sub> con max<sub>2</sub>.
+
+```
+    VECT MAXMIN(S: VECT, x, INT, y:INT)
+     if (y-x) <= 1 then
+      return {MAX(S[x], S[y]), MIN(S[x], S[y])}
+     else
+      (max1, min1) = (MAXMIN(S, x, (x+y)/2)
+      (max2, min2) = (MAXMIN(S, (x+y)/2, y)
+      return (MAX(max1, max2), MIN(min1, min2)
+```
+
+### Quicksort
+La versione ricorsiva del quicksort è basata sulla tecnica divide-et-impera.
+L'idea è quella di selezionare un elemento detto **pivot**.
+Attorno al pivot, gli elementi vanno sistemati in modo tale che tutti quelli più piccoli si trovano alla sinistra del pivot e tutti quelli più grandi alla destra ottenendo così due partizioni.
+La procedura quicksort viene richiamata ricorsivamente sulle due partizioni.
+Il passo base coincide con la partizione di lunghezza 1.
+
+    QUICKSORT(A: VECT, p:INT, q:INT)
+     if (p < q)
+      pivot = PARTIZIONA(A, p, q)
+      QUICKSORT(A, p, pivot-1)
+      QUICKSORT(A, pivot, q)
+      
+    PARTIZIONA(A:VECT, p:INT, q:INT)
+     i = p
+     j = q
+     pivot = A[i]
+     while i <= j
+      while A[i] > pivot
+       j = j - 1
+      while A[i] < pivot
+       i = i + 1
+      if i <= j
+       SCAMBIA(A[i], A[j])
+       i = i + 1
+       j = j - 1
+     return i
+ 
+Il quicksort ha complessità ottima per il problema dell'ordinamento **O(*n*log*n*)**.
+Nel caso pessimo, l'algoritmo può avere complessità **O(n<sup>2</sup>)**.
+L'algoritmo può essere reso più efficiente nei seguenti modi:
+* Scegliendo un pivot mediano tra A(1), A(n) e a(n/2)
+* Rendendo l'algoritmo iterativo con l'uso di una pila
+
+La tecnica divide-et-impera è una tecnica **generativa** che fa uso della **decomposizione induttiva** per determinare il metodo solutivo. L'efficacia della tecnica si manifesta attraverso due aspetti:
+* Consente di progettare algoritmi semplici e intuitivi attraverso l'induzione
+  * Spesso questi algoritmi hanno prestazioni migliori rispetto ad altri
+* L'efficienza degli algoritmi dipende 
+  * dal numero **a** di sottoproblemi generati
+  * dalla dimensione **b** dei dati in ingresso ai sottoproblemi
+  * dal costo **f(n)** necessario per la scomposizione del problema e la composizione dei risultati
