@@ -1,14 +1,15 @@
 # Calcolo della complessità
 
 ## Indice
-1. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#lista)**
-2. **[Pila e coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#pila-e-coda)**
-3. **[Alberi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#alberi)**
-4. **[Alberi binari](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#alberi-binari)**
-5. **[Insiemi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#insiemi)**
-6. **[Dizionari](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#dizionari)**
-7. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#code-con-priorit%C3%A0)**
-8. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#grafo)**
+1. **[Notazione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#notazione)**
+2. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#lista)**
+3. **[Pila e coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#pila-e-coda)**
+4. **[Alberi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#alberi)**
+5. **[Alberi binari](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#alberi-binari)**
+6. **[Insiemi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#insiemi)**
+7. **[Dizionari](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#dizionari)**
+8. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#code-con-priorit%C3%A0)**
+9. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#grafo)**
 
 ## Notazione
 Nel calcolo della complessità si usano le seguenti notazioni:
