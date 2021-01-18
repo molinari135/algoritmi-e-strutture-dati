@@ -46,7 +46,7 @@ I problemi si possono classificare in:
 Nella **concettualizzazione** si fornisce una specifica del problema, si stabiliscono le caratteristiche strutturali del problema senza fare riferimeento ai metodi per la risoluzione.
 Nella **realizzazione** si passa dalla specifica del problema alle scelte per la sua risoluzione, che coinvolgono la definizione dell'algoritmo risolutivo e la realizzazione del programma.
 
-## Specifica del problema
+### Specifica del problema
 La **specifica del problema** richiede:
 * La **scelta dell'input**: si stabilisce che i valori di alcune variabili in gioco siano i dati di ingresso del problema. 
   * L'insieme di tali valori è lo *spazio di input del problema*;
@@ -57,7 +57,7 @@ La **specifica del problema** richiede:
 * La determinazione di quali **informazioni in uscita** si vuole che il processo risolutivo del problema produca.
   * Queste informazioni stabiliscono lo *spazio di outpout* e il **quesito del problema**.
   
-#### Esempio
+### Esempio
 **Determinare la posizione di un numero intero in un vettore di numeri interi.
 Variabili:** 
 * Un vettore **v**;
@@ -104,7 +104,7 @@ dove:
 
 Una particolare istanza del problema si ottiene ogni volta che scegliamo un particolare valore dei dati in ingresso. In relazione ad un problema e ad una sua istanza, diamo la nozione di **soluzione**.
 
-## Problema di ricerca
+### Problema di ricerca
 Tra tutte le possibili soluzioni siamo interessati a conoscere una qualunque delle soluzioni del problema per l’istanza che stiamo considerando, oppure, nel caso non esista soluzione, siamo interessati a saperlo.
 Introduciamo nello spazio di output il simbolo &perp; che individua l’assenza di soluzioni.
 
@@ -118,7 +118,7 @@ dove:
   * Ogni coppia contenuta in R
   * Una coppia **<i, &perp;>** per ogni istanza I di P per la quale P non ha soluzioni
   
-#### Esempio - Problema delle N regine
+### Esempio - Problema delle N regine
 Dato un intero positivo N si determini un posizionamento di N regine in una scacchiera NxN tale che nessuna regina minacci qualche altra regina.
 
 **Specifica:** la quintupla
@@ -149,7 +149,7 @@ Un problema di decisione P può essere risolto in due modi:
   * Se la risposta di P' è {&perp;} allora la soluzione di P è **false**, altrimenti è **true**
   * **Approccio non costruttivo:** trovare una soluzione a P senza risolvere il corrispettivo problema di ricerca P'
 
-#### Esempio - Problema di partizionamento
+### Esempio - Problema di partizionamento
 Sono dati k numeri interi positivi n<sub>1</sub>, ..., n<sub>k</sub> la cui somma è 2m (per un certo intero m). Decidere se i k numeri possano essere ripartiti in due gruppi in modo che la somma dei componenti di ogni gruppo sia m.
 
 Dunque, se **n<sub>a<sub>1</sub></sub>, ..., n<sub>a<sub>p</sub></sub>** e **n<sub>b<sub>1</sub></sub>, ..., n<sub>b<sub>q</sub></sub>** sono i due gruppi di numeri (cioè **p+q = k**), deve essere:
@@ -167,7 +167,7 @@ Dunque, se **n<sub>a<sub>1</sub></sub>, ..., n<sub>a<sub>p</sub></sub>** e **n<s
 
 Ad esempio, il vettore `[1, 2, 2, 4, 7]` viene partizionato in `[1, 7]` e `[2, 2, 4]`.
 
-## Problemi di ottimizzazione
+### Problemi di ottimizzazione
 Alle soluzioni ammissibili è associata una misura (costo, obiettivo): risolvere il problema non significa trovare una qualunque soluzione, ma la migliore soluzione secondo la misura o criterio di preferenza fissato.
 
 ### Problemi di ottimizzazione: definizione
@@ -181,7 +181,7 @@ dove:
   * Per una cerca istanza i &in; I il valore **m(i, s)** rappresenta una **misura** dell'elemento S nello spazio delle soluzioni
 * **&subset;** è una relazione di ordinamento su M (x &subset; y "x *migliore* y")
 
-#### Esempio - Problema dello zaino
+### Esempio - Problema dello zaino
 Un ladro durante una rapina in un negozio si trova di fronte a n articoli: l’articolo i-esimo ha un valore di pi euro e un peso di ci chilogrammi, dove sia pi che ci, per semplicità, sono interi. Il ladro vuole prendere gli articoli di maggior valore ma il suo zaino può sopportare un peso massimo di B chilogrammi. Cosa gli conviene fare?
 
 Per formalizzare il problema, occorre considerare 2n+1 interi positivi:
@@ -249,7 +249,7 @@ Entrambe le funzioni devono soddisfare le seguenti condizioni:
 Uno spazio di ricerca di P per l'istanza i è costituito, inoltre, da:
 * Un metodo per rappresentare ogni elemento di Z<sub>i</sub> mediante una struttura di dati (vettore, matrice, lista, albero, ...) e per esprimere la funzione di ammissibilità e di risposta in termini di tale struttura
 
-## Struttura dello spazio di ricerca per problemi di ricerca con risposta positiva
+### Struttura dello spazio di ricerca per problemi di ricerca con risposta positiva
 * L'insieme **{s &in; S | (i, s) &in; R}** rappresenta le soluzioni di P per l'istanza i
   * Per un problema di ricerca, questo insieme coincide con l'insieme delle risposte
 * L'insieme **{s &in; S | &exists; z &in; Z<sub>i</sub>, a(z) = true &wedge; o(z) = s}** è costituito dalle soluzioni di P per l'istanza i che sono rappresentate nello spazio di ricerca
@@ -269,7 +269,7 @@ Per un problema di ottimizzazione:
     * **{s &in; S | (i, s) &in; R &wedge; &notexists; s' &in; S, (i, s') &in; R &wedge; m(i, s') &subset; m(i, s)}**
     * **{s &in; S | &exists; z &in; Z<sub>i</sub>, a(z) = true &wedge; o(z) = s}**
 
-#### Esempio: ricerca di un elemento in un vettore
+### Esempio: ricerca di un elemento in un vettore
 Consideriamo una generica istanza del problema con input un vettore V di n elementi e un numero m.
 
 * Lo **spazio di ricerca** associato a tale istanza è l'**insieme** dei valori che sono **indici del vettore**
@@ -278,7 +278,7 @@ Consideriamo una generica istanza del problema con input un vettore V di n eleme
 * La **funzione di risposta** restituisce **j**
 * La **struttura dati** per rappresentare i singoli elementi dell'insieme è una **semplice variabile di tipo intero**
 
-## Differenze tra spazio delle soluzioni e spazio di ricerca per un problema P
+### Differenze tra spazio delle soluzioni e spazio di ricerca per un problema P
 Lo **spazio delle soluzioni** è una componente della specifica del prolema e fa globalmente riferimento a **tutte le** possibili **soluzioni** per il problema.
 
 Lo **spazio di ricerca** fornisce uno strumento per **caratterizzare le soluzioni** di ogni singola istanza del problema. Esso determina anche, per ogni istanza del problema, una struttura di dati e un **meccanismo per verificare**, tramite la formulazione della funzione di ammissibilità in termini di tale struttura, **se una sua configurazione corrisponde o meno ad una soluzione** per l'istanza e un **metodo per derivare**, tramite la formulazione della funzione di risposta, **una risposta** all'istanza.
@@ -290,7 +290,7 @@ Esistono diversi modi per determinare uno spazio di ricerca di un problema. Crit
 * Lo **spazio di ricerca** non deve essere una banale riformulazione del problema e della sua relazione caratteristica nè deve nascondere la difficoltà di un problema
   * Deve fornire elementi significativi per la comprensione della struttura del problema e delle sue soluzioni
 
-#### Esempio: problema delle n regine
+### Esempio: problema delle n regine
 Sia **i** la dimensione della scacchiera:
 * L'insieme che forma lo **spazio di ricerca** è l'insieme di tutte le possibili scacchiere di dimensione **i** in cui sono poste **i** regine
 * La **funzione di ammissibilità** verifica se la scacchiera soddisfa i vincoli del problema, cioè se non esistono nella scacchiera due regine piazzate nella stessa riga o colonna o diagonale
@@ -308,7 +308,7 @@ Allora, per il problema della n regine:
 * La **funzione di ammissibilità** verifica se il generico elemento dello spazio di ricerca, cioè il generico vettore **V**, non contenga due elementi in posizione **h** e **k** tali che **due regine stiano nella stessa diagonale**
 * La **funzione di risposta** ricostruisce semplicemente, a patire da un generico vettore, la corripondente configurazione della scacchiera
 
-## Tecniche algoritmiche
+### Tecniche algoritmiche
 Le tecniche algoritmiche sono basate su diversi paradigmi di utilizzo dello spazio di ricerca:
 * La tecnica di **enumerazione**
 * La tecnica di **backtracking**
@@ -330,7 +330,7 @@ I paradigmi sono:
 ## Paradigma selettivo
 A questo paradigma appartengono la **tecnica enumerativa** e la **tecnica backtracking**.
 
-## Tecnica enumerativa
+### Tecnica enumerativa
 Si basa sulla sistematica ispezione, elemento per elemento, dello spazio di ricerca associato ad una istanza di un problema, è una tecnica che **garantisce**, se lo spaizo di ricerca è finito, una **terminazione**:
 * Per un problema di **ricerca**, si termina quando
   * Si è individuato un elemento **ammissibile**
@@ -348,7 +348,7 @@ Per garantire la possibilità di una visita sistematica di **uno spazio di ricer
 3. Se tutti gli elementi dello spazio di ricerca sono stati esaminati, fornisci **&perp;** come risultato
 4. Altrimenti considera come nuovo **x** l'elemento successivo dello spazio di ricerca e ripeti dal punto 2
 
-#### Esempio: gioco dell'otto
+### Esempio: gioco dell'otto
 I tasselli numerati devono essere disposti ordinati lungo i bordi: la soluzione può essere ricercata esaminando tutte le possibili disposizioni generate attraverso mosse successive. **Il provedimento di ricerca è rappresentabile mediante un albero un albero che ha nei nodi le configurazioni possibili generate mossa dopo mossa**
 
 **Stato iniziale**
@@ -373,11 +373,11 @@ I tasselli numerati devono essere disposti ordinati lungo i bordi: la soluzione 
    * **o(x)** se **x** è soluzione ottima corrente
 4. Altrimenti considera come nuovo **x** l'elemento successivo dello spazio di ricerca e ripeti dal punto 2
 
-#### Esempio: gioco dell'otto (*come problema di ottimizzazione*)
+### Esempio: gioco dell'otto (*come problema di ottimizzazione*)
 Potremmo porci l'obiettivo non solo di trovare una soluzione qualsiasi, ma di trovarne una **ottima**, per esempio, sulla base del criterio "il prima possibile".
 Questo si traduce nella possibilità di valutare il numero di mosse che ci porta alla soluzione e nell'esplorare l'intero albero alla ricerca del **cammino più breve** che ci porta alla soluzione (**numero minimo di mosse**).
 
-## Tecnica backtracking
+### Tecnica backtracking
 Nella tecnica di backtracking la generazione degli elementi dello spazio di ricerca da visitare avviene secondo un processo suddiviso in **stadi** e basato sul fatto che:
 * Ogni elementi dello **spazio di ricerca** è costituito da diverse **componenti** e **ad ogni stadio viene scelta una componente**
 * Se **ogni elemento** dello spazio di ricerca è **strutturato in *n* componenti**, dopo **i** stadi (**i < n**) si è costituita una **soluzione parziale**
@@ -399,7 +399,7 @@ Se il **pattern** non è riconosciuto, l'algoritmo "**torna**" **(backtracking)*
 Le stringhe **P** e **T** si possono realizzare con due vettori di caratteri.
 Il programma implementa una funzione che restitutisce la **posizione di T** a partire dalla quale si trova la **prima occorrenza di P** (se il pattern occorre nel testo) oppure **n+1 se P non occorre in T**.
 
-#### Funzione che effettua backtracking sugli indici i e j
+### Funzione che effettua backtracking sugli indici i e j
  
     i = 1;
     j = 1;
@@ -419,7 +419,7 @@ Il programma implementa una funzione che restitutisce la **posizione di T** a pa
 
 -----------------------------------
 
-#### Esempio: string matching con algoritmo di Knuth-Morris-Pratt
+### Esempio: string matching con algoritmo di Knuth-Morris-Pratt
 Trae vantaggio dai confronti già fatti precedentemente sul pattern.
 Infatti, se
 
@@ -462,7 +462,7 @@ Il procedimento si arresta non appena i caratteri sono identici o quando non ci 
 Il nuovo valore di backtrack da assegnare a j, **succ(j)** è uguale al **numero di caratteri sovrapposti + 1**.
 Formalmente si pone per **j = 1**, **succ(j) = 0**.
 
-#### Calcola successivo
+### Calcola successivo
 
     CALC_SUCC(P e SUCC: VETTORE per riferimento; m: INTEGER)
     j = 1; h = 0;, succ(1) = =;
@@ -512,7 +512,7 @@ Formalmente si pone per **j = 1**, **succ(j) = 0**.
       }
      }
 
-#### Esempio: problema delle 8 regine con algoritmo di backtracking
+### Esempio: problema delle 8 regine con algoritmo di backtracking
 Possiamo esprimere la soluzione attraverso una permutazione dei numeri da 1 a 8. La soluione si può esprimere mediante il **vettore V** definito come segue:
 
     Type posizione = [1 ... 8];
@@ -573,12 +573,12 @@ Per un albero di ricerca associato ad una istanza i tramite Z<sub>i</sub> è imp
   * **c(n) = true** per ogni nodo interno n dell'albero, se e solo se la soluzione parziale viola i vincoli
   * **c(n) = false** quando il corrispondente elemento dello spazio di ricerca è non ammissibile
 
-#### Esempio: gioco dell'otto con tecnica backtracking
+### Esempio: gioco dell'otto con tecnica backtracking
 Nell'ipotesi che le mosse siano fatte a caso, il ritorno indietro avviene quando:
 * Si genera una configurazione già prodotta
 * Si sono già fatte più di un numero fissato di mosse (NMAX) senza arrivare alla soluzione
 
-#### Esempio: problema del partizionamento di un insieme
+### Esempio: problema del partizionamento di un insieme
 Dato un insieme **Y = {y1, y2, y3, ..., yn}** di **n** interi positivi la cui somma è **2M**, vogliamo sapere se esiste un sottoinsieme di **Y** la cui somma sia pari a **M**.
 
 Data l'istanza
@@ -599,7 +599,7 @@ Il comportamento dell'algoritmo si può descrivere mediante la rappresentazione 
 
 L'algoritmo di **backtracking** è un algoritmo di visita in pre-ordine dell'albero di ricerca.
 
-## Algoritmo di backtracking
+### Algoritmo di backtracking
 L'algoritmo si riferisce all'albero di ricerca B<sub>i</sub> per l'istanza i di un problema. Si comporta come se effettuasse una [visita in profondità]():
 * Ogni volta che nella visita si analizza un nodo, si applica la **funzione di controllo** del backtracking al nodo
   * Se la funzione restituisce **true**, allora quel nodo e tutto il sottoalbero associato al nodo viene abbandonato e la visita continua
@@ -609,7 +609,7 @@ L'algoritmo si riferisce all'albero di ricerca B<sub>i</sub> per l'istanza i di 
 * Se il problema è di **ottimizzazione**, l'algoritmo utilizza una variabile ottimo corrente, che memorizza ad ogni passo il miglior elemento ammissibile
   * L'algoritmo non si interrompe al primo elemento ammissibile trovato, ma continua la visita aggiornando tale variabile
 
-#### Esempio: impostazione dell'algoritmo di backtracking per risolvere il problema dello zaino
+### Esempio: impostazione dell'algoritmo di backtracking per risolvere il problema dello zaino
 * L'**albero di ricerca** si ottiene considerando che, se **n** sono gli oggetti, ogni elemento dello spazio di ricerca si può costruire in **n** stadi dove, all'**i-esimo stadio** si decide se includere o no, nel sottoinsieme rappresentato da **X**, l'**oggetto i-esimo**.
   * L'albero di ricerca è un **albero binario di profondità n**
 * Ogni **soluzione parziale** è rappresentata con un **vettore** e un indice (**stadio del processo**)
@@ -622,7 +622,7 @@ Dal paradigma generativo scaturiscono tecniche di progetto di algoritmi che **ge
 In questo paradigma la spazio di ricerca è considerato esclusivamente in fase di progetto dell'algoritmo allo scopo di caratterizzare le soluzioni del problema e **definire una strategia risolutiva diretta per ogni istanza**.
 Appartengono a questo paradigma la tecnica **greedy** e al **divide-et-impera**.
 
-## Tecnica greedy
+### Tecnica greedy
 Si applica principalmente a problemi di ottimizzazione. Richiede che l'algoritmo esegua il processo di costruzione di un elemento dello spazio di ricerca in stadi e si basa sui seguenti principi:
 * Ad ogni stadio **i**, per la componente **i-esima** viene scelto il valore che, tra quelli ammissibili, risulta il migliora rispetto da un determinato criterio
 * Una volta fatta la scelta per la i-esima componente, si passa a considerare le altre, **senza più tornare sulla decisione presa**
@@ -633,7 +633,7 @@ Presuppone che l'algoritmo acquisisca la rappresentazione di un'istanza del prob
 3. Se l'i-esimo stadio è l'ultimo allora termina e restituisci o(z) come risultato
 4. Altrimenti incrementa i di 1 e torna al passo 2
 
-#### Esempio: problema dello zaino (Knapsack)
+### Esempio: problema dello zaino (Knapsack)
 Come è noto, si dispone di un **budget B** e si deve cercare di massimizzare la rendita scegliendo tra **n** possibili investimenti, ciascuno dei quali caratterizzato da un profitto P<sub>i</sub> e da un costo C<sub>i</sub>.
 Il problema viene formulato così:
 
@@ -689,7 +689,7 @@ Affinchè un algoritmo di tipo greedy fornisca la soluzione ottima di un dato pr
   * Se una **soluzione ottima del problema contiene al suo interno una soluzione ottima dei sottoproblemi**
     * Per dimostrare che una scelta greedy riduce il problema ad un sottoproblema più piccolo dello stesso tipo, occorre dimostrare che una soluzione ottima del problema contiene al suo interno le soluzioni ottime dei sottoproblemi
 
-#### Esempio: problema di selezione di attività
+### Esempio: problema di selezione di attività
 Il problema è quello dell'assegnamento di una risorsa condivisa da un certo numero di attività in competizione tra loro.
 
 Sia **S = {1, 2, ..., n}** un insieme di **n** attività che devono utilizzare una determinata risorsa che non può essere utilizzata contemporaneamente.
@@ -722,7 +722,7 @@ Una volta scelta l'attività **k**, si aggiorna l'insieme di attività disponibi
      }
     }
 
-#### Esempio: problema del percorso più breve in un grafo (risolto con algoritmo generativo)
+### Esempio: problema del percorso più breve in un grafo (risolto con algoritmo generativo)
 Sia G = (N, A) un **grafo orientato etichettato negli archi** con valori interi positivi. Trovare la lunghezza del percorso più breve che, dato un nodo **r &in; N, &forall; u &in; N**, connetta **r** ad **u**.
 
 Si basa sull'idea di calcolare, in ordine crescente, la **lunghezza dei cammini minimi da r a tutti i nodi del grafo**.
@@ -828,7 +828,7 @@ Nell'algoritmo di Kruskal la costruzione di T avviene per **unione di componenti
        FONDI(A(h).i, A(h).j, S)
        INSLISTA(A(h), PRIMOLISTA(T), T)
 
-## Tecnica divide-et-impera
+### Tecnica divide-et-impera
 Deriva dall'idea di determinare la strategia di un problema facendo ricorso al **principio di decomposizione induttiva**. Necessita della disposizione di:
 * Una relazione di ordinamento sulle istanze del problema, basata sulla **dimensione di input**
 * Un **metodo di risoluzione diretto** per tutte le istanze del problema che non superano una prefissata dimensione limite
@@ -843,7 +843,7 @@ Deriva dall'idea di determinare la strategia di un problema facendo ricorso al *
 
 L'applicazione più nota di questya tecnica si ha negli algoritmi di ordinamento (**natural-merge-sort** e **quicksort**).
 
-#### Esempio: problema del minimo e massimo simultanei
+### Esempio: problema del minimo e massimo simultanei
 In alcune applicazioni serve trovare il minimo e il massimo in un insieme di n elementi simultaneamente.
 Per esempio, un programma grafico può aver bisogno di rappresentare in scala un insieme di dati (x, y): in questo caso va determinato il minimo e il massimo di ogni coordinata.
 
@@ -851,7 +851,7 @@ Per esempio, un programma grafico può aver bisogno di rappresentare in scala un
 
 Mantenendo gli elementi minimo e massimo via via incontrati e confrontando i due elementi della coppia in input sono sufficienti 3(n/2) confronti.
 
-#### Problema del massimo e minimo simultanei: algoritmo
+### Problema del massimo e minimo simultanei: algoritmo
 1. Se la dimensione del vettore non supera 2, allora calcola direttamente, mediante un unico confronto, il minimo e il massimo
 2. Altrimenti, dividi il vettore in due sottovettori della stessa dimensione, calcola ricorsivamente il minimo min<sub>1</sub> e il massimo max<sub>1</sub> del primo sottovettore e il minimo min<sub>2</sub> e max<sub>2</sub> del secondo sottovettore
 3. Determina il minimo e il massimo del vettore complessivo confrontando min<sub>1</sub> con min<sub>2</sub> e max<sub>1</sub> con max<sub>2</sub>.
