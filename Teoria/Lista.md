@@ -8,7 +8,7 @@
 5. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md#specifica-sintattica)**
 6. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md#specifica-semantica)**
 7. **[Rappresentazione di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md#rappresentazione-di-una-lista)**
-8. **[Complessità di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Complessit%C3%A0.md#lista)**
+8. **[Complessità di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#lista)**
 
 Una lista è una sequenza **finita**, anche vuota, di elementi dello **stesso tipo** che possono comparire anche più volte in posizioni diverse (è differente rispetto al concetto di insieme).
 Gli elementi della lista, cui sono associate informazioni, sono definiti **atomi** o **nodi**.
