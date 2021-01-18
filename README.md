@@ -1,6 +1,8 @@
 # Algoritmi e strutture dati
 ###### Realizzazioni di varie strutture dati con specifica sintattica e semantica e algoritmi
 
+###### [Esercizi di algoritmi e strutture dati svolti](https://github.com/burraco135/esercizi)
+
 ## Indice
 1. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md)**
 2. **[Pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Pila.md)**
