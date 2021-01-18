@@ -2,9 +2,39 @@
 
 ## Indice
 1. **[Classificazione dei problemi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#classificazione-dei-problemi-problemi-di-ricerca-di-decisione-di-ottimizzazione)**
+    1. [Specifica del problema](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#specifica-del-problema)
+    2. [Problema di ricerca](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#problema-di-ricerca)
+    3. [Problema di decisione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#problema-di-decisione)
+    4. [Problemi di ottimizzazione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#problemi-di-ottimizzazione)
 2. **[Spazio di ricerca](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#spazio-di-ricerca-definizione-e-propriet%C3%A0)**
-3. **[Paradigma selettivo]()**
-4. **[Paradigma generativo]()**
+    1. [Struttura dello spazio di ricerca per problemi con risposta positiva](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#struttura-dello-spazio-di-ricerca-per-problemi-di-ricerca-con-risposta-positiva)
+    2. [Differenze tra spazio delle soluzioni e spazio di ricerca per un problema P](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#differenze-tra-spazio-delle-soluzioni-e-spazio-di-ricerca-per-un-problema-p)
+    3. [Tecniche algoritmiche](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecniche-algoritmiche-1)
+3. **[Paradigma selettivo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#paradigma-selettivo)**
+    1. [Tecnica enumerativa(https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-enumerativa)]
+        1. [Algoritmo enumerativo per problemi di ricerca](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#algoritmo-enumerativo-per-problemi-di-ricerca)
+        2. [Esempio: gioco dell'otto](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-gioco-dellotto)
+        3. [Algoritmo enumerativo per problemi di ottimizzazione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#algoritmo-enumerativo-per-problemi-di-ottimizzazione)
+        4. [Esempio: gioco dell'otto (come problema di ottimizzazione)](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-gioco-dellotto-come-problema-di-ottimizzazione)
+    4. [Tecnica backtracking](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-backtracking)
+        1. [Esempio: problema dello string matching](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-problema-dello-string-matching)
+        2. [Esempio: string matching con algoritmo Knuth-Morris-Pratt](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-string-matching-con-algoritmo-di-knuth-morris-pratt)
+        3. [Esempio: problema delle otto regine con algoritmo backtracking](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-problema-delle-8-regine-con-algoritmo-di-backtracking)
+        4. [Albero di ricerca con tecnica backtracking](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#albero-di-ricerca-con-tecnica-backtracking)
+        5. [Esempio: gioco dell'otto con tecnica backtraking](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-gioco-dellotto-con-tecnica-backtracking)
+        6. [Algoritmo backtracking](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#algoritmo-di-backtracking)
+4. **[Paradigma generativo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#paradigma-generativo)**
+    1. [Tecnica greedy](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-greedy)
+        1. [Esempio: problema dello zaino (Knapsack)](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-problema-dello-zaino-knapsack)
+        2. [Concetti base](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-greedy-concetti-base)
+        3. [Esempio: problema di selezione di attività](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-problema-di-selezione-di-attivit%C3%A0)
+        4. [Esempio: problema del percorso più breve in un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-problema-del-percorso-pi%C3%B9-breve-in-un-grafo-risolto-con-algoritmo-generativo)
+        5. [Algoritmo di Dijkstra](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#algoritmo-di-dijkstra)
+    2. [Tecnica divide-et-impera](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#tecnica-divide-et-impera)
+        1. [Algoritmo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#divide-et-impera-algoritmo)
+        2. [Esempio: problema del minimo e massimo simultanei](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#esempio-problema-del-minimo-e-massimo-simultanei)
+        3. [Quicksort](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md#quicksort)
+        
 
 ## Classificazione dei problemi: problemi di ricerca, di decisione, di ottimizzazione
 
