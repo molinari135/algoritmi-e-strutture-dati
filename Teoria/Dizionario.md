@@ -2,14 +2,14 @@
 Il dizionario è un sottotipo del tipo insieme i cui elementi sono generalmente tipi strutturati ai quali si accede per mezzo di un riferimento a un campo chiave.
 
 ## Indice
-1. **[Notazione di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#notazione-di-un-dizionario)**
-2. **[Operazioni in un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#operazioni-in-un-dizionario)**
-3. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#specifica-sintattica)**
-4. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#specifica-semantica)**
-5. **[Rappresentazione di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#rappresentazione-di-un-dizionario)**
-6. **[Collisioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#collisioni)**
-7. **[Metodi di scansione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Dizionario.md#metodi-di-scansione)**
-8. **[Complessità di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#dizionari)**
+1. **[Notazione di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#notazione-di-un-dizionario)**
+2. **[Operazioni in un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#operazioni-in-un-dizionario)**
+3. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#specifica-sintattica)**
+4. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#specifica-semantica)**
+5. **[Rappresentazione di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#rappresentazione-di-un-dizionario)**
+6. **[Collisioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#collisioni)**
+7. **[Metodi di scansione](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md#metodi-di-scansione)**
+8. **[Complessità di un dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#dizionari)**
 
 ## Notazione di un dizionario
 Gli elementi assumono la forma di una coppia costituita da coppie
