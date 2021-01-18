@@ -1,13 +1,13 @@
 # Code con priorità
 
 ## Indice
-1. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-sintattica)**
-2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#specifica-semantica)** 
-3. **[Rappresentazione di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#rappresentazione-di-una-coda-con-priorit%C3%A0)**
-4. **[Realizzazione degli operatori](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#realizzazione-degli-operatori)**
-5. **[Osservazioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#osservazioni)**
-6. **[Realizzazione con heap](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/CodeConPriorit%C3%A0.md#realizzazione-con-heap)**
-7. **[Complessità di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#code-con-priorit%C3%A0)**
+1. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md#specifica-sintattica)**
+2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md#specifica-semantica)** 
+3. **[Rappresentazione di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md#rappresentazione-di-una-coda-con-priorit%C3%A0)**
+4. **[Realizzazione degli operatori](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md#realizzazione-degli-operatori)**
+5. **[Osservazioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md#osservazioni)**
+6. **[Realizzazione con heap](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md#realizzazione-con-heap)**
+7. **[Complessità di una coda con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#code-con-priorit%C3%A0)**
 
 ## Specifica sintattica
 **Tipi:**
