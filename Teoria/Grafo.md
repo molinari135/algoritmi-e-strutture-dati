@@ -1,13 +1,13 @@
 # Grafo
 
 ## Indice
-1. **[Notazione di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#notazione-di-un-grafo)**
-2. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#specifica-sintattica)**
-3. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#specifica-semantica)**
-4. **[Rappresentazione di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#rappresentazione-di-un-grafo)**
-5. **[Visita di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#visita-di-un-grafo)**
-6. **[Algoritmo generale di visita di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Grafo.md#algoritmo-generale-di-visita-di-un-grafo)**
-7. **[Complessità di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#grafo)**
+1. **[Notazione di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md#notazione-di-un-grafo)**
+2. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md#specifica-sintattica)**
+3. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md#specifica-semantica)**
+4. **[Rappresentazione di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md#rappresentazione-di-un-grafo)**
+5. **[Visita di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md#visita-di-un-grafo)**
+6. **[Algoritmo generale di visita di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md#algoritmo-generale-di-visita-di-un-grafo)**
+7. **[Complessità di un grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#grafo)**
 
 Il **grafo** è una struttura composta da **nodi** e **archi** che rappresenta una relazione binaria sull'insieme costituito dai nodi. 
 * I nodi sono usati per rappresentare oggetti;
