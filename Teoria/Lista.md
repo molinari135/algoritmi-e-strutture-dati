@@ -1,7 +1,7 @@
 # Lista
 
 ## Indice
-1. **[Notazione di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#notazione-di-una-lista)**
+1. **[Notazione di una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md#notazione-di-una-lista)**
 2. **[Accesso ad una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#accesso-ad-una-lista)**
 3. **[Operazioni in una lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#operazioni-in-una-lista)**
 4. **[Lunghezza della lista e sottoliste](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Lista.md#lunghezza-della-lista-e-sottoliste)**
