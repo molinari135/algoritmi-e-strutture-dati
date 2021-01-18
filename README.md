@@ -4,15 +4,16 @@
 ###### [Esercizi di algoritmi e strutture dati svolti](https://github.com/burraco135/esercizi)
 
 ## Indice
-1. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md)**
-2. **[Pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Pila.md)**
-3. **[Coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md)**
-4. **[Insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md)**
-5. **[Dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md)**
-6. **[Albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md)**
-7. **[Albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md)**
-8. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md)**
-9. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md)**
+1. **Strutture dati**
+      1. **[Lista](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Lista.md)**
+      2. **[Pila](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Pila.md)**
+      3. **[Coda](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Coda.md)**
+      4. **[Insieme](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Insieme.md)**
+      5. **[Dizionario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Dizionario.md)**
+      6. **[Albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md)**
+      7. **[Albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md)**
+      8. **[Grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Grafo.md)**
+      9. **[Code con priorità](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/CodeConPriorit%C3%A0.md)**
 10. **[Complessità delle strutture dati](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/ComplessitàComputazionale.md)**
 11. **[Tecniche algoritmiche](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/TecnicheAlgoritmiche.md)**
 
