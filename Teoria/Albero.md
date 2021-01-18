@@ -1,16 +1,16 @@
 # Albero
 
 ## Indice
-1. **[Definizione di grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#definizione-di-grafo)**
-2. **[Notazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#albero-1)**
-3. **[Proprietà di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#propriet%C3%A0-di-un-albero)**
-4. **[Definizione ricorsiva di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#definizione-ricorsiva-di-albero)**
-5. **[Definizioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#definizioni)**
-6. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#specifica-sintattica)**
-7. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#specifica-semantica)**
-8. **[Visita di alberi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#visita-di-alberi)**
-9. **[Rappresentazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Albero.md#rappresentazione-di-un-albero)**
-10. **[Complessità di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#alberi)**
+1. **[Definizione di grafo](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#definizione-di-grafo)**
+2. **[Notazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#albero-1)**
+3. **[Proprietà di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#propriet%C3%A0-di-un-albero)**
+4. **[Definizione ricorsiva di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#definizione-ricorsiva-di-albero)**
+5. **[Definizioni](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#definizioni)**
+6. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#specifica-sintattica)**
+7. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#specifica-semantica)**
+8. **[Visita di alberi](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#visita-di-alberi)**
+9. **[Rappresentazione di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/Albero.md#rappresentazione-di-un-albero)**
+10. **[Complessità di un albero](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#lista#alberi)**
 
 ## Definizione di grafo
 ## Notazione di un grafo
