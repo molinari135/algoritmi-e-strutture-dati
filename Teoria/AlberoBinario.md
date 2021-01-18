@@ -1,16 +1,16 @@
 # Albero binario
 
 ## Indice
-1. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#specifica-sintattica)**
-2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#specifica-semantica)**
-3. **[Operatori aggiuntivi - Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#operatori-aggiuntivi---specifica-sintattica)**
-4. **[Operatori aggiungivi - Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#operatori-aggiuntivi---specifica-semantica)**
-5. **[Note sugli alberi binari](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#note-sugli-alberi-binari)**
-6. **[Nuovi operatori - Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#nuovi-operatori---specifica-sintattica)**
-7. **[Nuovi operatori - Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#nuovi-operatori---specifica-semantica)**
-8. **[Visite](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#visite)**
-9. **[Rappresentazione di un albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/AlberoBinario.md#rappresentazione-di-un-albero-binario)**
-10. **[Complessità di un albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0.md#alberi-binari)**
+1. **[Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#specifica-sintattica)**
+2. **[Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#specifica-semantica)**
+3. **[Operatori aggiuntivi - Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#operatori-aggiuntivi---specifica-sintattica)**
+4. **[Operatori aggiungivi - Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#operatori-aggiuntivi---specifica-semantica)**
+5. **[Note sugli alberi binari](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#note-sugli-alberi-binari)**
+6. **[Nuovi operatori - Specifica sintattica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#nuovi-operatori---specifica-sintattica)**
+7. **[Nuovi operatori - Specifica semantica](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#nuovi-operatori---specifica-semantica)**
+8. **[Visite](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#visite)**
+9. **[Rappresentazione di un albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Teoria/AlberoBinario.md#rappresentazione-di-un-albero-binario)**
+10. **[Complessità di un albero binario](https://github.com/burraco135/algoritmi-e-strutture-dati/blob/main/Complessit%C3%A0Computazionale.md#alberi-binari)**
 
 Un **albero binario** è un albero ordinato in cui ogni nodo ha al più **due** figli e si fa distinzione tra il **figlio sinistro** ed il **figlio destro** di un nodo.
 
